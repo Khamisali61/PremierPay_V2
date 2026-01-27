@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 16
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 33
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.topwise.kdialog'
+    libraryVariants.all { variant ->
+        variant.outputs.all {
+            def fileName = "topDialog_V1.0.0.aar"
+            outputFileName = fileName
+        }
+    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+//    kotlinOptions {
+//        jvmTarget = '1.8'
+//    }
+}
+//task makeTopDialogJar(type:Copy){
+//    //如果之前存在，则先删除
+//    delete 'build/libs/topDialog_V1.0.0.jar'
+//    //设置拷贝的文件
+//    //from('build/intermediates/packaged-classes/debug/')
+//    from('build/intermediates/packaged-classes/release/')
+//    //生成jar包后的文件目录位置
+//    into('build/libs/')
+//    //include,exclude参数来设置过滤
+//    include('classes.jar')
+//    //重命名
+//    rename('classes.jar','topDialog_V1.0.0.jar')
+//}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    //implementation(rootProject.ext.support["appcompat-v7"])
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation(rootProject.ext.support["design"])
+
+}

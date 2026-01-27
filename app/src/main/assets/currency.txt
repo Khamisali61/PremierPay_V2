@@ -1,0 +1,644 @@
+[
+    {
+        "Currency Code": "971",
+        "Country": "Afghan Afghani",
+        "Symbol": "؋",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "8",
+        "Country": "Albania Lek",
+        "Symbol": "Lek",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "12",
+        "Country": "Algerian Dinar",
+        "Symbol": "د.ج",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "973",
+        "Country": "Angola Kwanza",
+        "Symbol": "Kz",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "32",
+        "Country": "Argentina Peso",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "51",
+        "Country": "Armenia Dram",
+        "Symbol": "դր.",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "533",
+        "Country": "Aruba Florin",
+        "Symbol": "Afl.",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "36",
+        "Country": "Australia Dollar",
+        "Symbol": "$",
+        "Region": "Oceania"
+    },
+    {
+        "Currency Code": "944",
+        "Country": "Azerbaijan Manat",
+        "Symbol": "₼",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "44",
+        "Country": "Bahamian Dollar",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "48",
+        "Country": "Bahrain Dinar",
+        "Symbol": ".د.ب",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "50",
+        "Country": "Bangladesh Taka",
+        "Symbol": "৳",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "52",
+        "Country": "Barbados Dollar",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "974",
+        "Country": "Belarusian Ruble",
+        "Symbol": "Br",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "84",
+        "Country": "Belize Dollar",
+        "Symbol": "BZ$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "60",
+        "Country": "Bermudian Dollar",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "64",
+        "Country": "Bhutanese Ngultrum",
+        "Symbol": "Nu.",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "68",
+        "Country": "Bolivian Boliviano",
+        "Symbol": "Bs.",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "977",
+        "Country": "Bosnia Convertible Mark",
+        "Symbol": "KM",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "72",
+        "Country": "Botswana Pula",
+        "Symbol": "P",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "986",
+        "Country": "Brazilian Real",
+        "Symbol": "R$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "826",
+        "Country": "British Pound",
+        "Symbol": "£",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "96",
+        "Country": "Brunei Dollar",
+        "Symbol": "$",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "975",
+        "Country": "Bulgaria Lev",
+        "Symbol": "лв.",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "108",
+        "Country": "Burundi Franc",
+        "Symbol": "FBu",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "116",
+        "Country": "Cambodian Riel",
+        "Symbol": "៛",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "124",
+        "Country": "Canadian Dollar",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "132",
+        "Country": "Cape Verde Escudo",
+        "Symbol": "CVE",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "136",
+        "Country": "Cayman Islands Dollar",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "152",
+        "Country": "Chilean Peso",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "156",
+        "Country": "China Yuan",
+        "Symbol": "¥",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "170",
+        "Country": "Colombia Peso",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "174",
+        "Country": "Comorian franc",
+        "Symbol": "CF",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "976",
+        "Country": "Congolese Franc",
+        "Symbol": "FC",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "188",
+        "Country": "Costa Rica Colon",
+        "Symbol": "₡",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "191",
+        "Country": "Croatian Kuna",
+        "Symbol": "kn",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "192",
+        "Country": "Cuban Peso",
+        "Symbol": "₱",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "203",
+        "Country": "Czech Republic Koruna",
+        "Symbol": "Kč",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "208",
+        "Country": "Danish Krone",
+        "Symbol": "kr.",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "262",
+        "Country": "Djiboutian Franc",
+        "Symbol": "Fdj",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "214",
+        "Country": "Dominican Peso",
+        "Symbol": "RD$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "532",
+        "Country": "Dutch Guilder",
+        "Symbol": "ƒ",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "818",
+        "Country": "Egyptian Pound",
+        "Symbol": "E£",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "232",
+        "Country": "Eritrean Nakfa",
+        "Symbol": "Nfk",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "230",
+        "Country": "Ethiopian Birr",
+        "Symbol": "ETB",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "978",
+        "Country": "Euro",
+        "Symbol": "€",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "238",
+        "Country": "Falkland Islands Pound",
+        "Symbol": "£",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "242",
+        "Country": "Fiji Dollar",
+        "Symbol": "$",
+        "Region": "Oceania"
+    },
+    {
+        "Currency Code": "270",
+        "Country": "Gambian Dalasi",
+        "Symbol": "D",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "981",
+        "Country": "Georgian Lari",
+        "Symbol": "GEL",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "936",
+        "Country": "Ghanaian Cedi",
+        "Symbol": "GH₵",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "292",
+        "Country": "Gibraltar Pound",
+        "Symbol": "£",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "320",
+        "Country": "Guatemalan Quetzal",
+        "Symbol": "Q",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "324",
+        "Country": "Guinean Franc",
+        "Symbol": "FG",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "328",
+        "Country": "Guyanese Dollar",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "332",
+        "Country": "Haitian Gourde",
+        "Symbol": "G",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "340",
+        "Country": "Honduran Lempira",
+        "Symbol": "L",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "344",
+        "Country": "Hong Kong Dollar",
+        "Symbol": "HK$",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "348",
+        "Country": "Hungarian Forint",
+        "Symbol": "Ft",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "352",
+        "Country": "Icelandic Krona",
+        "Symbol": "kr",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "356",
+        "Country": "Indian Rupee",
+        "Symbol": "₹",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "360",
+        "Country": "Indonesian Rupiah",
+        "Symbol": "Rp",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "364",
+        "Country": "Iranian Rial",
+        "Symbol": "﷼",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "368",
+        "Country": "Iraqi Dinar",
+        "Symbol": "ع.د",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "372",
+        "Country": "Irish Pound",
+        "Symbol": "£",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "376",
+        "Country": "Israeli New Shekel",
+        "Symbol": "₪",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "388",
+        "Country": "Jamaican Dollar",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "392",
+        "Country": "Japanese Yen",
+        "Symbol": "¥",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "400",
+        "Country": "Jordanian Dinar",
+        "Symbol": "د.ا",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "398",
+        "Country": "Kazakstani Tenge",
+        "Symbol": "₸",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "404",
+        "Country": "Kenyan Shilling",
+        "Symbol": "KSh",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "414",
+        "Country": "Kuwaiti Dinar",
+        "Symbol": "د.ك",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "417",
+        "Country": "Kyrgyzstani Som",
+        "Symbol": "сом",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "418",
+        "Country": "Lao kip",
+        "Symbol": "₭",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "428",
+        "Country": "Latvian Lats",
+        "Symbol": "Ls",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "422",
+        "Country": "Lebanese Pound",
+        "Symbol": "ل.ل",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "426",
+        "Country": "Lesotho Loti",
+        "Symbol": "L",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "430",
+        "Country": "Liberian dollar",
+        "Symbol": "$",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "434",
+        "Country": "Libyan Dinar",
+        "Symbol": "ل.د",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "440",
+        "Country": "Lithuanian Litas",
+        "Symbol": "Lt",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "446",
+        "Country": "Macau Pataca",
+        "Symbol": "MOP$",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "807",
+        "Country": "Macedonian Denar",
+        "Symbol": "ден",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "969",
+        "Country": "Malagasy Ariary",
+        "Symbol": "Ariary",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "454",
+        "Country": "Malawian Kwacha",
+        "Symbol": "MK",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "458",
+        "Country": "Malaysian Ringgit",
+        "Symbol": "RM",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "462",
+        "Country": "Maldives Rufiyaa",
+        "Symbol": ".ރ.",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "478",
+        "Country": "Mauritania Ouguiya",
+        "Symbol": "UM",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "480",
+        "Country": "Mauritian Rupee",
+        "Symbol": "₨",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "484",
+        "Country": "Mexican Peso",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "498",
+        "Country": "Moldovan Leu",
+        "Symbol": "leu",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "496",
+        "Country": "Mongolian Tugrik",
+        "Symbol": "₮",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "504",
+        "Country": "Moroccan Dirham",
+        "Symbol": "د.م.",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "104",
+        "Country": "Myanmar Kyat",
+        "Symbol": "K",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "516",
+        "Country": "Namibian Dollar",
+        "Symbol": "$",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "943",
+        "Country": "New Mozambican Metical",
+        "Symbol": "MT",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "901",
+        "Country": "New Taiwan Dollar",
+        "Symbol": "NT$",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "554",
+        "Country": "New Zealand Dollar",
+        "Symbol": "$",
+        "Region": "Oceania"
+    },
+    {
+        "Currency Code": "408",
+        "Country": "North Korean Won",
+        "Symbol": "₩",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "702",
+        "Country": "Singapore Dollar",
+        "Symbol": "S$",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "710",
+        "Country": "South African Rand",
+        "Symbol": "R",
+        "Region": "Africa"
+    },
+    {
+        "Currency Code": "410",
+        "Country": "South Korean Won",
+        "Symbol": "₩",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "144",
+        "Country": "Sri Lankan Rupee",
+        "Symbol": "රු.",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "756",
+        "Country": "Swiss Franc",
+        "Symbol": "CHF",
+        "Region": "Europe"
+    },
+    {
+        "Currency Code": "764",
+        "Country": "Thai Baht",
+        "Symbol": "฿",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "784",
+        "Country": "United Arab Emirates Dirham",
+        "Symbol": "د.إ",
+        "Region": "Asia"
+    },
+    {
+        "Currency Code": "840",
+        "Country": "United States Dollar",
+        "Symbol": "$",
+        "Region": "America"
+    },
+    {
+        "Currency Code": "704",
+        "Country": "Viet Nam",
+        "Symbol": "₫",
+        "Region": "Asia"
+   }
+]

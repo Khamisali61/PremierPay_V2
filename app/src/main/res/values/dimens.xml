@@ -1,0 +1,87 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">8dp</dimen>
+    <dimen name="activity_vertical_margin">6dp</dimen>
+
+    <dimen name="login_num_hight">55dp</dimen>
+    <dimen name="login_num_margin">5dp</dimen>
+
+    <dimen name="small_login_num_hight">70dp</dimen>
+    <dimen name="small_login_num_margin">5dp</dimen>
+
+    <dimen name="button_height">50dp</dimen>
+    <dimen name="button_width">150dp</dimen>
+    <dimen name="tabrow_height">120dp</dimen>
+    <dimen name="home_view_spaces">0dp</dimen>
+    <dimen name="text_size_13sp">13dp</dimen>
+    <dimen name="title_bar_height">54dp</dimen>
+
+    <dimen name="padding_top">8dp</dimen>
+    <dimen name="padding_left">18dp</dimen>
+    <dimen name="padding_right">18dp</dimen>
+
+    <dimen name="small_padding_top">8dp</dimen>
+    <dimen name="small_padding_left">18dp</dimen>
+    <dimen name="small_padding_right">18dp</dimen>
+
+    <!-- 金额键盘相关属性 -->
+    <dimen name="btn_num_width">80dip</dimen>
+    <dimen name="btn_num_height">75dip</dimen>
+    <dimen name="btn_row_4_width">120dip</dimen>
+    <dimen name="btn_num_2height">150dip</dimen>
+
+    <dimen name="grid_text_margin">8dp</dimen>
+    <dimen name="grid_item_width">238px</dimen>
+    <dimen name="grid_item_height">214px</dimen>
+    <dimen name="grid_item_padding">16dp</dimen>
+
+    <dimen name="small_grid_text_margin">4dp</dimen>
+    <dimen name="small_grid_item_width">238px</dimen>
+    <dimen name="small_grid_item_height">214px</dimen>
+    <dimen name="small_grid_item_padding">10dp</dimen>
+
+    <!-- 主页 -->
+    <dimen name="font_size_grid_item">16sp</dimen>
+    <dimen name="font_size_grid_hint">18sp</dimen>
+    <dimen name="font_size_">20sp</dimen>
+    <dimen name="confirm_font_size_">26sp</dimen>
+    <dimen name="main_fragment_content_height">259dp</dimen>
+    <dimen name="manager_keybord_height">285dp</dimen>
+
+
+    <dimen name="button_height_main">95dp</dimen>
+    <dimen name="grid_height">35dp</dimen>
+
+    <dimen name="small_button_height_main">85dp</dimen>
+    <dimen name="small_grid_height">40dp</dimen>
+
+    <dimen name="control_ll_height">28dp</dimen>
+    <dimen name="control_height">50dp</dimen>
+    <dimen name="about_height">35dp</dimen>
+
+    <dimen name="checkbox_height">30dp</dimen>
+    <dimen name="page_sliding_text_size">18sp</dimen>
+    <dimen name="disp_single_amount_text">25sp</dimen>
+    <dimen name="disp_single_version_text">22sp</dimen>
+    <dimen name="detail_list_divider_height">5dp</dimen>
+
+    <dimen name="_30dp">30dp</dimen>
+    <dimen name="_30sp">30sp</dimen>
+    <dimen name="_15dp">15dp</dimen>
+    <dimen name="_14sp">14sp</dimen>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="_5dp">5dp</dimen>
+    <dimen name="_3dp">3dp</dimen>
+    <dimen name="_20dp">20dp</dimen>
+    <dimen name="_50dp">50dp</dimen>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="list_item_spacing_half">8dp</dimen>
+    <dimen name="_24dp">24dp</dimen>
+    <dimen name="_22dp">22dp</dimen>
+    <dimen name="_70dp">70dp</dimen>
+    <dimen name="dimen_32dp">32dp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="dimen_16dp">16dp</dimen>
+    <dimen name="activity_vertical_margin_new">16dp</dimen>
+
+</resources>

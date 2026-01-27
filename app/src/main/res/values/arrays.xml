@@ -1,0 +1,9 @@
+<resources>
+    <string-array name="regions_array">
+        <item>All</item>
+        <item>Asia</item>
+        <item>Europe</item>
+        <item>America</item>
+        <item>Africa</item>
+    </string-array>
+</resources>

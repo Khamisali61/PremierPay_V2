@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/padding_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/font_size_"/>
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/padding_top"
+                android:layout_marginLeft="@dimen/padding_top"
+                android:layout_marginRight="@dimen/padding_top"
+                android:background="@drawable/drawable_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_num_hight">
+
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:layout_marginLeft="@dimen/padding_left"
+                    android:layout_marginRight="@dimen/padding_left"
+                    android:id="@+id/et_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_size_"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/padding_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/keyboard_123"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/div_line_color"
+                    android:paddingTop="0.5dp">
+
+                    <Button
+                        android:id="@+id/btn1"
+                        style="@style/btn_input_amt"
+                        android:background="@mipmap/one" />
+
+                    <Button
+                        android:id="@+id/btn2"
+                        style="@style/btn_input_amt"
+                        android:layout_marginLeft="0.5dp"
+                        android:layout_marginRight="0.5dip"
+                        android:background="@mipmap/two" />
+
+                    <Button
+                        android:id="@+id/btn3"
+                        style="@style/btn_input_amt"
+                        android:background="@mipmap/three" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/keyboard_456"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/div_line_color"
+                    android:paddingTop="0.5dp">
+
+                    <Button
+                        android:id="@+id/btn4"
+                        style="@style/btn_input_amt"
+                        android:background="@mipmap/four" />
+
+                    <Button
+                        android:id="@+id/btn5"
+                        style="@style/btn_input_amt"
+                        android:layout_marginLeft="0.5dp"
+                        android:layout_marginRight="0.5dip"
+                        android:background="@mipmap/five" />
+
+                    <Button
+                        android:id="@+id/btn6"
+                        style="@style/btn_input_amt"
+                        android:background="@mipmap/six" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/keyboard_789"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/div_line_color"
+                    android:paddingTop="0.5dp">
+
+                    <Button
+                        android:id="@+id/btn7"
+                        style="@style/btn_input_amt"
+                        android:background="@mipmap/seven" />
+
+                    <Button
+                        android:id="@+id/btn8"
+                        style="@style/btn_input_amt"
+                        android:layout_marginLeft="0.5dp"
+                        android:layout_marginRight="0.5dip"
+                        android:background="@mipmap/eight" />
+
+                    <Button
+                        android:id="@+id/btn9"
+                        style="@style/btn_input_amt"
+                        android:background="@mipmap/nane" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/keyboard_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/div_line_color"
+                    android:paddingTop="0.5dp">
+
+                    <Button
+                        android:id="@+id/btn_space"
+                        style="@style/btn_input_amt"
+                        android:background="@mipmap/space"
+                        android:gravity="center" />
+
+                    <Button
+                        android:id="@+id/btn0"
+                        style="@style/btn_input_amt"
+                        android:layout_marginLeft="0.5dp"
+                        android:layout_marginRight="0.5dip"
+                        android:background="@mipmap/zero"
+                        android:gravity="center" />
+
+                    <Button
+                        android:id="@+id/btspace"
+                        style="@style/btn_input_amt"
+                        android:background="@mipmap/space"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/btn_num_width"
+                android:layout_height="match_parent"
+                android:background="@color/div_line_color"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/btn_del"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/btn_num_height"
+                    android:layout_marginLeft="0.5dp"
+                    android:layout_marginTop="0.5dip"
+                    android:background="@color/num_keyboard_bg"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/k_delete"
+                        android:clickable="false"
+                        android:duplicateParentState="true" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_ccc"
+                    android:layout_width="@dimen/btn_num_width"
+                    android:layout_height="@dimen/btn_num_height"
+                    android:layout_marginLeft="0.5dp"
+                    android:layout_marginTop="0.5dip"
+                    android:background="@mipmap/cccc"
+                    android:gravity="center" />
+
+
+                <!--                <Button-->
+                <!--                    android:id="@+id/btn_scanpay"-->
+                <!--                    android:layout_width="@dimen/btn_num_width"-->
+                <!--                    android:layout_height="@dimen/btn_num_height"-->
+                <!--                    android:layout_marginLeft="0.5dp"-->
+                <!--                    android:layout_marginTop="0.5dip"-->
+
+                <!--                    android:gravity="center"-->
+                <!--                    android:background="@drawable/scanpay" />-->
+                <!--                <Button-->
+                <!--                    android:id="@+id/btn_unionpay"-->
+                <!--                    android:layout_width="@dimen/btn_num_width"-->
+                <!--                    android:layout_height="@dimen/btn_num_2height"-->
+                <!--                    android:layout_marginLeft="0.5dp"-->
+                <!--                    android:layout_marginTop="0.5dip"-->
+                <!--                    android:background="@color/flow_background_edg"-->
+                <!--                    android:gravity="center" />-->
+
+                <Button
+                    android:id="@+id/button_ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/confirm_font_size_"
+                    android:text="OK"
+                    android:background="@color/text_pay_type_color"
+                    android:gravity="center"
+                    android:orientation="vertical"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+</LinearLayout>

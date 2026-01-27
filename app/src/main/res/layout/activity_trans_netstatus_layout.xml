@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+        android:id="@+id/header"
+        layout="@layout/header_layout">
+
+        </include>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/set_merchant_name"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/tv_merchant_name"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/set_merchant_num"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/tv_merchant_num"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/set_terminal_num"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/tv_terminal_num"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/set_transcation_batch_num"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/tv_batch_num"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/trans_data_time"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/tv_begin_time"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/trans_end_time"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/tv_end_time"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/trans_spend_time"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/tv_data_time"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/connect_avg_time"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/connect_avg_time"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/send_avg_time"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/send_avg_time"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/receive_avg_time"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/receive_avg_time"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/communication_avg_time"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/communication_avg_time"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/pack_avg_time"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/pack_avg_time"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20">
+
+            <TextView
+                android:text="@string/unpack_avg_time"
+                android:paddingLeft="@dimen/dp_8"
+                android:layout_alignParentLeft="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/unpack_avg_time"
+                android:paddingRight="@dimen/dp_8"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_5"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+
+            <TextView
+                android:gravity="center"
+                android:text="@string/net_type"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="@string/success_sum"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:gravity="center"
+                android:text="@string/total_sum"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:gravity="center"
+                android:text="@string/success_rate"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+
+            <TextView
+                android:gravity="center"
+                android:text="@string/net_type_wifi"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/wifi_succ_num"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:gravity="center"
+                android:id="@+id/wifi_total_num"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/wifi_succ_rate"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+
+            <TextView
+                android:gravity="center"
+                android:text="@string/net_type_mobile"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/mobile_succ_num"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:gravity="center"
+                android:id="@+id/mobile_total_num"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/mobile_succ_rate"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+
+            <TextView
+                android:gravity="center"
+                android:text="@string/total_sum"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/total_succ_num"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:gravity="center"
+                android:id="@+id/total_total_num"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/total_total_rate"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_20"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/total_count"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="Read Card"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:gravity="center"
+                android:text="Network"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:gravity="center"
+                android:text="Other"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:text="Total Fail"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+
+            <TextView
+                android:gravity="center"
+                android:background="@drawable/total_text_background"
+                android:text="Fail Count"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/card_fail_no"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:gravity="center"
+                android:id="@+id/network_fail_no"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:gravity="center"
+                android:id="@+id/other_fail_no"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/total_fail_no"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+
+            <TextView
+                android:gravity="center"
+                android:background="@drawable/total_text_background"
+                android:text="Fail Rate"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/card_fail_rate"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:gravity="center"
+                android:id="@+id/network_fail_rate"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:gravity="center"
+                android:id="@+id/other_fail_rate"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/total_fail_rate"
+                android:background="@drawable/total_text_background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+        </LinearLayout>
+
+
+
+
+        <Button
+            android:layout_marginBottom="@dimen/font_size_grid_hint"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/btn_main_background"
+            android:layout_marginLeft="@dimen/padding_left"
+            android:layout_marginRight="@dimen/padding_right"
+            android:layout_marginTop="@dimen/detail_list_divider_height"
+            android:text="@string/upload_trans_net"
+            android:textAllCaps="false"
+            android:id="@+id/bt_upload_trans_net"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/control_height">
+        </Button>
+    </LinearLayout>
+
+</ScrollView>

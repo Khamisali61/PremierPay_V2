@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<Response>-->
+<!--    <response code="00" category="A" message="APPROVED AUTH ID"/>-->
+<!--    <response code="01" category="C" message="DECLINE, CALL ISSUER"/>-->
+<!--    <response code="02" category="C" message="DECLINE, CALL ISSUER"/>-->
+<!--    <response code="03" category="C" message="INVALID MID, CALL HELP"/>-->
+<!--    <response code="04" category="D" message="PICKUP CARD"/>-->
+<!--    <response code="05" category="C" message="DO NOT HONOUR"/>-->
+<!--    <response code="06" category="A" message="CALL HELP, 06"/>-->
+<!--    <response code="12" category="C" message="INVALID TRANSACTION"/>-->
+<!--    <response code="13" category="B" message="INVALID AMOUNT"/>-->
+<!--    <response code="14" category="B" message="INVALID CARD"/>-->
+<!--    <response code="15" category="C" message="BANK NOT SUPPORTED"/>-->
+<!--    <response code="25" category="C" message="TRXN NOT FOUND"/>-->
+<!--    <response code="30" category="C" message="FORMAT ERROR"/>-->
+<!--    <response code="33" category="C" message="EXPIRED CARD, PICKUP"/>-->
+<!--    <response code="34" category="D" message="SUSPECTED FRAUD, PICKUP"/>-->
+<!--    <response code="36" category="D" message="RESTRICTED CARD, PICKUP"/>-->
+<!--    <response code="38" category="D" message="PIN TRIES EXCEEDED"/>-->
+<!--    <response code="39" category="D" message="NO CREDIT ACCOUNT"/>-->
+<!--    <response code="41" category="D" message="LOST CARD, PICKUP"/>-->
+<!--    <response code="42" category="D" message="NO ACCOUNT"/>-->
+<!--    <response code="43" category="D" message="STOLEN CARD, PICKUP"/>-->
+<!--    <response code="51" category="C" message="INSUFFICIENT FUNDS"/>-->
+<!--    <response code="52" category="C" message="NO CHECKING ACCOUNT"/>-->
+<!--    <response code="53" category="C" message="NO SAVINGS ACCOUNT"/>-->
+<!--    <response code="54" category="C" message="EXPIRED CARD"/>-->
+<!--    <response code="55" category="C" message="PIN INCORRECT PIN"/>-->
+<!--    <response code="57" category="C" message="TRANSACTION NOT PERMITTED TO CARDHOLDER"/>-->
+<!--    <response code="58" category="C" message="TRANSACTION NOT PERMITTED ON TERMINAL"/>-->
+<!--    <response code="59" category="C" message="SUSPECTED FRAUD"/>-->
+<!--    <response code="61" category="C" message="EXCEEDS LIMIT"/>-->
+<!--    <response code="62" category="C" message="RESTRICTED CARD"/>-->
+<!--    <response code="75" category="C" message="PIN TRIES EXCEEDED"/>-->
+<!--    <response code="81" category="C" message="CRYPTO ERROR"/>-->
+<!--    <response code="89" category="C" message="INVALID MID or TID"/>-->
+<!--    <response code="91" category="C" message="ISSUER / SWITCH INOPERATIVE"/>-->
+<!--    <response code="92" category="C" message="ROUTING ERROR"/>-->
+<!--    <response code="95" category="C" message="RECONCILE ERROR"/>-->
+<!--    <response code="96" category="C" message="SYSTEM MALFUNCTION"/>-->
+<!--    <response code="98" category="C" message="EXCEEDS CASH LIMIT"/>-->
+<!--    <response code="X1" category="C" message="INVALID TRACK"/>-->
+<!--    <response code="X2" category="C" message="AMOUNT EXCEEDED"/>-->
+<!--    <response code="X3" category="C" message="CARD USE EXCEEDED"/>-->
+<!--    <response code="X4" category="C" message="INTL CARD ACCEPT DISABLED"/>-->
+<!--    <response code="X5" category="C" message="KEY ERROR"/>-->
+<!--    <response code="X6" category="C" message="FALLBACK NOT ALLOWED"/>-->
+<!--    <response code="X7" category="C" message="TRACK DECRYPTION FAILED"/>-->
+<!--    <response code="N3" category="C" message="CASH SERVICE NOT AVAILABLE"/>-->
+<!--    <response code="N7" category="C" message="CVV2 FAILURE DECLINE"/>-->
+<!--    <response code="A0" category="B" message="MAC check error, please sign in again"/>-->
+<!--</Response>-->
+<Response>
+    <response code="00" category="A"  message="Processed OK"/>
+    <response code="01" category="C"  message="Pending"/>
+    <response code="02" category="C"  message="Timedout"/>
+    <response code="03" category="C"  message="Unknown Error"/>
+    <response code="04" category="C"  message="Account Inactive"/>
+    <response code="05" category="C"  message="Do not Honour"/>
+    <response code="11" category="C"  message="Duplicate Transaction"/>
+    <response code="12" category="C"  message="Invalid Transaction Code"/>
+    <response code="13" category="C"  message="Invalid Account Status"/>
+    <response code="14" category="C"  message="Exceed Withdrawal Frequency"/>
+    <response code="15" category="C"  message="Transaction Reversed"/>
+    <response code="18" category="C"  message="Database Error"/>
+    <response code="19" category="C"  message="Invalid Card Record"/>
+    <response code="20" category="C"  message="Requested Func Not Supported"/>
+    <response code="21" category="C"  message="Hard Capture"/>
+    <response code="22" category="C"  message="Instrument Not Found"/>
+    <response code="23" category="C"  message="Lost Card Capture"/>
+    <response code="24" category="C"  message="Cryptographic error in PIN"/>
+    <response code="25" category="C"  message="Card Expired"/>
+    <response code="27" category="C"  message="Field Error"/>
+    <response code="29" category="C"  message="Host Comms Down"/>
+    <response code="30" category="C"  message="HSM Timedout"/>
+    <response code="31" category="C"  message="Internal Error"/>
+    <response code="32" category="C"  message="Host Not Processing"/>
+    <response code="33" category="C"  message="Host Not Found"/>
+    <response code="34" category="C"  message="Hot Card"/>
+    <response code="40" category="C"  message="Inactive Card"/>
+    <response code="47" category="C"  message="Invalid PIN"/>
+    <response code="50" category="C"  message="Invalid Terminal"/>
+    <response code="56" category="C"  message="Insufficient Funds"/>
+    <response code="58" category="C"  message="Invalid Amount"/>
+    <response code="59" category="C"  message="Message Format Error"/>
+    <response code="60" category="C"  message="HSM Error"/>
+    <response code="61" category="C"  message="saf transaction mode"/>
+    <response code="62" category="C"  message="invalid merchant"/>
+    <response code="63" category="C"  message="Suspected Fraud Capture Card"/>
+    <response code="64" category="C"  message="Limit Exceeded"/>
+    <response code="65" category="C"  message="Exceed Cycle Frequency Limit"/>
+    <response code="66" category="C"  message="PIN Change Reject"/>
+    <response code="67" category="C"  message="Restricted Card Capture"/>
+    <response code="68" category="C"  message="PIN Retries Exceeded"/>
+    <response code="70" category="C"  message="Host Reject"/>
+    <response code="71" category="C"  message="Transaction Not Allowed"/>
+    <response code="72" category="C"  message="Permission Denied"/>
+    <response code="73" category="C"  message="Invalid Account"/>
+    <response code="74" category="C"  message="Invalid Host Mode"/>
+    <response code="75" category="C"  message="Withhold Amount Error"/>
+    <response code="76" category="C"  message="Exceed Cycle Transaction Limit"/>
+    <response code="78" category="C"  message="Exceeded Per Transaction Limit"/>
+    <response code="79" category="C"  message="Host in stand in mode"/>
+    <response code="80" category="C"  message="Do not Honor"/>
+    <response code="81" category="C"  message="MAC Incorrect"/>
+    <response code="82" category="C"  message="Original Auth Id not Processed"/>
+    <response code="83" category="C"  message="TWPOS: Account Inactive"/>
+    <response code="84" category="C"  message="Invalid Transaction"/>
+    <response code="85" category="C"  message="Transaction not supported / Blocked by Issuer"/>
+    <response code="86" category="C"  message="Blocked by Cardholder / Contact Cardholder"/>
+    <response code="88" category="C"  message="Warm Card"/>
+    <response code="89" category="C"  message="Host Reject"/>
+    <response code="91" category="C"  message="Issuer unavailable"/>
+    <response code="95" category="C"  message="Batch not matched"/>
+    <response code="96" category="C"  message="System malfunction"/>
+</Response>

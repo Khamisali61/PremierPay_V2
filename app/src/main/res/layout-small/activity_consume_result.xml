@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_consume_result"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_layout"></include>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/dp_2">
+
+        <RelativeLayout
+            android:id="@+id/ll_states"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_4"
+            android:paddingTop="@dimen/dp_2">
+
+            <ImageView
+                android:id="@+id/iv_trans_states"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50" />
+
+            <TextView
+                android:id="@+id/consume_sucess_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_toRightOf="@+id/iv_trans_states"
+                android:text="@string/result_sucess_consume"
+                android:textColor="@color/consume_sucess"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ll_states"
+            android:layout_marginBottom="@dimen/dp_40"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_marginTop="@dimen/dp_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30">
+
+                <TextView
+                    android:id="@+id/amount_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="@dimen/padding_top"
+                    android:gravity="center_vertical"
+                    android:text="@string/result_sucess_consume_amount"
+                    android:textSize="@dimen/sp_16" />
+                <TextView
+                    android:layout_marginRight="@dimen/padding_top"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/consume_amount"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/consume_sucess"
+                    android:textSize="@dimen/sp_20"/>
+            </RelativeLayout>
+            <ScrollView
+                android:id="@+id/sv_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.topwise.premierpay.view.ListViewForScrollView
+                    android:id="@+id/lv_trans"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="#f4f4f4"
+                    android:padding="3dp"
+                    android:scrollbars="none"
+                    />
+            </ScrollView>
+        </LinearLayout>
+        <RelativeLayout
+
+            android:id="@+id/exit_confirm_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:paddingBottom="@dimen/dp_6"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/btn_exit_exit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/drawable_button"
+                android:text="@string/result_exit" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

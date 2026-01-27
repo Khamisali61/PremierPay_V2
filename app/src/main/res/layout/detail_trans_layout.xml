@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_layout"></include>
+
+    <ScrollView
+        android:layout_marginTop="@dimen/padding_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_marginRight="@dimen/padding_right"
+            android:layout_marginLeft="@dimen/padding_right"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ImageView>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="4">
+
+    <LinearLayout
+        android:layout_marginRight="@dimen/padding_right"
+        android:layout_marginLeft="@dimen/padding_right"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/control_height">
+
+        <Button
+            android:background="@drawable/btn_main_background"
+
+            android:id="@+id/bt_confirm"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:textAllCaps="false"
+            android:layout_marginRight="@dimen/padding_top"
+            android:text="Confirm"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </Button>
+
+        <Button
+            android:background="@drawable/btn_main_background"
+
+            android:id="@+id/bt_reprint"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:textAllCaps="false"
+            android:text="Reprint"
+            android:layout_marginLeft="@dimen/padding_top"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </Button>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

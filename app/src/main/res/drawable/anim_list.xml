@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:oneshot="false">
+<!--    <item android:duration="1500" android:drawable="@mipmap/swipe_card"/>-->
+    <item android:duration="1500" android:drawable="@mipmap/insert_card"/>
+    <item android:duration="1500" android:drawable="@mipmap/tap_card"/>
+</animation-list>

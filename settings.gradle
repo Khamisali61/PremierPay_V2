@@ -1,0 +1,7 @@
+include ':toptool'
+include ':topImage'
+include ':topAmapLbs'
+include ':app'
+include ':topkDialog'
+include ':topManager'
+rootProject.name = "PremierPay"

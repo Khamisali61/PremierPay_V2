@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/qr_code_finder_frame"
+    android:orientation="vertical" >
+
+    <!-- 每个页面的GridView -->
+<!--    android:horizontalSpacing="0.0dip"-->
+<!--    android:verticalSpacing="0.0dip"-->
+
+    <com.topwise.premierpay.view.CustomGridView
+        android:id="@+id/vp_gv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="@dimen/activity_vertical_margin"
+        android:verticalSpacing="@dimen/activity_vertical_margin"
+        android:listSelector="@null"
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth" />
+
+</LinearLayout>

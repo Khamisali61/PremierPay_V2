@@ -1,0 +1,828 @@
+{
+  "mcc_codes": [
+    {
+      "code": "0081",
+      "description": "Agricultural Co-operative",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "0742",
+      "description": "Veterinary Services",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "0763",
+      "description": "Agricultural Co-operatives",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "0780",
+      "description": "Horticultural Services",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "1520",
+      "description": "General Contracting",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "1711",
+      "description": "Heating, Plumbing & A/C",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "1731",
+      "description": "Electrical Contractors",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "1740",
+      "description": "Masonry, Stonework, Plaster",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "1750",
+      "description": "Carpentry Contractors",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "1761",
+      "description": "Roofing/Siding/Sheet Metal",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "1771",
+      "description": "Concrete Work Contractors",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "1799",
+      "description": "Special Trade Contractors",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "2741",
+      "description": "Misc. Publishing & Printing",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "2791",
+      "description": "Typesetting/Engraving",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "2842",
+      "description": "Specialty Cleaning",
+      "category": "Merchandise/Retail",
+      "isRange": false
+    },
+    {
+      "code": "3000-3299",
+      "description": "Airlines",
+      "category": "Travel/Hospitality",
+      "isRange": true,
+      "minCode": 3000,
+      "maxCode": 3299
+    },
+    {
+      "code": "3300-3499",
+      "description": "Car Rental Agencies",
+      "category": "Travel/Hospitality",
+      "isRange": true,
+      "minCode": 3300,
+      "maxCode": 3499
+    },
+    {
+      "code": "3500-3999",
+      "description": "Lodging",
+      "category": "Travel/Hospitality",
+      "isRange": true,
+      "minCode": 3500,
+      "maxCode": 3999
+    },
+    {
+      "code": "3351-3441",
+      "description": "Automotive Rentals",
+      "category": "Automotive",
+      "isRange": true,
+      "minCode": 3351,
+      "maxCode": 3441
+    },
+    {
+      "code": "3501",
+      "description": "Vehicle Maintenance Services",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5013",
+      "description": "Motor Vehicle Parts",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5039",
+      "description": "Construction Materials",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5531",
+      "description": "Auto Stores – Retail",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5532",
+      "description": "Automotive Tire Stores",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5533",
+      "description": "Automotive Parts & Accessories",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5541",
+      "description": "Fuel Dealers",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5542",
+      "description": "Automated Fuel Dispensers",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5543",
+      "description": "Automated Truck/Diesel Fuel",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5551",
+      "description": "Boat Dealers",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5561",
+      "description": "Camper/Recreational Dealers",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5571",
+      "description": "Motorcycle Dealers",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5592",
+      "description": "Motor Home Dealers",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5598",
+      "description": "Snowmobile Dealers",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5599",
+      "description": "Misc. Automotive Dealers",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5983",
+      "description": "Fuel Oil & Coal Dealers",
+      "category": "Automotive",
+      "isRange": false
+    },
+    {
+      "code": "5137",
+      "description": "Men's/Women's Clothing",
+      "category": "Clothing/Apparel",
+      "isRange": false
+    },
+    {
+      "code": "5139",
+      "description": "Commercial Footwear",
+      "category": "Clothing/Apparel",
+      "isRange": false
+    },
+    {
+      "code": "5651",
+      "description": "Family Clothing Stores",
+      "category": "Clothing/Apparel",
+      "isRange": false
+    },
+    {
+      "code": "5655",
+      "description": "Sports Apparel/Riding Apparel",
+      "category": "Clothing/Apparel",
+      "isRange": false
+    },
+    {
+      "code": "5661",
+      "description": "Shoe Stores",
+      "category": "Clothing/Apparel",
+      "isRange": false
+    },
+    {
+      "code": "5691",
+      "description": "Men's/Women's Clothing",
+      "category": "Clothing/Apparel",
+      "isRange": false
+    },
+    {
+      "code": "5698",
+      "description": "Wig & Toupee Stores",
+      "category": "Clothing/Apparel",
+      "isRange": false
+    },
+    {
+      "code": "5699",
+      "description": "Misc. Apparel Shops",
+      "category": "Clothing/Apparel",
+      "isRange": false
+    },
+    {
+      "code": "5422",
+      "description": "Meat Provisioners",
+      "category": "Food & Grocery",
+      "isRange": false
+    },
+    {
+      "code": "5441",
+      "description": "Candy, Nut & Confectionary Stores",
+      "category": "Food & Grocery",
+      "isRange": false
+    },
+    {
+      "code": "5451",
+      "description": "Dairy Stores",
+      "category": "Food & Grocery",
+      "isRange": false
+    },
+    {
+      "code": "5411",
+      "description": "Grocery/Supermarkets",
+      "category": "Food & Grocery",
+      "isRange": false
+    },
+    {
+      "code": "5462",
+      "description": "Bakeries",
+      "category": "Food & Grocery",
+      "isRange": false
+    },
+    {
+      "code": "5499",
+      "description": "General Food Stores",
+      "category": "Food & Grocery",
+      "isRange": false
+    },
+    {
+      "code": "5811",
+      "description": "Caterers",
+      "category": "Food & Grocery",
+      "isRange": false
+    },
+    {
+      "code": "5812",
+      "description": "Restaurants",
+      "category": "Food & Grocery",
+      "isRange": false
+    },
+    {
+      "code": "5813",
+      "description": "Bars/Clubs",
+      "category": "Food & Grocery",
+      "isRange": false
+    },
+    {
+      "code": "5814",
+      "description": "Fast Food",
+      "category": "Food & Grocery",
+      "isRange": false
+    },
+    {
+      "code": "5047",
+      "description": "Dental Equipment",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "5122",
+      "description": "Drugs/Proprietary Stores",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "5295",
+      "description": "Medical Equipment",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "5912",
+      "description": "Drug Stores/Pharmacies",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8011",
+      "description": "Doctors",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8021",
+      "description": "Dentists",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8031",
+      "description": "Osteopaths",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8041",
+      "description": "Chiropractors",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8042",
+      "description": "Optometrists/Ophthalmologists",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8043",
+      "description": "Opticians/Prescription",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8044",
+      "description": "Opticians/Non-Prescription",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8049",
+      "description": "Misc. Medical Practitioners",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8050",
+      "description": "Nursing & Personal Care",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8062",
+      "description": "Hospitals",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8071",
+      "description": "Medical/Dental Labs",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "8099",
+      "description": "Misc. Health Practitioners",
+      "category": "Healthcare",
+      "isRange": false
+    },
+    {
+      "code": "5021",
+      "description": "Furniture Stores",
+      "category": "Home/Furniture",
+      "isRange": false
+    },
+    {
+      "code": "5039",
+      "description": "Construction Materials",
+      "category": "Home/Furniture",
+      "isRange": false
+    },
+    {
+      "code": "5712",
+      "description": "Furniture/Home Furnishings",
+      "category": "Home/Furniture",
+      "isRange": false
+    },
+    {
+      "code": "5713",
+      "description": "Floor Covering Stores",
+      "category": "Home/Furniture",
+      "isRange": false
+    },
+    {
+      "code": "5714",
+      "description": "Drapery/Window Cover",
+      "category": "Home/Furniture",
+      "isRange": false
+    },
+    {
+      "code": "5718",
+      "description": "Fireplace/Shops",
+      "category": "Home/Furniture",
+      "isRange": false
+    },
+    {
+      "code": "5719",
+      "description": "Misc. Home Furnishing",
+      "category": "Home/Furniture",
+      "isRange": false
+    },
+    {
+      "code": "5722",
+      "description": "Household Appliances",
+      "category": "Home/Furniture",
+      "isRange": false
+    },
+    {
+      "code": "5045",
+      "description": "Computers/Computer Peripherals",
+      "category": "Electronics",
+      "isRange": false
+    },
+    {
+      "code": "5732",
+      "description": "Electronics Stores",
+      "category": "Electronics",
+      "isRange": false
+    },
+    {
+      "code": "5733",
+      "description": "Music Stores",
+      "category": "Electronics",
+      "isRange": false
+    },
+    {
+      "code": "5734",
+      "description": "Computer Software Stores",
+      "category": "Electronics",
+      "isRange": false
+    },
+    {
+      "code": "5735",
+      "description": "Record Shops",
+      "category": "Electronics",
+      "isRange": false
+    },
+    {
+      "code": "4812",
+      "description": "Telecom Equipment",
+      "category": "Electronics",
+      "isRange": false
+    },
+    {
+      "code": "4814",
+      "description": "Telecom Services",
+      "category": "Electronics",
+      "isRange": false
+    },
+    {
+      "code": "4111",
+      "description": "Local Transport (Taxi, Ride-Hail)",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "4131",
+      "description": "Bus Lines",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "4814",
+      "description": "Telecommunication Services",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "4900",
+      "description": "Utilities",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "5039",
+      "description": "Construction Materials",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "7333",
+      "description": "Commercial Photography",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "7372",
+      "description": "Computer Programming",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "7379",
+      "description": "Computer Maintenance",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "7392",
+      "description": "Management Consulting",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "7393",
+      "description": "Detective Agencies",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "7394",
+      "description": "Equipment Rental",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "7399",
+      "description": "Business Services",
+      "category": "General Services",
+      "isRange": false
+    },
+    {
+      "code": "4112",
+      "description": "Passenger Railways",
+      "category": "Travel/Hospitality",
+      "isRange": false
+    },
+    {
+      "code": "4722",
+      "description": "Travel Agencies",
+      "category": "Travel/Hospitality",
+      "isRange": false
+    },
+    {
+      "code": "7011",
+      "description": "Lodging/Hotels/Motels",
+      "category": "Travel/Hospitality",
+      "isRange": false
+    },
+    {
+      "code": "7032",
+      "description": "Sporting Camps",
+      "category": "Travel/Hospitality",
+      "isRange": false
+    },
+    {
+      "code": "7033",
+      "description": "Trailer Parks",
+      "category": "Travel/Hospitality",
+      "isRange": false
+    },
+    {
+      "code": "7832",
+      "description": "Motion Picture Theatres",
+      "category": "Entertainment",
+      "isRange": false
+    },
+    {
+      "code": "7922",
+      "description": "Theatrical Producers",
+      "category": "Entertainment",
+      "isRange": false
+    },
+    {
+      "code": "7932",
+      "description": "Billiard/Pool",
+      "category": "Entertainment",
+      "isRange": false
+    },
+    {
+      "code": "7933",
+      "description": "Bowling Centers",
+      "category": "Entertainment",
+      "isRange": false
+    },
+    {
+      "code": "7991",
+      "description": "Tourist Attractions",
+      "category": "Entertainment",
+      "isRange": false
+    },
+    {
+      "code": "7992",
+      "description": "Golf Courses",
+      "category": "Entertainment",
+      "isRange": false
+    },
+    {
+      "code": "7994",
+      "description": "Video Game Arcades",
+      "category": "Entertainment",
+      "isRange": false
+    },
+    {
+      "code": "7996",
+      "description": "Amusement Parks",
+      "category": "Entertainment",
+      "isRange": false
+    },
+    {
+      "code": "7997",
+      "description": "Membership Clubs",
+      "category": "Entertainment",
+      "isRange": false
+    },
+    {
+      "code": "7998",
+      "description": "Aquariums & Zoos",
+      "category": "Entertainment",
+      "isRange": false
+    },
+    {
+      "code": "7999",
+      "description": "Misc. Recreation Services",
+      "category": "Entertainment",
+      "isRange": false
+    },
+    {
+      "code": "8211",
+      "description": "Schools K-12",
+      "category": "Education",
+      "isRange": false
+    },
+    {
+      "code": "8220",
+      "description": "Colleges/Universities",
+      "category": "Education",
+      "isRange": false
+    },
+    {
+      "code": "8241",
+      "description": "Correspondence Schools",
+      "category": "Education",
+      "isRange": false
+    },
+    {
+      "code": "8244",
+      "description": "Business/Secretarial Schools",
+      "category": "Education",
+      "isRange": false
+    },
+    {
+      "code": "8249",
+      "description": "Vocational/Trade",
+      "category": "Education",
+      "isRange": false
+    },
+    {
+      "code": "8299",
+      "description": "Other Education",
+      "category": "Education",
+      "isRange": false
+    },
+    {
+      "code": "6010",
+      "description": "ATM Cash Withdrawal",
+      "category": "Financial/Insurance",
+      "isRange": false
+    },
+    {
+      "code": "6011",
+      "description": "Financial Institutions",
+      "category": "Financial/Insurance",
+      "isRange": false
+    },
+    {
+      "code": "6051",
+      "description": "Non-Financial Institutions",
+      "category": "Financial/Insurance",
+      "isRange": false
+    },
+    {
+      "code": "6211",
+      "description": "Security Brokers",
+      "category": "Financial/Insurance",
+      "isRange": false
+    },
+    {
+      "code": "6300",
+      "description": "Insurance Premiums",
+      "category": "Financial/Insurance",
+      "isRange": false
+    },
+    {
+      "code": "6399",
+      "description": "Misc. Insurance",
+      "category": "Financial/Insurance",
+      "isRange": false
+    },
+    {
+      "code": "6513",
+      "description": "Real Estate Agents/Managers",
+      "category": "Real Estate",
+      "isRange": false
+    },
+    {
+      "code": "4814",
+      "description": "Telecom Services",
+      "category": "Utilities",
+      "isRange": false
+    },
+    {
+      "code": "4900",
+      "description": "Electric/Gas/Water",
+      "category": "Utilities",
+      "isRange": false
+    },
+    {
+      "code": "4899",
+      "description": "Cable/Satellite Providers",
+      "category": "Utilities",
+      "isRange": false
+    },
+    {
+      "code": "8211",
+      "description": "Schools",
+      "category": "Government/Non-Profit",
+      "isRange": false
+    },
+    {
+      "code": "8398",
+      "description": "Charitable Organizations",
+      "category": "Government/Non-Profit",
+      "isRange": false
+    },
+    {
+      "code": "8651",
+      "description": "Political Organizations",
+      "category": "Government/Non-Profit",
+      "isRange": false
+    },
+    {
+      "code": "8661",
+      "description": "Religious Organizations",
+      "category": "Government/Non-Profit",
+      "isRange": false
+    },
+    {
+      "code": "9211",
+      "description": "Court Costs",
+      "category": "Government/Non-Profit",
+      "isRange": false
+    },
+    {
+      "code": "9222",
+      "description": "Fines",
+      "category": "Government/Non-Profit",
+      "isRange": false
+    },
+    {
+      "code": "9311",
+      "description": "Tax Payments",
+      "category": "Government/Non-Profit",
+      "isRange": false
+    },
+    {
+      "code": "9399",
+      "description": "Misc. Government Services",
+      "category": "Government/Non-Profit",
+      "isRange": false
+    }
+  ]
+}

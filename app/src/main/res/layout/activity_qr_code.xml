@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/header_layout"/>
+    <RelativeLayout android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:gravity="center"
+            android:id="@+id/rl_amount"
+            android:paddingTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+            <TextView
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:id="@+id/trad_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/imageViewQRCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/rl_amount"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:textSize="30sp"
+            android:textColor="@color/button_background_scanner_normal"
+            android:gravity="center"
+            android:id="@+id/show_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Please scan the code!"
+            android:layout_below="@+id/imageViewQRCode"/>
+        <Button
+            android:textColor="@color/white"
+            android:id="@+id/confirm_turn_screen"
+            android:background="@color/button_background_scanner_normal"
+            android:focusable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="@string/qr_code_positive_button_confirm"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"/>
+    </RelativeLayout>
+</LinearLayout>

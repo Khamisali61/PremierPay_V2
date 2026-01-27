@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/btn_background">
+
+    <!--Header-->
+    <RelativeLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_num_hight"
+        android:background="@color/colorPrimaryDark" >
+
+        <!--Back-->
+        <ImageView
+            android:visibility="gone"
+            android:paddingLeft="5dp"
+            android:id="@+id/header_back"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_amount_back" />
+
+        <!--Title-->
+        <com.topwise.premierpay.view.MTextView
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:focusable="false"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:gravity="center"
+            android:id="@+id/header_title"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="24dp"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white" />
+
+        <!--APP Setting-->
+<!--        <LinearLayout-->
+<!--            android:id="@+id/ll_setting"-->
+<!--            android:gravity="center"-->
+<!--            android:clickable="true"-->
+<!--            android:onClick="onClick"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <ImageView-->
+<!--                android:paddingRight="12dp"-->
+<!--                android:textSize="18dp"-->
+<!--                android:id="@+id/header_time"-->
+<!--                android:src="@mipmap/settings1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
+<!--            </ImageView>-->
+
+<!--        </LinearLayout>-->
+
+    </RelativeLayout>
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <!--Sale transaction quick entry point-->
+    <LinearLayout
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:id="@+id/cashback_flow"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tabrow_height"
+            android:layout_weight="1"
+            android:background="@drawable/drawable_button_consume"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:onClick="onClick">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/sale_2"
+                android:layout_marginBottom="@dimen/home_view_spaces" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/title_sale"
+                android:textColor="@color/common_text_color"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--Loading view-->
+    <LinearLayout
+        android:id="@+id/loading"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <TextView
+            android:scaleType="centerInside"
+            android:text="Loading"
+            android:textSize="25sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+    </LinearLayout>
+
+    <!--Grid View Container-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <!--Transaction item container-->
+        <LinearLayout
+            android:id="@+id/ll_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"/>
+    </FrameLayout>
+
+</LinearLayout>
+

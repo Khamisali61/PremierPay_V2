@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_title"
+            android:layout_marginTop="3dp"
+            android:gravity="center_vertical"
+            android:layout_alignParentTop="true"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/control_ll_height">
+            <TextView
+                android:layout_marginLeft="@dimen/control_ll_height"
+                android:layout_alignParentLeft="true"
+                android:gravity="center_vertical"
+                android:id="@+id/tv_trans_type"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <TextView
+                android:layout_marginRight="@dimen/padding_right"
+                android:layout_alignParentRight="true"
+                android:textAllCaps="false"
+                android:textColor="@color/amount_num_color"
+                android:textSize="@dimen/font_size_"
+                android:id="@+id/tv_trans_amt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_connet"
+            android:layout_below="@id/rl_title"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="@dimen/padding_left"
+                    android:layout_alignParentLeft="true"
+                    android:textAllCaps="false"
+                    android:gravity="center_vertical"
+                    android:text="Card num.:"
+                    android:id="@+id/tv_trans_pan_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/tv_trans_pan"
+                    android:layout_marginLeft="@dimen/detail_list_divider_height"
+                    android:textAllCaps="false"
+                    android:layout_toRightOf="@id/tv_trans_pan_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+                <TextView
+                    android:layout_toLeftOf="@id/tv_trans_auth"
+                    android:text="Auth id.:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+                <TextView
+                    android:layout_marginRight="@dimen/detail_list_divider_height"
+                    android:id="@+id/tv_trans_auth"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Rrn.:"
+                    android:layout_marginLeft="@dimen/padding_left"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/tv_rrn_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+                <TextView
+
+                    android:id="@+id/tv_trans_rrn"
+                    android:layout_marginLeft="@dimen/detail_list_divider_height"
+                    android:layout_toRightOf="@id/tv_rrn_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+
+                <TextView
+                    android:text="Inv nr.:"
+                    android:layout_toLeftOf="@id/tv_trans_inv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <TextView
+                    android:layout_marginRight="@dimen/detail_list_divider_height"
+                    android:id="@+id/tv_trans_inv"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_below="@id/ll_connet"
+
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/disp_single_version_text">
+            <TextView
+                android:layout_marginLeft="@dimen/padding_left"
+                android:textAllCaps="false"
+                android:id="@+id/tv_date_time_title"
+                android:text="Date/Time:"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:layout_marginLeft="@dimen/detail_list_divider_height"
+                android:textAllCaps="false"
+                android:layout_toRightOf="@id/tv_date_time_title"
+                android:id="@+id/tv_date_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </TextView>
+
+
+            <TextView
+                android:text="State:"
+                android:layout_toLeftOf="@id/tv_trans_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <TextView
+                android:layout_marginRight="@dimen/detail_list_divider_height"
+                android:id="@+id/tv_trans_state"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </RelativeLayout>
+
+</RelativeLayout>

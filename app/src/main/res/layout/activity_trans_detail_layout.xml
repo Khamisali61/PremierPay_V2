@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+
+        android:id="@+id/trans_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/trans_total_item_backgroud"
+        android:dividerHeight="@dimen/detail_list_divider_height"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true"
+        android:smoothScrollbar="true"
+        >
+    </ListView>
+
+
+    <RelativeLayout
+        android:id="@+id/no_trans_record_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/no_record" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="no record" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

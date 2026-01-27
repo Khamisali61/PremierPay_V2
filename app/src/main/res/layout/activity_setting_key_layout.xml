@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/header"
+            layout="@layout/header_layout"/>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/padding_top"
+            android:paddingLeft="@dimen/padding_left"
+            android:paddingRight="@dimen/padding_right"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:id="@+id/rl_set_master_key_index"
+            android:background="@drawable/drawable_setting"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:text="@string/set_master_key_index"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/tv_master_key_index"
+                android:gravity="center_vertical"
+                android:layout_toLeftOf="@id/tv_back_0"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:id="@+id/tv_back_0"
+                android:src="@mipmap/jiantt"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/padding_top"
+            android:paddingLeft="@dimen/padding_left"
+            android:paddingRight="@dimen/padding_right"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:id="@+id/rl_set_pin_key"
+            android:background="@drawable/drawable_setting"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+
+                android:text="@string/set_enter_pin_key"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/tv_pin_key"
+                android:gravity="center_vertical"
+                android:layout_toLeftOf="@id/tv_back_1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:id="@+id/tv_back_1"
+                android:src="@mipmap/jiantt"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/padding_top"
+            android:paddingLeft="@dimen/padding_left"
+            android:paddingRight="@dimen/padding_right"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:id="@+id/rl_set_mac_key"
+            android:background="@drawable/drawable_setting"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+
+                android:text="@string/set_enter_mac_key"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/tv_mac_key"
+                android:gravity="center_vertical"
+                android:layout_toLeftOf="@id/tv_back_1a"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:id="@+id/tv_back_1a"
+                android:src="@mipmap/jiantt"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/padding_top"
+            android:paddingLeft="@dimen/padding_left"
+            android:paddingRight="@dimen/padding_right"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:id="@+id/rl_set_data_key"
+            android:background="@drawable/drawable_setting"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+
+                android:text="@string/set_enter_data_key"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/tv_data_key"
+                android:gravity="center_vertical"
+                android:layout_toLeftOf="@id/tv_back_2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:id="@+id/tv_back_2"
+                android:src="@mipmap/jiantt"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+
+            android:layout_marginTop="@dimen/padding_top"
+            android:paddingLeft="@dimen/padding_left"
+            android:paddingRight="@dimen/padding_right"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:id="@+id/rl_set_unionpay_key"
+            android:background="@drawable/drawable_setting"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:text="@string/set_enter_unionpay_key"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/tv_unionpay_key"
+                android:gravity="center_vertical"
+                android:layout_toLeftOf="@id/tv_back_3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:id="@+id/tv_back_3"
+                android:src="@mipmap/jiantt"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/padding_top"
+            android:paddingLeft="@dimen/padding_left"
+            android:paddingRight="@dimen/padding_right"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:id="@+id/rl_set_pci_mode"
+            android:background="@drawable/drawable_setting"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone">
+
+            <TextView
+                android:text="@string/set_pci_mode"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"/>
+
+            <CheckBox
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/ck_set_pci_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/select_setting"
+                android:button="@null"
+                android:checked="false"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

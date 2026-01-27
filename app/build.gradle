@@ -1,0 +1,170 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    //supported version (28.0.3) for Android Gradle Plugin 3.4.1.
+    compileOptions.encoding="UTF-8"
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        def cmd = 'git rev-list --count HEAD'
+        versionCode 211
+        versionName "2.1.1"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("topwise.jks")
+            storePassword '123456'
+            keyAlias 'topwise'
+            keyPassword '123456'
+
+            v1SigningEnabled true
+            v2SigningEnabled true  // 目前不支持V2签名
+        }
+
+        debug {
+            storeFile file("topwise.jks")
+            storePassword '123456'
+            keyAlias 'topwise'
+            keyPassword '123456'
+
+            v1SigningEnabled true
+            v2SigningEnabled true  //  // 目前不支持V2签名
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    // 多维度编译
+    flavorDimensions "HostProt"
+    productFlavors {
+        Top {
+            dimension 'HostProt'
+            buildConfigField "String", "HOST", "\"212.22.185.4\""
+            buildConfigField "String", "PROT", "\"4567\""
+            buildConfigField "String", "CHANNEL", "\"premier_bank\""
+            buildConfigField "boolean", "pressTest","false"
+            buildConfigField "String", "MERCHANT", "\"0011504601\""
+            buildConfigField "String", "TERMINAL", "\"00000219\""
+            buildConfigField "String", "TMSURL", "\"http://app.topwisesz.com:9090/appmarket/ota/getparam\""
+        }
+    }
+
+    buildFeatures {
+        buildConfig true // 启用 BuildConfig 生成功能
+    }
+
+    buildTypes {
+        debug{
+            signingConfig signingConfigs.debug //
+            buildConfigField "int", "POS_MODE", "$rootProject.DeviceType.POS_MODE"
+        }
+
+        release {
+            signingConfig signingConfigs.release //
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "int", "POS_MODE", "$rootProject.DeviceType.POS_MODE"
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            def fileName
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                fileName = "PremierPay_${mode()}_${defaultConfig.versionName}_${releaseTime()}.apk"
+                outputFileName = fileName
+            }
+        }
+    }
+
+
+    // greendao配置
+    greendao {
+        schemaVersion 22             //数据库 版本号
+        targetGenDir 'src/main/java'    //生成DaoMaster类文件夹
+        daoPackage 'com.topwise.premierpay.dao'  //生成DaoMaster类包名
+    }
+
+//    tasks.whenTaskAdded { task ->
+//        if (task.name.matches("compile\w*Kotlin")) {
+//            task.dependsOn('greendao')
+//        }
+//    }
+
+    sourceSets.main {
+        jniLibs.srcDir 'src/main/libs'  //set .so files location to libs
+//      jni.srcDirs = []                //disable automatic ndk-build call，'src/main/jni'
+    }
+    namespace 'com.topwise.premierpay'
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    //implementation(rootProject.ext.support["appcompat-v7"])
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    // json
+    implementation(rootProject.ext.dependencies.gson)
+//  implementation project(path: ':topDialog')
+    // okhttp
+    implementation(rootProject.ext.dependencies.okhttp3)
+    implementation(rootProject.ext.dependencies.okio)
+    // greendao
+    implementation(rootProject.ext.dependencies.greendao)
+    // tencent mmkv 代替sp
+    implementation(rootProject.ext.dependencies.mmkv)
+    implementation(rootProject.ext.dependencies.glide)
+    // 内存泄露工具检测
+    // debugImplementation(rootProject.ext.dependencies.leakcanary)
+
+
+    implementation project(':topAmapLbs')
+    // dailog
+    implementation project(':topkDialog')
+    // dailog
+    implementation project(':topImage')
+    // implementation files('libs\\T1_TopManager_V1.0.18.jar')
+    // tool
+     implementation project(path: ':toptool')
+
+    // topManager usdk
+     implementation project(':topManager')
+
+//    implementation 'com.youth.banner:banner:2.1.0'
+
+    implementation 'io.github.youth5201314:banner:2.2.3'
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    //annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
+
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.1.0'
+    implementation 'androidx.exifinterface:exifinterface:1.2.0'
+}
+
+def releaseTime() {
+    return new Date().format("yyyyMMddHHmmss", TimeZone.getTimeZone("GMT+08"))
+}
+
+def mode() {
+    if (rootProject.DeviceType.POS_MODE == 2) {
+        return "MP35P"
+    } else {
+        return "T1"
+    }
+}
+

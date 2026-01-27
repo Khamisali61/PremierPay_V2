@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_layout"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--清除功能-->
+            <RelativeLayout
+                android:layout_marginTop="@dimen/padding_top"
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_clear"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+
+                    android:text="@string/set_other_clear"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/tv_claer"
+                    android:gravity="center_vertical"
+                    android:layout_toLeftOf="@id/tv_back_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/tv_back_0"
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <!--下载功能-->
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/padding_top"
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_downlod"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:text="@string/set_other_downlod"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/tv_downlod"
+                    android:gravity="center_vertical"
+                    android:layout_toLeftOf="@id/tv_back_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/tv_back_1"
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <!--打印参数-->
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/padding_top"
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_print_param"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:text="@string/set_other_peint_param"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/tv_other_peint_param"
+                    android:gravity="center_vertical"
+                    android:layout_toLeftOf="@id/tv_back_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/tv_back_2"
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/padding_top"
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_tms_url"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+
+                    android:text="@string/tms_url"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <com.topwise.premierpay.view.MTextView
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:focusable="false"
+                    android:marqueeRepeatLimit="marquee_forever"
+
+                    android:paddingRight="10dp"
+                    android:paddingLeft="60dp"
+                    android:id="@+id/tv_set_tms_url"
+                    android:gravity="center_vertical"
+                    android:layout_toLeftOf="@id/tv_back_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/tv_back_5"
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/padding_top"
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_tms_downdload"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:text="TMS parameter download"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:paddingRight="10dp"
+                    android:paddingLeft="60dp"
+                    android:id="@+id/tv_set_tms_p"
+                    android:gravity="center_vertical"
+                    android:layout_toLeftOf="@id/tv_back_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/tv_back_6"
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/padding_top"
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="false"
+                android:id="@+id/rl_switch_bluetooth"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/control_height">
+
+                <TextView
+                    android:text= "Device Mode"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_mode"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/padding_top"
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="false"
+                android:id="@+id/rl_switch_camera"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/control_height">
+
+                <TextView
+                    android:text= "Camera Mode"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/camera_mode"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

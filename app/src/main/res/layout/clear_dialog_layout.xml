@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/padding_top"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/control_height">
+
+        <TextView
+            android:textSize="@dimen/font_size_"
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+    </LinearLayout>
+
+    <ListView
+        android:padding="3dp"
+        android:layout_marginTop="@dimen/padding_top"
+        android:layout_marginLeft="@dimen/padding_right"
+        android:layout_marginRight="@dimen/padding_right"
+        android:id="@+id/lv_select"
+        android:divider="#f4f4f4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/padding_right"
+        android:layout_marginRight="@dimen/padding_right"
+        android:layout_marginTop="@dimen/padding_top"
+        android:layout_marginBottom="@dimen/padding_top"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:id="@+id/bt_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_weight="1"
+            android:text="Confirm"
+            android:id="@+id/bt_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20">
+
+        <TextView
+            android:text="@string/set_merchant_name"
+            android:paddingLeft="@dimen/dp_8"
+            android:layout_alignParentLeft="true"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+        </TextView>
+
+        <TextView
+
+            android:id="@+id/tv_merchant_name"
+            android:paddingRight="@dimen/dp_8"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </TextView>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20">
+
+        <TextView
+            android:text="@string/set_merchant_num"
+            android:paddingLeft="@dimen/dp_8"
+            android:layout_alignParentLeft="true"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+        </TextView>
+
+        <TextView
+
+            android:id="@+id/tv_merchant_num"
+            android:paddingRight="@dimen/dp_8"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </TextView>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20">
+
+        <TextView
+            android:text="@string/set_terminal_num"
+            android:paddingLeft="@dimen/dp_8"
+            android:layout_alignParentLeft="true"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+        </TextView>
+
+        <TextView
+
+            android:id="@+id/tv_terminal_num"
+            android:paddingRight="@dimen/dp_8"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </TextView>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20">
+
+        <TextView
+            android:text="@string/set_transcation_batch_num"
+            android:paddingLeft="@dimen/dp_8"
+            android:layout_alignParentLeft="true"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+        </TextView>
+
+        <TextView
+
+            android:id="@+id/tv_batch_num"
+            android:paddingRight="@dimen/dp_8"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </TextView>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20">
+
+        <TextView
+            android:text="@string/trans_data_time"
+            android:paddingLeft="@dimen/dp_8"
+            android:layout_alignParentLeft="true"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+        </TextView>
+
+        <TextView
+
+            android:id="@+id/tv_data_time"
+            android:paddingRight="@dimen/dp_8"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp_8"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30">
+
+        <TextView
+
+            android:background="@drawable/total_text_background"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </TextView>
+
+        <TextView
+            android:gravity="center"
+            android:background="@drawable/total_text_background"
+            android:text="@string/total_number"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </TextView>
+
+        <TextView
+            android:gravity="center"
+            android:background="@drawable/total_text_background"
+            android:text="@string/total_amount"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_90">
+
+        <TextView
+            android:gravity="center"
+            android:text="@string/total_bank_type"
+            android:background="@drawable/total_text_background"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </TextView>
+
+        <LinearLayout
+            android:layout_weight="5"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/total_sale"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_bank_sale_number"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_bank_sale_amount"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/total_void"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_bank_void_number"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_bank_void_amount"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/total_refund"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_bank_refund_number"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_bank_refund_amount"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_90">
+
+        <TextView
+            android:gravity="center"
+            android:text="@string/total_qr_type"
+            android:background="@drawable/total_text_background"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </TextView>
+
+        <LinearLayout
+            android:layout_weight="5"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/total_sale"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_qr_sale_number"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_qr_sale_amount"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/total_void"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_qr_void_number"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_qr_void_amount"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/total_refund"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_qr_refund_number"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/tv_qr_refund_amount"
+                        android:background="@drawable/total_text_background"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40">
+
+        <TextView
+            android:gravity="center"
+            android:text="@string/total_all"
+            android:background="@drawable/total_text_background"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </TextView>
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tv_total_number"
+            android:background="@drawable/total_text_background"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </TextView>
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tv_total_amount"
+            android:background="@drawable/total_text_background"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </TextView>
+    </LinearLayout>
+</LinearLayout>

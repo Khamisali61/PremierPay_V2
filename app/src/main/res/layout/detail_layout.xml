@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_layout"></include>
+
+        <com.topwise.premierpay.view.PagerSlidingTabStrip
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/colorPrimaryBackground"
+            app:pstsDividerColor="@android:color/transparent"
+            app:pstsIndicatorColor="@color/text_pay_type_color"
+            app:pstsIndicatorHeight="1dp"
+            app:pstsShouldExpand="true"
+            app:pstsTabBackground="@drawable/background_tab"
+            app:pstsUnderlineColor="@color/keyboard_background_color"
+            app:pstsUnderlineHeight="1px"
+            app:selectedTabTextColor="@color/prompt_amount_color" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="400dp" />
+
+    <Button
+        android:layout_marginBottom="@dimen/font_size_grid_hint"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_main_background"
+        android:layout_marginLeft="@dimen/padding_left"
+        android:layout_marginRight="@dimen/padding_right"
+        android:layout_marginTop="@dimen/detail_list_divider_height"
+        android:text="@string/settlement"
+        android:textAllCaps="false"
+        android:id="@+id/bt_settle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/control_height">
+    </Button>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

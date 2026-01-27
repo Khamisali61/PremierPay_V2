@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/btn_background">
+    <LinearLayout
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:id="@+id/cashback_flow"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tabrow_height"
+            android:layout_weight="1"
+            android:background="@drawable/drawable_button_consume"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:onClick="onClick">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/sale_2"
+                android:layout_marginBottom="@dimen/home_view_spaces"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/title_sale"
+                android:textColor="@color/common_text_color"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <LinearLayout
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="186dp">
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true" >
+
+            <LinearLayout
+                android:id="@+id/ll_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/small_button_height_main">
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center"
+            android:id="@+id/ll_bill"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:background="@drawable/drawable_button_consume"
+            android:layout_height="match_parent">
+
+            <ImageView
+
+                android:src="@mipmap/transaction_detail"
+                android:layout_width="@dimen/small_grid_height"
+                android:layout_height="@dimen/small_grid_height">
+
+            </ImageView>
+            <com.topwise.premierpay.view.MTextView
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:focusable="false"
+                android:marqueeRepeatLimit="marquee_forever"
+
+                android:layout_marginTop="3dp"
+                android:textColor="@color/common_text_color"
+                android:text="@string/app_bill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </com.topwise.premierpay.view.MTextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:id="@+id/ll_shop"
+            android:gravity="center"
+            android:background="@drawable/drawable_button_consume"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@mipmap/store"
+                android:layout_width="@dimen/small_grid_height"
+                android:layout_height="@dimen/small_grid_height">
+            </ImageView>
+            <TextView
+                android:textColor="@color/common_text_color"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/app_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:id="@+id/ll_setting"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:background="@drawable/drawable_button_consume"
+            android:layout_height="match_parent">
+
+            <ImageView
+
+                android:src="@mipmap/settings"
+                android:layout_width="@dimen/small_grid_height"
+                android:layout_height="@dimen/small_grid_height">
+
+            </ImageView>
+
+            <TextView
+                android:textColor="@color/common_text_color"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/set_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:gravity="center"
+        android:id="@+id/tv_version"
+        android:textSize="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+</LinearLayout>
+

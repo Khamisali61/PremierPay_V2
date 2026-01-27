@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_layout"/>
+
+    <LinearLayout
+        android:background="@drawable/btn_main_background"
+        android:layout_marginTop="@dimen/padding_top"
+        android:layout_marginLeft="@dimen/padding_left"
+        android:layout_marginRight="@dimen/padding_right"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/padding_top"
+            android:layout_marginRight="@dimen/padding_top"
+            android:layout_marginTop="@dimen/padding_top"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/control_height">
+
+            <TextView
+                android:text="Name"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:maxLength="15"
+                android:hint="Non essential"
+                android:id="@+id/et_input_name"
+                android:inputType="text"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/padding_top"
+            android:layout_marginRight="@dimen/padding_top"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/control_height">
+
+            <TextView
+                android:text="Operator No."
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:maxLength="2"
+                android:id="@+id/et_input_operid"
+                android:inputType="number"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/padding_top"
+            android:layout_marginRight="@dimen/padding_top"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/control_height">
+
+            <TextView
+                android:text="Password"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:maxLength="4"
+                android:id="@+id/et_input_pwd"
+                android:inputType="numberPassword"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:textAllCaps="false"
+        android:layout_marginTop="@dimen/btn_num_height"
+        android:layout_marginLeft="@dimen/padding_left"
+        android:layout_marginRight="@dimen/padding_right"
+        android:text="Confirm"
+        android:id="@+id/bt_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

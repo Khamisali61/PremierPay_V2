@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0.0dip"
+    android:background="@drawable/drawable_button_consume"
+  >
+<!--    android:background="@color/grid_item_bg"
+android:background="@drawable/grid_view_bg"-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingBottom="@dimen/small_grid_item_padding"
+        android:paddingTop="@dimen/small_grid_item_padding"
+        >
+
+        <ImageView
+            android:id="@+id/iv_item"
+            android:layout_width="@dimen/small_grid_height"
+            android:layout_height="@dimen/small_grid_height"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/icon_grid_item" />
+
+<!--        -->
+        <com.topwise.premierpay.view.MTextView
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:focusable="false"
+            android:marqueeRepeatLimit="marquee_forever"
+
+            android:id="@+id/tv_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_item"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/small_grid_text_margin"
+            android:gravity="center"
+
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/font_size_grid_item" />
+    </RelativeLayout>
+
+</RelativeLayout>

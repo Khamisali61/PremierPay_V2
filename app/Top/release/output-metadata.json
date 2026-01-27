@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.topwise.premierpay",
+  "variantName": "TopRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 202,
+      "versionName": "2.0.2",
+      "outputFile": "PremierPay_T1_2.0.2_20250710171353.apk"
+    }
+  ],
+  "elementType": "File"
+}

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name" >myDialog</string>
+    <string name="app_confirm" >Confirm</string>
+    <string name="app_exit" >Exit The App?</string>
+    <string name="app_cancel" >Cancel</string>
+    <string name="p_enter">Please enter the ...</string>
+</resources>

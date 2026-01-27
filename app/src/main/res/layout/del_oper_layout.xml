@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_layout"/>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/padding_top"
+        android:layout_marginLeft="@dimen/padding_left"
+        android:layout_marginRight="@dimen/padding_right"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height">
+
+        <EditText
+            android:inputType="number"
+            android:maxLength="2"
+            android:id="@+id/et_input"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:text="Del"
+            android:id="@+id/bt_del"
+            android:layout_marginLeft="@dimen/padding_top"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/padding_top"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:gravity="center"
+                android:text="@string/manager_oper_id"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:gravity="center"
+                android:text="@string/manager_oper_name"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color" />
+
+        <ListView
+            android:padding="3dp"
+            android:layout_marginTop="@dimen/padding_top"
+            android:layout_marginLeft="@dimen/padding_right"
+            android:layout_marginRight="@dimen/padding_right"
+            android:id="@+id/query_oper_listview"
+            android:divider="#eeeeee"
+            android:layout_width="match_parent"
+            android:listSelector="@android:color/transparent"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color" />
+
+    </LinearLayout>
+
+</LinearLayout>

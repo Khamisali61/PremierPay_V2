@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> &lt;!&ndash; 1、设置打印机权限 &ndash;&gt; -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CLOUDPOS_PRINTER" /> <!-- 2、访问密码键盘权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_PINPAD" /> <!-- 3、密码键盘计算Pinblock权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_PINPAD_PIN_BLOCK" /> <!-- 4、密码键盘计算Mac权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_PINPAD_PIN_MAC" /> <!-- 5、密码键盘加密数据权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_PINPAD_ENCRYPT_DATA" /> <!-- 6、密码键盘更新终端主密钥权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_PINPAD_UPDATE_MKEY" /> <!-- 7、密码键盘更新⼯作密钥权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_PINPAD_UPDATE_WKEY" /> <!-- 8、访问接触式IC卡读卡设备权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_ICCARD" /> <!-- 9、访问EMV权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_EMVL2" /> <!-- 10、访问⾮接触IC卡读卡设备权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_RFCARD" /> <!-- 11、访问磁条卡读卡器设备权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_MAGCARD" /> <!-- 12、获取磁道明⽂接⼜权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_MAGCARD_GETTRACKDATA" /> <!-- 13、获取磁道密⽂数据接⼜权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_MAGCARD_GETENCRYPTTRACKDATA" /> <!-- 14、访问PSAM卡设备权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_PSAMCARD" /> <!-- 15、访问串⼜设备权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_SERIALPORT" /> <!-- 16、访问系统设备权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_SYSTEMDEV" /> <!-- 17、设置系统时钟权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_SYSTEMDEV_ALARM" /> <!-- 18、访问静默安装权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_SYSTEMDEV_INSTALL" /> <!-- 19、更新终端OS、驱动权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_SYSTEMDEV_OS_UPDATE" /> <!-- 20、ShellMonitor权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_SHELLMONITORDEV" /> <!-- 21、接触式CPUCard读卡设备权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_CPUCARD" /> <!-- 22、收银机设备权限 -->
+    <uses-permission android:name="android.permission.CLOUDPOS_CASHER" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 往SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+
+    <!-- 高德lbs-->
+    <!--用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <!--用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <!--用于获取运营商信息，用于支持提供运营商信息相关的接口-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <!--用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <!--用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <!--用于访问网络，网络定位需要上网-->
+<!--    <uses-permission android:name="android.permission.INTERNET"></uses-permission>-->
+    <!--用于读取手机当前的状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"  tools:ignore="ScopedStorage" />
+    <!--用于写入缓存数据到扩展存储卡-->
+<!--    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>-->
+    <!--用于申请调用A-GPS模块-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"></uses-permission>
+    <!--如果设置了target >= 28 如果需要启动后台定位则必须声明这个权限-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <!--如果您的应用需要后台定位权限，且有可能运行在Android Q设备上,并且设置了target>28，必须增加这个权限声明-->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-feature android:name="android.hardware.usb.host" android:required="true"/>
+    <uses-permission android:name="android.hardware.usb.host" />
+    <uses-permission android:name="android.hardware.usb.accessory" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"></uses-permission>
+
+    <application
+        android:name="com.topwise.premierpay.app.TopApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/premier_pay_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/premier_pay_logo"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:exported="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="true"
+        android:preserveLegacyExternalStorage="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name="com.topwise.premierpay.LoginActivity"></activity>
+        <activity android:name="com.topwise.premierpay.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <!-- 增加开机自启 launcher-->
+               <!-- <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />-->
+
+            </intent-filter>
+        </activity>
+        <activity android:name="com.topwise.premierpay.trans.action.activity.InputAmountDataActivity" />
+        <activity android:name="com.topwise.premierpay.trans.action.activity.SearchCardManagerActivity" />
+        <activity android:name="com.topwise.premierpay.trans.action.activity.PinpadActivity" />
+        <activity android:name="com.topwise.premierpay.trans.action.activity.CardConfirmActivity" />
+        <activity android:name="com.topwise.premierpay.trans.action.activity.ConsumeSuccessActivity" />
+        <activity android:name="com.topwise.premierpay.trans.action.activity.InputDataActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
+        <activity android:name="com.topwise.premierpay.trans.action.activity.InputData2Activity" />
+        <activity android:name="com.topwise.premierpay.trans.action.activity.DispTransDetailActivity" />
+        <activity android:name="com.topwise.premierpay.trans.action.activity.ElecSignActivity" />
+        <activity android:name="com.topwise.premierpay.trans.action.activity.FingerprintActivity" />
+        <activity android:name="com.topwise.premierpay.menu.SettingMenuActivity" />
+        <activity android:name="com.topwise.premierpay.menu.OperMenuActivity" />
+        <activity android:name="com.topwise.premierpay.menu.AuthMenuActivity" />
+        <activity android:name="com.topwise.premierpay.menu.QrMenuActivity" />
+        <activity android:name="com.topwise.premierpay.menu.ReprintMenuActivity" />
+        <activity android:name="com.topwise.premierpay.menu.RefundMenuActivity" />
+        <activity android:name="com.topwise.premierpay.menu.TestMenuActivity"
+            android:launchMode="singleTask"
+            />
+        <activity android:name="com.topwise.premierpay.menu.VoidMenuActivity" />
+        <activity android:name="com.topwise.premierpay.setting.activity.SettingActivity" />
+        <activity android:name="com.topwise.premierpay.setting.activity.SettingTerminalActivity" />
+        <activity android:name="com.topwise.premierpay.setting.activity.SettingTransactionActivity" />
+        <activity android:name="com.topwise.premierpay.setting.activity.SettingAboutActivity" />
+        <activity android:name="com.topwise.premierpay.setting.activity.SettingPasswordManageActivity" />
+        <activity android:name="com.topwise.premierpay.setting.activity.SettingKeyManageActivity" />
+        <activity android:name="com.topwise.premierpay.setting.activity.SettingOtherManageActivity" />
+        <activity android:name="com.topwise.premierpay.setting.activity.SettingCommManageActivity" />
+        <activity android:name="com.topwise.premierpay.setting.activity.TestParamActivity" />
+        <activity android:name="com.topwise.premierpay.setting.activity.TestReportActivity" />
+
+        <activity android:name="com.topwise.premierpay.setting.country.CurrencyActivity" />
+        <activity android:name="com.topwise.premierpay.mdb.activity.MDBTestActivity" />
+        <activity android:name="com.topwise.premierpay.operator.OperQueryActivity" />
+        <activity android:name="com.topwise.premierpay.operator.OperAddActivity" />
+        <activity android:name="com.topwise.premierpay.operator.OperDelActivity" />
+        <activity android:name="com.topwise.premierpay.trans.record.DetailActivity" />
+        <activity android:name="com.topwise.premierpay.trans.record.DetailTransActivity" />
+        <activity android:name=".trans.action.activity.CheckTurnScreenActivity" />
+        <activity android:name="com.topwise.premierpay.trans.action.InputAmountActivity" />
+        <activity android:name="com.topwise.premierpay.trans.action.activity.SearchCardManagerNewActivity" />
+		
+		<activity android:name=".mpesa.MpesaStkActivity"
+          android:label="M-Pesa STK Push"
+          android:screenOrientation="portrait"/>
+
+        <activity android:name=".trans.action.activity.ShowCodeActivity" />
+
+        <service android:name="com.amap.api.location.APSService"></service>
+        <meta-data android:name="com.amap.api.v2.apikey"
+            android:value="064d7f4332925a9c32bdfea9e7108ce3">
+        </meta-data>
+        <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService" />
+        <service
+            android:name="com.liulishuo.filedownloader.services.FileDownloadService$SeparateProcessService"
+            android:process=":filedownloader" />
+        <service
+            android:name="com.topwise.manager.serial.UsbService"
+            android:enabled="true">
+        </service>
+    </application>
+
+</manifest>

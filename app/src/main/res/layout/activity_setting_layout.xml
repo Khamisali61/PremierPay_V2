@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_layout"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/padding_top"
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_terminal"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+
+                    android:text="@string/set_terminal_param"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <ImageView
+
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_transcation"
+                android:layout_marginTop="@dimen/padding_top"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:text="@string/set_transcation_param"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <ImageView
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_commun"
+                android:layout_marginTop="@dimen/padding_top"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:text="@string/set_commun_param"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <ImageView
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_key"
+                android:layout_marginTop="@dimen/padding_top"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:text="@string/set_key_param"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <ImageView
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_operator"
+                android:layout_marginTop="@dimen/padding_top"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:text="@string/set_operator_param"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <ImageView
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_other_manage"
+                android:layout_marginTop="@dimen/padding_top"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:text="@string/set_other_manage"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <ImageView
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingRight="@dimen/padding_right"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:id="@+id/rl_set_about"
+                android:layout_marginTop="@dimen/padding_top"
+                android:background="@drawable/drawable_setting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:text="@string/set_about_param"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
+
+                <ImageView
+                    android:src="@mipmap/jiantt"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/header_layout" />
+
+    <RelativeLayout
+        android:layout_marginRight="@dimen/padding_right"
+        android:layout_marginLeft="@dimen/padding_left"
+        android:background="@drawable/btn_main_background"
+        android:layout_marginTop="@dimen/padding_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_55">
+
+        <EditText
+            android:layout_toLeftOf="@id/iv_scan"
+            android:background="@null"
+            android:layout_marginRight="@dimen/padding_top"
+            android:layout_marginLeft="@dimen/padding_top"
+            android:id="@+id/ed_indata"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_num_hight"
+            android:hint="Please input original Invoice Number"
+            android:maxLength="9">
+
+        </EditText>
+
+        <ImageView
+            android:visibility="gone"
+            android:src="@mipmap/app_qr_scan"
+            android:layout_alignParentRight="true"
+            android:id="@+id/iv_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <Button
+        android:background="@drawable/btn_main_background"
+        android:textAllCaps="false"
+        android:layout_marginTop="@dimen/btn_num_width"
+        android:layout_marginRight="@dimen/padding_right"
+        android:layout_marginLeft="@dimen/padding_left"
+        android:text="@string/app_confirm"
+        android:id="@+id/bt_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_num_hight">
+
+    </Button>
+
+</LinearLayout>
