@@ -79,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            app:password_enableSoftKeyboardAutoShow="false"
             app:password_box_hasInput_backgroundDrawable="@drawable/dot_active"
             app:password_box_highLight_backgroundDrawable="@drawable/dot_inactive"
             app:password_box_notInput_backgroundDrawable="@drawable/dot_inactive"

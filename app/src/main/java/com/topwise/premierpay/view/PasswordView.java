@@ -268,19 +268,24 @@ public class PasswordView extends LinearLayout {
         this.mEditText.setWidth(1);
         this.mEditText.setHeight(1);
         this.mEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(mBox_setNumber)});
-        switch (mTextInputType){
-            case TEXT_INPUT_TYPE_NUMBER:
-                this.mEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
-                break;
-            case TEXT_INPUT_TYPE_PHONE:
-                this.mEditText.setInputType(InputType.TYPE_CLASS_PHONE);
-                break;
-            case TEXT_INPUT_TYPE_TEXT:
-                this.mEditText.setInputType(InputType.TYPE_CLASS_TEXT);
-                break;
-            case TEXT_INPUT_TYPE_DATETIME:
-                this.mEditText.setInputType(InputType.TYPE_CLASS_DATETIME);
-                break;
+        if (!mEnableSoftKeyboardAutoShow) {
+            this.mEditText.setInputType(InputType.TYPE_NULL);
+            this.mEditText.setFocusable(false);
+        } else {
+            switch (mTextInputType) {
+                case TEXT_INPUT_TYPE_NUMBER:
+                    this.mEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    break;
+                case TEXT_INPUT_TYPE_PHONE:
+                    this.mEditText.setInputType(InputType.TYPE_CLASS_PHONE);
+                    break;
+                case TEXT_INPUT_TYPE_TEXT:
+                    this.mEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+                    break;
+                case TEXT_INPUT_TYPE_DATETIME:
+                    this.mEditText.setInputType(InputType.TYPE_CLASS_DATETIME);
+                    break;
+            }
         }
         this.mEditText.setSingleLine();
         this.mEditText.setCursorVisible(false);
