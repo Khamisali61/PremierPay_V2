@@ -28,7 +28,6 @@ public class InputAmountDataActivity extends BaseActivityWithTickForAction imple
     private static final String TAG = TopApplication.APPNANE +InputAmountDataActivity.class.getSimpleName();
     private TextView tVtitle;
     private TextView tVtime;
-    private Button Llbutton;
     private String navTitle;
     private String tip;
 
@@ -43,6 +42,15 @@ public class InputAmountDataActivity extends BaseActivityWithTickForAction imple
         switch (viewId) {
             case  R.id.btn0:
                 if (len<12 && len>0) {
+                    mAmountBuilder.append("0");
+                    setTextA();
+                }
+                break;
+            case R.id.btn00:
+                if (len < 11 && len > 0) {
+                    mAmountBuilder.append("00");
+                    setTextA();
+                } else if (len < 12 && len > 0) {
                     mAmountBuilder.append("0");
                     setTextA();
                 }
@@ -102,7 +110,7 @@ public class InputAmountDataActivity extends BaseActivityWithTickForAction imple
                 }
                 break;
 
-            case R.id.button_ok:
+            case R.id.btnConfirm:
                 String amountStr = mAmountBuilder.toString();
                 if (TextUtils.isEmpty(amountStr)){
                     TopToast.showScuessToast(getString(R.string.input_correct_amount));
@@ -116,15 +124,15 @@ public class InputAmountDataActivity extends BaseActivityWithTickForAction imple
                 result = new ActionResult(TransResult.SUCC, amountStr);
                 finish(result);
                 break;
-            case R.id.btn_del:
+            case R.id.btnClear:
                 if (len > 0) {
                     mAmountBuilder.delete(len-1, len);
                     setTextA();
                 }
                 break;
-            case R.id.btn_clear:
-                mAmountBuilder.delete(0, mTextAmount.length());
-                setTextA();
+            case R.id.back_btn:
+                result = new ActionResult(TransResult.ERR_ABORTED, null);
+                finish(result);
                 break;
         }
     }
@@ -136,12 +144,16 @@ public class InputAmountDataActivity extends BaseActivityWithTickForAction imple
 
     @Override
     protected void initViews() {
-        tVtitle = (TextView)findViewById(R.id.header_title);
-        tVtitle.setText(navTitle);
+        TextView getPaidText = (TextView) findViewById(R.id.get_paid_text);
+        if (getPaidText != null) {
+            getPaidText.setText(navTitle != null ? navTitle : "Amount");
+        }
 
-        tVtime = (TextView)findViewById(R.id.header_time);
-        mTextAmount = (TextView) findViewById(R.id.tv_amount);
+        mTextAmount = (TextView) findViewById(R.id.output);
         findViewById(R.id.btn0).setOnClickListener(this);
+        View btn00 = findViewById(R.id.btn00);
+        if (btn00 != null) btn00.setOnClickListener(this);
+
         findViewById(R.id.btn1).setOnClickListener(this);
         findViewById(R.id.btn2).setOnClickListener(this);
         findViewById(R.id.btn3).setOnClickListener(this);
@@ -151,9 +163,14 @@ public class InputAmountDataActivity extends BaseActivityWithTickForAction imple
         findViewById(R.id.btn7).setOnClickListener(this);
         findViewById(R.id.btn8).setOnClickListener(this);
         findViewById(R.id.btn9).setOnClickListener(this);
-        findViewById(R.id.btn_del).setOnClickListener(this);
-        findViewById(R.id.btn_clear).setOnClickListener(this);
-        findViewById(R.id.button_ok).setOnClickListener(this);
+
+        View btnClear = findViewById(R.id.btnClear);
+        if (btnClear != null) btnClear.setOnClickListener(this);
+
+        findViewById(R.id.btnConfirm).setOnClickListener(this);
+
+        View backBtn = findViewById(R.id.back_btn);
+        if (backBtn != null) backBtn.setOnClickListener(this);
 
         mAmountBuilder = new StringBuilder();
         setTextA();
@@ -162,19 +179,23 @@ public class InputAmountDataActivity extends BaseActivityWithTickForAction imple
     private void setTextA() {
         String amountStr = mAmountBuilder.toString();
         AppLog.v(TAG, "amountStr = "+amountStr);
-        String curr =TopApplication.sysParam.get(SysParam.APP_PARAM_TRANS_CURRENCY_SYMBOL) ;
+        String curr =TopApplication.sysParam.get(SysParam.APP_PARAM_TRANS_CURRENCY_SYMBOL);
+        if (curr == null) curr = "Ksh"; // fallback
+
         if (TextUtils.isEmpty(amountStr)) {
-            mTextAmount.setText(curr +"0.00");
-            SmallScreenUtil.getInstance().showAmount(tVtitle.getText().toString(), curr+"0.00");
+            mTextAmount.setText("0.00");
+            SmallScreenUtil.getInstance().showAmount(navTitle, curr+"0.00");
             return ;
         }
         long amount = Long.valueOf(amountStr);
         AppLog.v(TAG, "amount long  = "+amount);
 
-        amountStr = curr + String.format("%d.%02d", amount/100, amount%100);
-        AppLog.v(TAG, "format  = "+amountStr);
-        mTextAmount.setText(amountStr);
-        SmallScreenUtil.getInstance().showAmount(tVtitle.getText().toString(), amountStr);
+        // amountStr = curr + String.format("%d.%02d", amount/100, amount%100);
+        // Using same formatting as InputAmountActivity for consistency if needed, but keeping logic close to original
+        String formattedAmount = String.format("%d.%02d", amount/100, amount%100);
+
+        mTextAmount.setText(formattedAmount);
+        SmallScreenUtil.getInstance().showAmount(navTitle, curr + formattedAmount);
     }
 
     @Override
@@ -206,8 +227,7 @@ public class InputAmountDataActivity extends BaseActivityWithTickForAction imple
         switch (msg.what) {
             case TIP_TIME:
                 String time = (String)msg.obj;
-                if (!TextUtils.isEmpty(time))
-                    tVtime.setText(time);
+                // Time update if needed
                 break;
         }
     }
@@ -245,7 +265,7 @@ public class InputAmountDataActivity extends BaseActivityWithTickForAction imple
                     break;
                 }
                 long amount = Long.valueOf(amountStr);
-                AppLog.i(TAG ,"：" + amount);
+                com.topwise.toptool.api.utils.AppLog.i(TAG ,"：" + amount);
                 if (TextUtils.isEmpty(amountStr) || amount == 0) {
                     break;
                 }

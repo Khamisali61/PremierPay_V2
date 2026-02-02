@@ -151,7 +151,7 @@ public class InputAmountActivity extends BaseActivityWithTickForAction implement
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_amount;
+        return R.layout.activity_inamount;
     }
 
     @Override

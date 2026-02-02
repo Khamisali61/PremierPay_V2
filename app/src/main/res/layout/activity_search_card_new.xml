@@ -41,16 +41,22 @@
         android:orientation="vertical"
         android:padding="@dimen/dp_20">
 
-        <!-- Amount Display -->
-        <TextView
-            android:id="@+id/trad_amount"
+        <!-- Amount Display (Wrapped in RelativeLayout for Java compatibility) -->
+        <RelativeLayout
+            android:id="@+id/rl_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="0.00"
-            android:textColor="@color/brand_navy"
-            android:textSize="36sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/trad_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="@color/brand_navy"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
         <!-- Cash Amount (Hidden mostly) -->
         <RelativeLayout
