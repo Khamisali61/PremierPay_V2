@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textview.MaterialTextView;
 import com.topwise.toptool.api.utils.AppLog;
 import com.topwise.premierpay.R;
 import com.topwise.premierpay.app.TopApplication;
@@ -38,7 +37,7 @@ public class InputAmountActivity extends BaseActivityWithTickForAction implement
     private String tip;
 
     private StringBuilder mAmountBuilder;
-    private MaterialTextView  mTextAmount;
+    private TextView  mTextAmount;
     Long maxValue = 1000000000L; // 10 million (10,000,000.00)
 
     @Override
@@ -160,7 +159,7 @@ public class InputAmountActivity extends BaseActivityWithTickForAction implement
         String curr = TopApplication.sysParam.get(SysParam.APP_PARAM_TRANS_CURRENCY_SYMBOL);
         if (currSymbol != null) currSymbol.setText(curr);
 
-        mTextAmount = (MaterialTextView) findViewById(R.id.output);
+        mTextAmount = (TextView) findViewById(R.id.output);
 
         btnConfirm = findViewById(R.id.btnConfirm);
         btnConfirm.setOnClickListener(this);

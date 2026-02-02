@@ -2,76 +2,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.MaterialComponents.Light"
     android:focusable="false"
     android:descendantFocusability="blocksDescendants">
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn1"
         style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_1"
-        app:elevation="8dp" />
+        android:text="@string/btn_cal_1" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn2"
         style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_2"
-        app:elevation="8dp" />
+        android:text="@string/btn_cal_2" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn3"
         style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_3"
-        app:elevation="8dp" />
+        android:text="@string/btn_cal_3" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn4"
         style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_4"
-        app:elevation="8dp" />
+        android:text="@string/btn_cal_4" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn5"
         style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_5"
-        app:elevation="8dp" />
+        android:text="@string/btn_cal_5" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn6"
         style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_6"
-        app:elevation="8dp" />
+        android:text="@string/btn_cal_6" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn7"
         style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_7"
-        app:elevation="8dp" />
+        android:text="@string/btn_cal_7" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn8"
         style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_8"
-        app:elevation="8dp" />
+        android:text="@string/btn_cal_8" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn9"
         style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_9"
-        app:elevation="8dp" />
+        android:text="@string/btn_cal_9" />
 
     <!-- 00 Button -->
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn00"
         style="@style/NumberPadButtonStyle"
-        android:text="00"
-        app:elevation="8dp" />
+        android:text="00" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn0"
         style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_0"
-        app:elevation="8dp" />
+        android:text="@string/btn_cal_0" />
 
     <!-- Backspace/Clear -->
     <androidx.appcompat.widget.AppCompatImageButton
@@ -79,7 +67,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/bg_keypad_number_field"
-        android:elevation="4dp"
+        android:backgroundTint="#f2f4f7"
         android:scaleType="center"
         app:srcCompat="@drawable/db_clears"
         android:focusable="false"
