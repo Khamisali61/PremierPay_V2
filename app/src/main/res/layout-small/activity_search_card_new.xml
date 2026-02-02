@@ -24,59 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/tv_total_amount_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TOTAL AMOUNT"
-        android:textColor="#80FFFFFF"
-        android:textSize="10sp"
-        android:letterSpacing="0.1"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
-
-    <!-- Amount Wrapper for Java Compat -->
-    <RelativeLayout
-        android:id="@+id/rl_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_total_amount_label"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="4dp">
-
-        <TextView
-            android:id="@+id/trad_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="$0.00"
-            android:textColor="@color/white"
-            android:textSize="32sp"
-            android:textStyle="bold"/>
-    </RelativeLayout>
-
-    <!-- Cash Amount (Hidden mostly) -->
-    <RelativeLayout
-        android:id="@+id/rl_cash_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/rl_amount"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="2dp"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/cash_trad_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/white"/>
-    </RelativeLayout>
-
+    <!-- Manual input PAN, default gone. Kept for logic compatibility. -->
     <RelativeLayout
         android:id="@+id/rl_input_pan"
         android:layout_width="match_parent"
@@ -156,34 +104,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:gravity="center"
             android:layout_marginBottom="8dp">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/cash"
-                app:tint="#999999"
-                android:layout_marginEnd="16dp"/>
+                android:layout_width="36dp"
+                android:layout_height="22dp"
+                android:src="@mipmap/icon_visa"
+                android:layout_marginEnd="12dp"
+                android:scaleType="fitCenter"/>
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/baseline_account_balance_wallet_24"
-                app:tint="#999999"
-                android:layout_marginEnd="16dp"/>
-
-             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/baseline_list_alt_24"
-                app:tint="#999999"
-                android:layout_marginEnd="16dp"/>
-
-             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/baseline_credit_card_24"
-                app:tint="#999999"/>
+                android:layout_width="36dp"
+                android:layout_height="22dp"
+                android:src="@mipmap/icon_mc"
+                android:scaleType="fitCenter"/>
         </LinearLayout>
 
         <LinearLayout
