@@ -57,9 +57,6 @@ public class PinpadActivity extends BaseActivityWithTickForAction implements Vie
     private PasswordView mPasswordView;
     private TextView mPasswordText;
 
-    private Button btnConfirm;
-    private Button btnClear;
-    private Button btnCancel;
     private StringBuilder mCurrentPinInput = new StringBuilder();
 
     @Override
@@ -88,10 +85,6 @@ public class PinpadActivity extends BaseActivityWithTickForAction implements Vie
 
         tVtime = (TextView)findViewById(R.id.header_time);
         tvOfflineWarning = (TextView)findViewById(R.id.lastPwdWarning);
-
-        btnConfirm = (Button) findViewById(R.id.btn_pin_confirm);
-        btnClear = (Button) findViewById(R.id.btn_pin_clear);
-        btnCancel = (Button) findViewById(R.id.btn_pin_cancel);
 
         mTestCardNo.setText(getString(R.string.pin_tip_card_num) + PanUtils.maskedCardNo(panBlock));
         if (!TextUtils.isEmpty(amount)) {
@@ -140,58 +133,12 @@ public class PinpadActivity extends BaseActivityWithTickForAction implements Vie
 
     @Override
     protected void setListeners() {
-        if (btnConfirm != null) btnConfirm.setOnClickListener(this);
-        if (btnClear != null) btnClear.setOnClickListener(this);
-        if (btnCancel != null) btnCancel.setOnClickListener(this);
-
-        int[] keyIds = {
-            R.id.btn_key_0, R.id.btn_key_1, R.id.btn_key_2, R.id.btn_key_3,
-            R.id.btn_key_4, R.id.btn_key_5, R.id.btn_key_6, R.id.btn_key_7,
-            R.id.btn_key_8, R.id.btn_key_9, R.id.btn_key_back
-        };
-        for (int id : keyIds) {
-            View view = findViewById(id);
-            if (view != null) {
-                view.setOnClickListener(this);
-            }
-        }
+        // Listeners for manual keypad buttons removed as we use system PIN pad overlay
     }
 
     @Override
     public void onClick(View v) {
-        int id = v.getId();
-        if (id == R.id.btn_pin_cancel) {
-            ActionResult result = new ActionResult(TransResult.ERR_ABORTED, null);
-            finishPinpad(result);
-        } else if (id == R.id.btn_pin_clear) {
-            if (mPasswordView != null) {
-                mCurrentPinInput.setLength(0);
-                mPasswordView.setTextValue("");
-                mPasswordText.setText("");
-            }
-        } else if (id == R.id.btn_pin_confirm) {
-            // Hardware PIN pad confirm is handled by the physical key or system.
-            // If possible, we could try to simulate confirm here, but usually not exposed.
-            // For now, this button mimics the physical green button visually.
-            AppLog.i(TAG, "OnScreen Confirm Clicked");
-        } else if (id == R.id.btn_key_back) {
-            if (mCurrentPinInput.length() > 0) {
-                mCurrentPinInput.deleteCharAt(mCurrentPinInput.length() - 1);
-                mPasswordView.setTextValue(mCurrentPinInput.toString());
-            }
-        } else {
-            // Handle numeric keys
-            String tag = null;
-            if (v instanceof TextView) {
-                tag = ((TextView) v).getText().toString();
-            }
-            if (!TextUtils.isEmpty(tag) && TextUtils.isDigitsOnly(tag)) {
-                if (mCurrentPinInput.length() < 4) { // Assuming 4 digit PIN
-                    mCurrentPinInput.append(tag);
-                    mPasswordView.setTextValue(mCurrentPinInput.toString());
-                }
-            }
-        }
+        // Click handling for manual keypad removed
     }
 
     @Override
