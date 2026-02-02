@@ -8,41 +8,24 @@ import android.os.Message;
 import androidx.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 
-import com.bumptech.glide.Glide;
 import com.topwise.kdialog.DialogSureCancel;
 import com.topwise.kdialog.IkeyListener;
 import com.topwise.manager.AppLog;
 import com.topwise.premierpay.app.ActivityStack;
 import com.topwise.premierpay.app.BaseActivity;
 import com.topwise.premierpay.app.TopApplication;
-import com.topwise.premierpay.bean.BannerBean;
 import com.topwise.premierpay.daoutils.DaoUtlis;
-import com.topwise.premierpay.mdb.activity.MDBTestActivity;
 import com.topwise.premierpay.menu.AuthMenuActivity;
 import com.topwise.premierpay.menu.SettingMenuActivity;
-import com.topwise.premierpay.menu.TestMenuActivity;
-import com.topwise.premierpay.menu.VoidMenuActivity;
-import com.topwise.premierpay.mpesa.MpesaStkActivity; // Added M-Pesa Activity Import
-import com.topwise.premierpay.param.SysParam;
+import com.topwise.premierpay.mpesa.MpesaStkActivity;
 import com.topwise.premierpay.thirdcall.ThirdCall;
-import com.topwise.premierpay.trans.TransBalance;
-import com.topwise.premierpay.trans.TransCashOnly;
-import com.topwise.premierpay.trans.TransQrCode;
-import com.topwise.premierpay.trans.TransQrSave;
 import com.topwise.premierpay.trans.TransRefund;
 import com.topwise.premierpay.trans.TransSale;
-import com.topwise.premierpay.trans.action.ActionInputpwd;
-import com.topwise.premierpay.trans.core.AAction;
 import com.topwise.premierpay.trans.core.ATransaction;
 import com.topwise.premierpay.trans.core.ActionResult;
 import com.topwise.premierpay.trans.model.Device;
 import com.topwise.premierpay.trans.model.EUIParamKeys;
-
-import com.topwise.premierpay.trans.TransSaleWithCash;
-import com.topwise.premierpay.trans.model.TransResult;
 import com.topwise.premierpay.trans.record.DetailActivity;
 import com.topwise.premierpay.transmit.TransProcessListenerImpl;
 import com.topwise.premierpay.transmit.iso8583.Transmit;
@@ -50,23 +33,12 @@ import com.topwise.premierpay.utils.NetWorkUtils;
 import com.topwise.premierpay.utils.PermissionsTool;
 import com.topwise.premierpay.utils.SmallScreenUtil;
 import com.topwise.premierpay.utils.Utils;
-import com.topwise.premierpay.view.InputPwdDialog;
-import com.topwise.premierpay.view.MenuPage;
 import com.topwise.premierpay.view.TopToast;
-import com.youth.banner.Banner;
-import com.youth.banner.adapter.BannerImageAdapter;
-import com.youth.banner.holder.BannerImageHolder;
-import com.youth.banner.indicator.RectangleIndicator;
-
-import java.util.List;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = TopApplication.APPNANE + MainActivity.class.getSimpleName();
-    private MenuPage menuPage;
     private boolean hasDoTrans;
     private final static int CHECK_PON_STATER = 0x01;
-    private LinearLayout mLayout;
-    Banner mBanner;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -83,101 +55,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initViews() {
-        mLayout = (LinearLayout) findViewById(R.id.ll_gallery);
-        mBanner = (Banner) findViewById(R.id.banner);
-        BannerBean bannerBean = new BannerBean();
-        initBanner(bannerBean.getBannerList());
-        mLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                android.widget.LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                        LayoutParams.MATCH_PARENT,
-                        LayoutParams.MATCH_PARENT);
-                menuPage = createMenu();
-                mLayout.addView(menuPage, params);
-            }
-        });
-    }
+        // Bind new buttons
+        View btnSale = findViewById(R.id.card_sale);
+        View btnRefund = findViewById(R.id.card_refund);
+        View btnPreAuth = findViewById(R.id.card_preauth);
+        View btnReports = findViewById(R.id.card_reports);
+        View btnMpesa = findViewById(R.id.card_mpesa);
+        View btnSettings = findViewById(R.id.card_settings);
 
-
-
-    public void initBanner(List<String> list) {
-        mBanner.setAdapter(new BannerImageAdapter<String>(list) {
-            @Override
-            public void onBindView(BannerImageHolder bannerImageHolder, String bannerBean, int i, int i1) {
-                Glide.with(bannerImageHolder.itemView)
-                        .load(bannerBean.toString())
-                        .into(bannerImageHolder.imageView);
-            }
-        });
-        mBanner.setIndicator(new RectangleIndicator(this));
-    }
-
-    /**
-     * 创建菜单
-     */
-    private MenuPage createMenu() {
-        int maxItemNPerPage = 9;
-        int columns = 3;
-//        if (Utils.isLowPix(MainActivity.this)) {
-//            maxItemNPerPage = 6;
-//            columns =3;
-//        }
-        MenuPage.Builder builder = new MenuPage.Builder(MainActivity.this, maxItemNPerPage, columns);
-        builder.addTransItem(getString(R.string.title_sale), R.mipmap.sale_2,TopApplication.parameterBean.getSaleEnable(),
-                        new TransSale(MainActivity.this, handler, transEndListener))
-//                .addTransItem(getString(R.string.app_qr_sale), R.drawable.scan, new TransQrSave(MainActivity.this, handler, transEndListener))
-//                .addMenuItem(getString(R.string.app_void), R.drawable.void_1,TopApplication.parameterBean.getVoidEnable(), VoidMenuActivity.class)
-                .addTransItem(getString(R.string.app_refund), R.drawable.refund, TopApplication.parameterBean.getRefundEnable(),new TransRefund(MainActivity.this, handler, transEndListener))
-                .addMenuItem(getString(R.string.auth_trans), R.drawable.pre_auth,TopApplication.parameterBean.getAuthEnable(), AuthMenuActivity.class)
-//                .addTransItem(getString(R.string.title_balance), R.drawable.balance,TopApplication.parameterBean.isBalanceEnable(),
-//                        new TransBalance(MainActivity.this, handler, null))
-//                .addTransItem(getString(R.string.app_cash_withdrawal), R.drawable.cashier,TopApplication.parameterBean.getTipEnable(),
-//                        new TransSaleWithCash(MainActivity.this, handler, transEndListener))
-//                .addTransItem(getString(R.string.app_cash_deposit), R.drawable.cash,TopApplication.parameterBean.getTipEnable(),
-//                        new TransCashOnly(MainActivity.this, handler, transEndListener))
-                // ADDED M-PESA OPTION HERE
-                .addMenuItem("M-Pesa STK Push", R.mipmap.spp_phone_setting, MpesaStkActivity.class)
-                .addMenuItem(getString(R.string.app_bill), R.mipmap.transaction_detail, DetailActivity.class)
-//                .addActionItem(getString(R.string.app_shop), R.mipmap.store, toAppShopActivity())
-                .addMenuItem(getString(R.string.app_setting), R.mipmap.settings, SettingMenuActivity.class);
-//                 .addMenuItem(getString(R.string.stress_test), R.drawable.settle_accounts, TestMenuActivity.class)
-//                 .addMenuItem(getString(R.string.test_mdb),R.mipmap.param_d,TopApplication.parameterBean.isMdbEnable(), MDBTestActivity.class)
-//                .addTransItem(getString(R.string.title_qr_code), R.drawable.qr_code,TopApplication.parameterBean.isQrEnable(),
-//                        new TransQrCode(MainActivity.this, handler, transEndListener));
-        return builder.create();
-    }
-
-    private AAction toAppShopActivity() {
-        ActionInputpwd actionInputpwd = new ActionInputpwd(new AAction.ActionStartListener() {
-            @Override
-            public void onStart(AAction action) {
-                ((ActionInputpwd)action).setParam(MainActivity.this,handler,2,
-                        getString(R.string.set_please_enter_supervisor_password ),
-                        getString(R.string.set_please_enter_pwd));
-            }
-        });
-        actionInputpwd.setEndListener(new AAction.ActionEndListener() {
-            @Override
-            public void onEnd(AAction action, ActionResult result) {
-                String data = (String)result.getData();
-                TopApplication.isRuning = false;
-                if (TransResult.ERR_ABORTED == result.getRet()){
-                    ActivityStack.getInstance().popTo(MainActivity.this);
-                    return;
-                }
-
-                String sys_pwd = TopApplication.sysParam.get(SysParam.SEC_SYSPWD);
-                if (sys_pwd.equals(data)) {
-                    PackageManager packageManager = getPackageManager();
-                    Utils.startAppshop(MainActivity.this,packageManager);
-                } else {
-                    TopToast.showFailToast(MainActivity.this,
-                            getString(R.string.set_pwd_err));
-                }
-            }
-        });
-        return actionInputpwd;
+        if (btnSale != null) btnSale.setOnClickListener(this);
+        if (btnRefund != null) btnRefund.setOnClickListener(this);
+        if (btnPreAuth != null) btnPreAuth.setOnClickListener(this);
+        if (btnReports != null) btnReports.setOnClickListener(this);
+        if (btnMpesa != null) btnMpesa.setOnClickListener(this);
+        if (btnSettings != null) btnSettings.setOnClickListener(this);
     }
 
     @Override
@@ -198,11 +89,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void handleMsg(Message msg) {
         switch (msg.what) {
             case CHECK_PON_STATER:
-                //paynext 不需要登录界面
-//                if (Controller.Constant.NO == TopApplication.controller.get(Controller.OPERATOR_LOGON_STATUS) ){
-//                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//                    startActivity(intent);
-//                }
                 break;
             case 11:
                 TopToast.showNormalToast(MainActivity.this, "交易成功");
@@ -219,7 +105,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                public void run() {
 //                    AppLog.d(TAG, "TransEndListener end");
 //                    hasDoTrans = false;// 重置交易标志位
-//                    resetUI();
 //                    if (!"topwise".equals(BuildConfig.CHANNEL)) {
 //                        toReversal();
 //                    }
@@ -228,21 +113,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     };
 
-    /**
-     * 重置MainActivity界面
-     */
-    private void resetUI() {
-        if (menuPage != null) {
-            menuPage.setCurrentPager(0);
-        }
-    }
-
     private void toReversal() {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 AppLog.d(TAG, "MainActivity toReversal");
-                // 立即冲正，在这处理
                 TransProcessListenerImpl listenerImpl = new TransProcessListenerImpl();
                 int ret = Transmit.getInstance().sendReversal(listenerImpl);
                 listenerImpl.onHideProgress();
@@ -251,34 +126,78 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }).start();
     }
 
-    private InputPwdDialog inputPwdDialog;
-
     @Override
     public void onClick(View v) {
+        if (TopApplication.isRuning) return;
+
+        Intent intent;
+        Bundle bundle;
+
         switch (v.getId()) {
-            case R.id.cashback_flow:
-                if (hasDoTrans)
-                    return;
-
+            case R.id.card_sale:
+                if (hasDoTrans) return;
                 hasDoTrans = true;
-
-                new TransSale(MainActivity.this, handler, transEndListener).execute();
+                TopApplication.isRuning = true;
+                if (TopApplication.parameterBean.getSaleEnable()){
+                     new TransSale(MainActivity.this, handler, transEndListener).execute();
+                } else {
+                     TopToast.showFailToast(MainActivity.this, getString(R.string.permission_not_allowed));
+                     hasDoTrans = false;
+                     TopApplication.isRuning = false;
+                }
                 break;
-            case R.id.ll_setting:
-                Intent intent =new Intent(MainActivity.this, SettingMenuActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString(EUIParamKeys.NAV_TITLE.toString(),getString(R.string.app_setting));
+            case R.id.card_refund:
+                if (hasDoTrans) return;
+                hasDoTrans = true;
+                TopApplication.isRuning = true;
+                if (TopApplication.parameterBean.getRefundEnable()){
+                    new TransRefund(MainActivity.this, handler, transEndListener).execute();
+                } else {
+                    TopToast.showFailToast(MainActivity.this, getString(R.string.permission_not_allowed));
+                    hasDoTrans = false;
+                    TopApplication.isRuning = false;
+                }
+                break;
+            case R.id.card_preauth:
+                TopApplication.isRuning = true;
+                if (TopApplication.parameterBean.getAuthEnable()) {
+                    intent = new Intent(MainActivity.this, AuthMenuActivity.class);
+                    bundle = new Bundle();
+                    bundle.putString(EUIParamKeys.NAV_TITLE.toString(), getString(R.string.auth_trans));
+                    bundle.putBoolean(EUIParamKeys.NAV_BACK.toString(), true);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                } else {
+                    TopToast.showFailToast(MainActivity.this, getString(R.string.permission_not_allowed));
+                    TopApplication.isRuning = false;
+                }
+                break;
+            case R.id.card_reports:
+                TopApplication.isRuning = true;
+                intent = new Intent(MainActivity.this, DetailActivity.class);
+                bundle = new Bundle();
+                bundle.putString(EUIParamKeys.NAV_TITLE.toString(), getString(R.string.app_bill));
                 bundle.putBoolean(EUIParamKeys.NAV_BACK.toString(), true);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 break;
-            case R.id.ll_shop:
-                AAction appShopAction = toAppShopActivity();
-                appShopAction.execute();
+            case R.id.card_mpesa:
+                TopApplication.isRuning = true;
+                intent = new Intent(MainActivity.this, MpesaStkActivity.class);
+                bundle = new Bundle();
+                bundle.putString(EUIParamKeys.NAV_TITLE.toString(), "M-Pesa STK Push");
+                bundle.putBoolean(EUIParamKeys.NAV_BACK.toString(), true);
+                intent.putExtras(bundle);
+                startActivity(intent);
                 break;
-            case R.id.ll_bill:
-                Intent intent1 = new Intent(MainActivity.this, DetailActivity.class);
-                startActivity(intent1);
+            case R.id.card_settings:
+                TopApplication.isRuning = true;
+                intent = new Intent(MainActivity.this, SettingMenuActivity.class);
+                bundle = new Bundle();
+                bundle.putString(EUIParamKeys.NAV_TITLE.toString(), getString(R.string.app_setting));
+                bundle.putBoolean(EUIParamKeys.NAV_BACK.toString(), true);
+                intent.putExtras(bundle);
+                startActivity(intent);
                 break;
         }
     }
@@ -286,22 +205,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
-
-        // --- FIX: FORCE UNLOCK GLOBAL AND LOCAL FLAGS ---
         hasDoTrans = false;
-        TopApplication.isRuning = false; // <--- This line is critical!
-        // ------------------------------------------------
-
+        TopApplication.isRuning = false;
         AppLog.d(TAG,"onResume " + TopApplication.isInstallDeviceService);
         handler.sendEmptyMessage(CHECK_PON_STATER);
         SmallScreenUtil.getInstance().showLogo("topwise.bmp");
-        MenuPage createMenu = createMenu();
-        AppLog.d(TAG, "initMenuPage ======================");
-        if(mLayout!=null) {
-            mLayout.removeAllViews();
-        }
-        menuPage = createMenu;
-        mLayout.addView(createMenu);
     }
 
     @Override

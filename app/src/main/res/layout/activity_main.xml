@@ -1,142 +1,382 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/btn_background">
+    android:background="#F5F5F5">
 
-    <!--Header-->
-    <RelativeLayout
-        android:id="@+id/layout_header"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/login_num_hight"
-        android:background="@color/colorPrimaryDark" >
-
-        <!--Back-->
-        <ImageView
-            android:visibility="gone"
-            android:paddingLeft="5dp"
-            android:id="@+id/header_back"
-            android:layout_width="57dp"
-            android:layout_height="57dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/btn_amount_back" />
-
-        <!--Title-->
-        <com.topwise.premierpay.view.MTextView
-            android:singleLine="true"
-            android:ellipsize="marquee"
-            android:focusable="false"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:gravity="center"
-            android:id="@+id/header_title"
-            android:layout_width="@dimen/dp_250"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textSize="24dp"
-            android:text="@string/app_name"
-            android:textColor="@android:color/white" />
-
-        <!--APP Setting-->
-<!--        <LinearLayout-->
-<!--            android:id="@+id/ll_setting"-->
-<!--            android:gravity="center"-->
-<!--            android:clickable="true"-->
-<!--            android:onClick="onClick"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content">-->
-
-<!--            <ImageView-->
-<!--                android:paddingRight="12dp"-->
-<!--                android:textSize="18dp"-->
-<!--                android:id="@+id/header_time"-->
-<!--                android:src="@mipmap/settings1"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content">-->
-<!--            </ImageView>-->
-
-<!--        </LinearLayout>-->
-
-    </RelativeLayout>
-
-    <com.youth.banner.Banner
-        android:id="@+id/banner"
-        android:layout_width="match_parent"
-        android:layout_height="100dp" />
-
-    <!--Sale transaction quick entry point-->
+    <!-- Header -->
     <LinearLayout
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone">
+        android:background="#003366"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <LinearLayout
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:id="@+id/cashback_flow"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/tabrow_height"
-            android:layout_weight="1"
-            android:background="@drawable/drawable_button_consume"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:onClick="onClick">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MERCHANT TERMINAL"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:alpha="0.7"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/sale_2"
-                android:layout_marginBottom="@dimen/home_view_spaces" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artisan Coffee Co."
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="@string/title_sale"
-                android:textColor="@color/common_text_color"
-                android:textSize="20sp" />
+                android:text="Dashboard"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
 
-        </LinearLayout>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SYSTEM READY"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:alpha="0.7"/>
+        </RelativeLayout>
     </LinearLayout>
 
-    <!--Loading view-->
-    <LinearLayout
-        android:id="@+id/loading"
-        android:gravity="center"
-        android:visibility="gone"
+    <!-- Content -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:layout_above="@id/bottom_nav"
+        android:padding="16dp">
 
-        <TextView
-            android:scaleType="centerInside"
-            android:text="Loading"
-            android:textSize="25sp"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
-
-    </LinearLayout>
-
-    <!--Grid View Container-->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
-
-        <!--Transaction item container-->
-        <LinearLayout
-            android:id="@+id/ll_gallery"
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"/>
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:useDefaultMargins="true">
 
-</LinearLayout>
+            <!-- Sale -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_sale"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#8CC63F">
 
+                <LinearLayout
+                    android:id="@+id/btn_sale"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@mipmap/sale_2"
+                        app:tint="#003366"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sale"
+                        android:textColor="#003366"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start payment"
+                        android:textColor="#003366"
+                        android:textSize="12sp"
+                        android:alpha="0.7"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Refund -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_refund"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                 android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:id="@+id/btn_refund"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/baseline_replay_24"
+                        app:tint="#003366"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Refund"
+                        android:textColor="#003366"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reverse charge"
+                        android:textColor="#666666"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+             <!-- Pre-Auth -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_preauth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                 android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:id="@+id/btn_preauth"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/pre_auth"
+                        app:tint="#003366"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pre-Auth"
+                        android:textColor="#003366"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hold funds"
+                        android:textColor="#666666"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Reports -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_reports"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                 android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:id="@+id/btn_reports"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/baseline_list_alt_24"
+                        app:tint="#003366"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reports"
+                        android:textColor="#003366"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Daily summary"
+                        android:textColor="#666666"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+             <!-- Mpesa STK Push -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_mpesa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                 android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:id="@+id/btn_mpesa"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@mipmap/spp_phone_setting"
+                        app:tint="#003366"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mpesa STK Push"
+                        android:textColor="#003366"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Remote payment"
+                        android:textColor="#666666"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Settings -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_settings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                 android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:id="@+id/btn_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/baseline_settings_24"
+                        app:tint="#003366"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Settings"
+                        android:textColor="#003366"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Device config"
+                        android:textColor="#666666"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+
+    </ScrollView>
+
+    <!-- Bottom Nav -->
+    <LinearLayout
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_window_24"
+            app:tint="#8CC63F"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_credit_card_24"
+            app:tint="#CCCCCC"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_list_alt_24"
+            app:tint="#CCCCCC"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_build_24"
+            app:tint="#CCCCCC"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

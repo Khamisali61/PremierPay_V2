@@ -33,13 +33,14 @@ public class InputAmountActivity extends BaseActivityWithTickForAction implement
     private static final String TAG = TopApplication.APPNANE + InputAmountActivity.class.getSimpleName();
     private TextView tVtitle;
     private TextView tVtime;
-    private Button Llbutton;
+    private Button btnConfirm;
     private String navTitle;
     private String tip;
 
     private StringBuilder mAmountBuilder;
     private MaterialTextView  mTextAmount;
     Long maxValue = 1000000000L; // 10 million (10,000,000.00)
+
     @Override
     public void onClick(View v) {
         int viewId = v.getId();
@@ -50,6 +51,15 @@ public class InputAmountActivity extends BaseActivityWithTickForAction implement
                 if (len<12 && len>0) {
                     mAmountBuilder.append("0");
                     setTextA();
+                }
+                break;
+            case R.id.btn00:
+                if (len < 11 && len > 0) {
+                     mAmountBuilder.append("00");
+                     setTextA();
+                } else if (len < 12 && len > 0) {
+                     mAmountBuilder.append("0");
+                     setTextA();
                 }
                 break;
             case  R.id.btn1:
@@ -146,16 +156,19 @@ public class InputAmountActivity extends BaseActivityWithTickForAction implement
 
     @Override
     protected void initViews() {
-       // tVtitle = (TextView)findViewById(R.id.header_title);
-      //  tVtitle.setText(navTitle);
-
-      //  tVtime = (TextView)findViewById(R.id.header_time);
         TextView currSymbol = (TextView)findViewById(R.id.currency_icon);
         String curr = TopApplication.sysParam.get(SysParam.APP_PARAM_TRANS_CURRENCY_SYMBOL);
-        currSymbol.setText(curr);
+        if (currSymbol != null) currSymbol.setText(curr);
 
         mTextAmount = (MaterialTextView) findViewById(R.id.output);
+
+        btnConfirm = findViewById(R.id.btnConfirm);
+        btnConfirm.setOnClickListener(this);
+
         findViewById(R.id.btn0).setOnClickListener(this);
+        View btn00 = findViewById(R.id.btn00);
+        if (btn00 != null) btn00.setOnClickListener(this);
+
         findViewById(R.id.back_btn).setOnClickListener(this);
         findViewById(R.id.btn1).setOnClickListener(this);
         findViewById(R.id.btn2).setOnClickListener(this);
@@ -166,9 +179,13 @@ public class InputAmountActivity extends BaseActivityWithTickForAction implement
         findViewById(R.id.btn7).setOnClickListener(this);
         findViewById(R.id.btn8).setOnClickListener(this);
         findViewById(R.id.btn9).setOnClickListener(this);
-       // findViewById(R.id.btn_del).setOnClickListener(this);
-        findViewById(R.id.btnClear).setOnClickListener(this);
-        findViewById(R.id.btnConfirm).setOnClickListener(this);
+
+        View btnClear = findViewById(R.id.btnClear);
+        if (btnClear != null) btnClear.setOnClickListener(this);
+
+        // btn_clear might not exist in new layout
+        View btnClearAll = findViewById(R.id.btn_clear);
+        if (btnClearAll != null) btnClearAll.setOnClickListener(this);
 
         mAmountBuilder = new StringBuilder();
         setTextA();
@@ -179,11 +196,13 @@ public class InputAmountActivity extends BaseActivityWithTickForAction implement
 
     private void setTextA() {
         String curr = TopApplication.sysParam.get(SysParam.APP_PARAM_TRANS_CURRENCY_SYMBOL);
+        if (curr == null) curr = "Ksh"; // Fallback
 
         String amountStr = mAmountBuilder.toString();
         AppLog.v(TAG, "amountStr = "+amountStr);
         if (TextUtils.isEmpty(amountStr)) {
-            mTextAmount.setText(/*curr+*/"0.00");
+            mTextAmount.setText("0.00");
+            if (btnConfirm != null) btnConfirm.setText("CHARGE " + curr + " 0.00");
             SmallScreenUtil.getInstance().showAmount(navTitle, curr+"0.00");
             return ;
         }
@@ -196,10 +215,11 @@ public class InputAmountActivity extends BaseActivityWithTickForAction implement
             Snackbar.make(findViewById(R.id.btnConfirm), "Max value is 10 Million", Snackbar.LENGTH_LONG).show();
             return;
         } else {
-            amountStr = /*curr + */Utils.amountAddComma(String.format("%d.%02d", amount/100, amount%100));
-            AppLog.v(TAG, "format  = "+amountStr);
-            mTextAmount.setText(amountStr);
-            SmallScreenUtil.getInstance().showAmount(navTitle, amountStr);
+            String formattedAmount = String.format("%d.%02d", amount/100, amount%100);
+            String displayAmount = Utils.amountAddComma(formattedAmount);
+            mTextAmount.setText(displayAmount);
+            if (btnConfirm != null) btnConfirm.setText("CHARGE " + curr + " " + displayAmount);
+            SmallScreenUtil.getInstance().showAmount(navTitle, curr + displayAmount);
         }
     }
 
@@ -231,9 +251,6 @@ public class InputAmountActivity extends BaseActivityWithTickForAction implement
     protected void handleMsg(Message msg) {
         switch (msg.what) {
             case TIP_TIME:
-             /*   String time = (String)msg.obj;
-                if (!TextUtils.isEmpty(time))
-                    tVtime.setText(time);*/
                 break;
         }
     }

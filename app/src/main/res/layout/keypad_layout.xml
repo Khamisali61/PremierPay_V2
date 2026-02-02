@@ -2,15 +2,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.MaterialComponents.Light"
     android:focusable="false"
-    android:descendantFocusability="blocksDescendants"
-    android:theme="@style/Theme.MaterialComponents.Light">
+    android:descendantFocusability="blocksDescendants">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn1"
         style="@style/NumberPadButtonStyle"
         android:text="@string/btn_cal_1"
-        android:focusable="false"
         app:elevation="8dp" />
 
     <com.google.android.material.button.MaterialButton
@@ -61,6 +60,20 @@
         android:text="@string/btn_cal_9"
         app:elevation="8dp" />
 
+    <!-- 00 Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn00"
+        style="@style/NumberPadButtonStyle"
+        android:text="00"
+        app:elevation="8dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn0"
+        style="@style/NumberPadButtonStyle"
+        android:text="@string/btn_cal_0"
+        app:elevation="8dp" />
+
+    <!-- Backspace/Clear -->
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnClear"
         android:layout_width="60dp"
@@ -72,31 +85,14 @@
         android:focusable="false"
         android:focusableInTouchMode="false"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn0"
-        style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_0"
-        app:elevation="8dp" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnConfirm"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/bg_keypad_number_field"
-        android:elevation="4dp"
-        android:scaleType="center"
-        app:srcCompat="@drawable/ic_proceed"
-        android:focusable="false"
-        android:focusableInTouchMode="false"/>
-
     <androidx.constraintlayout.helper.widget.Flow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="14dp"
         android:orientation="horizontal"
-        app:constraint_referenced_ids="btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnClear,btn0,btnConfirm"
+        app:constraint_referenced_ids="btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn00,btn0,btnClear"
         app:flow_maxElementsWrap="3"
         app:flow_wrapMode="chain"
-        app:flow_verticalGap="16dp"
+        app:flow_verticalGap="8dp"
         app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
