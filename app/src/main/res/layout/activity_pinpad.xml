@@ -3,95 +3,142 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:padding="24dp">
 
-    <!-- Header -->
-    <RelativeLayout
-        android:id="@+id/header_container"
+    <!-- Header Section -->
+    <LinearLayout
+        android:id="@+id/header_section"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@drawable/bg_header_rounded_bottom"
-        android:paddingTop="40dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="60dp">
 
         <TextView
             android:id="@+id/header_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:text="ENTER PIN"
-            android:textColor="@color/white"
-            android:textSize="20sp"
+            android:text="Enter PIN"
+            android:textColor="@color/brand_navy"
+            android:textSize="32sp"
             android:textStyle="bold"
-            android:letterSpacing="0.1"/>
-
-        <!-- Help Icon -->
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="24dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/baseline_error_outline_24"
-            app:tint="@color/white" />
-
-        <TextView
-            android:id="@+id/header_time"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:visibility="gone"/>
-    </RelativeLayout>
-
-    <!-- Content -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/header_container"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:paddingTop="20dp">
+            android:fontFamily="serif" />
 
         <TextView
             android:id="@+id/input_amount_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ENTER YOUR SECRET PIN"
-            android:textColor="#546E7A"
-            android:textSize="12sp"
-            android:letterSpacing="0.15"
+            android:layout_marginTop="8dp"
+            android:text="SECURE AUTHENTICATION REQUIRED"
+            android:textColor="#B0BEC5"
+            android:textSize="10sp"
+            android:letterSpacing="0.2"
             android:textStyle="bold"
             android:textAllCaps="true"/>
-
-         <TextView
-            android:id="@+id/lastPwdWarning"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:textColor="@color/red"
-            android:textSize="14sp"
-            android:visibility="gone" />
-
-        <com.topwise.premierpay.view.PasswordView
-            android:id="@+id/passwordView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            app:password_enableSoftKeyboardAutoShow="false"
-            app:password_box_hasInput_backgroundDrawable="@drawable/dot_active"
-            app:password_box_highLight_backgroundDrawable="@drawable/dot_inactive"
-            app:password_box_notInput_backgroundDrawable="@drawable/dot_inactive"
-            app:password_box_setNumber="4"
-            app:password_box_setSize="16"
-            app:password_box_setMargin="16"
-            app:password_enableHighLight="true"
-            app:password_enableCursor="false"/>
-
-        <TextView android:id="@+id/passwordText" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
-        <TextView android:id="@+id/card_num" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
-        <TextView android:id="@+id/trad_amount" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
-        <TextView android:id="@+id/trad_cash_amount" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
     </LinearLayout>
+
+    <!-- PIN View (Centered) -->
+    <com.topwise.premierpay.view.PasswordView
+        android:id="@+id/passwordView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:password_enableSoftKeyboardAutoShow="false"
+        app:password_box_hasInput_backgroundDrawable="@drawable/pin_box_active"
+        app:password_box_highLight_backgroundDrawable="@drawable/pin_box_inactive"
+        app:password_box_notInput_backgroundDrawable="@drawable/pin_box_inactive"
+        app:password_box_setNumber="4"
+        app:password_box_setSize="60"
+        app:password_box_setMargin="20"
+        app:password_enableHighLight="true"
+        app:password_enableCursor="false"/>
+
+    <!-- Encryption Status (Below PIN View) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_below="@id/passwordView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_lock_24"
+            app:tint="#CFD8DC"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="ENCRYPTION ACTIVE"
+            android:textSize="8sp"
+            android:letterSpacing="0.1"
+            android:textColor="#CFD8DC"
+            android:textAllCaps="true"/>
+    </LinearLayout>
+
+    <!-- Bottom Actions -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CANCEL TRANSACTION"
+            android:textColor="#90A4AE"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:textSize="12sp"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_capsule_gray"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="16dp">
+
+             <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/baseline_lock_24"
+                app:tint="#90A4AE"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BIOMETRIC SECURE"
+                android:textSize="10sp"
+                android:textColor="#90A4AE"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Hidden fields required by Activity logic -->
+    <TextView android:id="@+id/passwordText" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+    <TextView android:id="@+id/card_num" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+    <TextView android:id="@+id/trad_amount" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+    <TextView android:id="@+id/trad_cash_amount" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+    <TextView android:id="@+id/lastPwdWarning" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+    <TextView android:id="@+id/header_time" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
 
 </RelativeLayout>

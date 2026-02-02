@@ -114,6 +114,12 @@ public class PinpadActivity extends BaseActivityWithTickForAction implements Vie
             tvOfflineWarning.setVisibility(View.VISIBLE);
             tvOfflineWarning.setText("Offline Pin Left Times:" + offlineLastTimes);
         }
+
+        TextView btnCancel = (TextView) findViewById(R.id.btn_cancel);
+        if (btnCancel != null) {
+            btnCancel.setOnClickListener(this);
+        }
+
         initialOnListenerStyle();
     }
 
@@ -138,7 +144,9 @@ public class PinpadActivity extends BaseActivityWithTickForAction implements Vie
 
     @Override
     public void onClick(View v) {
-        // Click handling for manual keypad removed
+        if (v.getId() == R.id.btn_cancel) {
+            finishPinpad(new ActionResult(TransResult.ERR_ABORTED, null));
+        }
     }
 
     @Override
