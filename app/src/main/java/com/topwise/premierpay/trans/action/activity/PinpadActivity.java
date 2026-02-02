@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.topwise.cloudpos.aidl.pinpad.AidlPinpad;
@@ -30,7 +31,7 @@ import com.topwise.premierpay.trans.model.EUIParamKeys;
 import com.topwise.premierpay.trans.model.TransResult;
 import com.topwise.premierpay.utils.Utils;
 
-public class PinpadActivity extends BaseActivityWithTickForAction {
+public class PinpadActivity extends BaseActivityWithTickForAction implements View.OnClickListener {
     private static final String TAG = TopApplication.APPNANE + PinpadActivity.class.getSimpleName();
 
     private TextView mTestCardNo;
@@ -55,6 +56,10 @@ public class PinpadActivity extends BaseActivityWithTickForAction {
     private AidlPinpad mPinpad;
     private PasswordView mPasswordView;
     private TextView mPasswordText;
+
+    private Button btnConfirm;
+    private Button btnClear;
+    private Button btnCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +87,10 @@ public class PinpadActivity extends BaseActivityWithTickForAction {
 
         tVtime = (TextView)findViewById(R.id.header_time);
         tvOfflineWarning = (TextView)findViewById(R.id.lastPwdWarning);
+
+        btnConfirm = (Button) findViewById(R.id.btn_pin_confirm);
+        btnClear = (Button) findViewById(R.id.btn_pin_clear);
+        btnCancel = (Button) findViewById(R.id.btn_pin_cancel);
 
         mTestCardNo.setText(getString(R.string.pin_tip_card_num) + PanUtils.maskedCardNo(panBlock));
         if (!TextUtils.isEmpty(amount)) {
@@ -128,7 +137,31 @@ public class PinpadActivity extends BaseActivityWithTickForAction {
 
     @Override
     protected void setListeners() {
+        if (btnConfirm != null) btnConfirm.setOnClickListener(this);
+        if (btnClear != null) btnClear.setOnClickListener(this);
+        if (btnCancel != null) btnCancel.setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_pin_cancel:
+                ActionResult result = new ActionResult(TransResult.ERR_ABORTED, null);
+                finishPinpad(result);
+                break;
+            case R.id.btn_pin_clear:
+                if (mPasswordView != null) {
+                    mPasswordView.setTextValue("");
+                    mPasswordText.setText("");
+                }
+                break;
+            case R.id.btn_pin_confirm:
+                // Hardware PIN pad confirm is handled by the physical key or system.
+                // If possible, we could try to simulate confirm here, but usually not exposed.
+                // For now, this button mimics the physical green button visually.
+                AppLog.i(TAG, "OnScreen Confirm Clicked");
+                break;
+        }
     }
 
     @Override

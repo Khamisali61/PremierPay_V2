@@ -3,7 +3,7 @@
     android:id="@+id/layout_header"
     android:layout_width="match_parent"
     android:layout_height="@dimen/login_num_hight"
-    android:background="@color/colorPrimaryDark" >
+    android:background="@color/brand_navy" >
 
     <ImageView
         android:visibility="gone"

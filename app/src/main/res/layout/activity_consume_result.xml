@@ -2,122 +2,129 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_consume_result"
-    android:descendantFocusability="blocksDescendants"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/app_background"
+    android:descendantFocusability="blocksDescendants">
 
     <include
         android:id="@+id/header"
-        layout="@layout/header_layout"></include>
+        layout="@layout/header_layout" />
 
     <RelativeLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="@dimen/activity_vertical_margin">
 
+        <!-- Status Section -->
         <LinearLayout
-            android:paddingTop="@dimen/padding_top"
+            android:id="@+id/ll_states"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:background="@drawable/btn_background"
             android:gravity="center"
-            android:id="@+id/ll_states"
-            android:layout_alignParentTop="true"
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:paddingTop="30dp"
+            android:paddingBottom="20dp">
+
             <ImageView
-
                 android:id="@+id/iv_trans_states"
-                android:layout_width="80dp"
-                android:layout_height="80dp">
-
-            </ImageView>
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="Transaction Status" />
 
             <TextView
                 android:id="@+id/consume_sucess_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="10dp"
-
+                android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:text="@string/result_sucess_consume"
                 android:textColor="@color/consume_sucess"
-                android:textSize="20sp"/>
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
-
-
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_states"
-        android:background="@drawable/result"
-        android:orientation="vertical"
-        android:layout_marginLeft="@dimen/dp_15"
-        android:layout_marginRight="@dimen/dp_15"
-        android:layout_marginBottom="@dimen/dp_80">
-
-
-
-        <RelativeLayout
-            android:id="@+id/rl_amount"
-            android:layout_marginTop="@dimen/padding_top"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/grid_height"
-            android:layout_margin="10dp">
-
-            <TextView
-                android:id="@+id/amount_tip"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:gravity="center_vertical"
-                android:layout_marginLeft="@dimen/padding_top"
-                android:text="@string/result_sucess_consume_amount"
-                android:textSize="20sp" />
-
-            <TextView
-                android:layout_marginRight="@dimen/padding_top"
-                android:layout_alignParentRight="true"
-                android:id="@+id/consume_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:textColor="@color/consume_sucess"
-                android:textSize="30sp"/>
-
-        </RelativeLayout>
-
-        <ListView
-            android:padding="3dp"
-            android:divider="#f4f4f4"
-            android:id="@+id/lv_trans"
+        <!-- Details Section -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp_10">
-        </ListView>
+            android:layout_below="@+id/ll_states"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/result"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/rl_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/amount_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/result_sucess_consume_amount"
+                    android:textColor="@color/brand_navy"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/consume_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/consume_sucess"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/div_line_color"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <ListView
+                android:id="@+id/lv_trans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/div_line_color"
+                android:dividerHeight="1dp"
+                android:padding="10dp" />
+
+        </LinearLayout>
+
+        <!-- Exit Button -->
         <RelativeLayout
-
             android:id="@+id/exit_confirm_button"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/button_height"
-            android:paddingBottom="@dimen/padding_top"
-            android:layout_alignParentBottom="true">
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
 
             <Button
                 android:id="@+id/btn_exit_exit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/drawable_button_ok"
-                android:text="@string/result_exit"/>
+                android:background="@drawable/bg_button_navy_rounded"
+                android:text="@string/result_exit"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </RelativeLayout>
