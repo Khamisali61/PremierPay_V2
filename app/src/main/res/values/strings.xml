@@ -1,6 +1,7 @@
 <resources xliff:ignore="ExtraTranslation"
     xmlns:xliff="http://schemas.android.com/tools">
     <string name="app_name">Premier Pay</string>
+    <string name="permission_not_allowed">Permission not allowed</string>
 
     <string name="oper_login">Login</string>
     <string name="log_in">Log on</string>
