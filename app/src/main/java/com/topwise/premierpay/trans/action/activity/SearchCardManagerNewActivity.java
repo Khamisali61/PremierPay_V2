@@ -42,8 +42,8 @@ import com.topwise.premierpay.utils.Utils;
 public class SearchCardManagerNewActivity extends BaseActivityWithTickForAction {
     private static final String TAG = TopApplication.APPNANE + SearchCardManagerNewActivity.class.getSimpleName();
     private int SEARCH_CARD_TIME = 60000;
-    // private TextView mTextAmount;
-    // private TextView mTextCashAmount;
+    private TextView mTextAmount;
+    private TextView mTextCashAmount;
     private TextView tVtitle;
     private TextView tVtime;
     private String mAmount;
@@ -75,8 +75,8 @@ public class SearchCardManagerNewActivity extends BaseActivityWithTickForAction 
         tVtitle = (TextView)findViewById(R.id.header_title);
         tVtitle.setText(navTitle);
 
-        // mTextAmount = (TextView) findViewById(R.id.trad_amount);
-        // mTextCashAmount = (TextView) findViewById(R.id.cash_trad_amount);
+        mTextAmount = (TextView) findViewById(R.id.trad_amount);
+        mTextCashAmount = (TextView) findViewById(R.id.cash_trad_amount);
 
        // rlTap =  (RelativeLayout) findViewById(R.id.layout_rf);
         rlInputPan =  (RelativeLayout) findViewById(R.id.rl_input_pan);
@@ -112,22 +112,22 @@ public class SearchCardManagerNewActivity extends BaseActivityWithTickForAction 
                 }
             });
         }
-        // String curr = TopApplication.sysParam.get(SysParam.APP_PARAM_TRANS_CURRENCY_SYMBOL);
-        // if (!TextUtils.isEmpty(amount)) {
-        //     ((RelativeLayout) findViewById(R.id.rl_amount)).setVisibility(View.VISIBLE);
-        //     mTextAmount.setText("Amount  "+ curr+ Utils.ftoYuan(amount));
-        //     SmallScreenUtil.getInstance().showSearchCard(curr+ Utils.ftoYuan(amount));
-        // } else {
-        //     ((RelativeLayout) findViewById(R.id.rl_amount)).setVisibility(View.GONE);
-        // }
+        String curr = TopApplication.sysParam.get(SysParam.APP_PARAM_TRANS_CURRENCY_SYMBOL);
+        if (!TextUtils.isEmpty(amount)) {
+            ((RelativeLayout) findViewById(R.id.rl_amount)).setVisibility(View.VISIBLE);
+            mTextAmount.setText(curr + Utils.ftoYuan(amount));
+            SmallScreenUtil.getInstance().showSearchCard(curr + Utils.ftoYuan(amount));
+        } else {
+            ((RelativeLayout) findViewById(R.id.rl_amount)).setVisibility(View.GONE);
+        }
 
-        // if (!TextUtils.isEmpty(amount_cash)) {
-        //     ((RelativeLayout) findViewById(R.id.rl_cash_amount)).setVisibility(View.VISIBLE);
-        //     mTextCashAmount.setText(curr+Utils.ftoYuan(amount_cash));
-        //     SmallScreenUtil.getInstance().showSearchCard(getString(R.string.trans_amount_cash)+curr+Utils.ftoYuan(amount_cash));
-        // } else {
-        //     ((RelativeLayout) findViewById(R.id.rl_cash_amount)).setVisibility(View.GONE);
-        // }
+        if (!TextUtils.isEmpty(amount_cash)) {
+            ((RelativeLayout) findViewById(R.id.rl_cash_amount)).setVisibility(View.VISIBLE);
+            mTextCashAmount.setText(curr+Utils.ftoYuan(amount_cash));
+            SmallScreenUtil.getInstance().showSearchCard(getString(R.string.trans_amount_cash)+curr+Utils.ftoYuan(amount_cash));
+        } else {
+            ((RelativeLayout) findViewById(R.id.rl_cash_amount)).setVisibility(View.GONE);
+        }
 
         tVtime = (TextView)findViewById(R.id.header_time);
 
