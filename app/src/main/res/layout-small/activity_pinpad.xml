@@ -1,140 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_card_confirm"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background"
-    android:orientation="vertical">
+    android:background="@color/white">
 
-    <include
-        android:id="@+id/header"
-        layout="@layout/header_layout" />
+    <!-- Header -->
+    <RelativeLayout
+        android:id="@+id/header_container"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/bg_header_rounded_bottom"
+        android:paddingTop="20dp">
 
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="ENTER PIN"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"/>
+
+        <!-- Help Icon -->
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_error_outline_24"
+            app:tint="@color/white" />
+
+        <TextView android:id="@+id/header_time" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+    </RelativeLayout>
+
+    <!-- Content -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_container"
+        android:layout_above="@id/layout_bottom_buttons"
         android:orientation="vertical"
+        android:gravity="center_horizontal"
         android:paddingTop="10dp">
 
         <TextView
             android:id="@+id/input_amount_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/please_input_pin"
-            android:textColor="@color/brand_navy"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:text="ENTER YOUR SECRET PIN"
+            android:textColor="#546E7A"
+            android:textSize="10sp"
+            android:letterSpacing="0.15"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
 
-        <TextView
+         <TextView
             android:id="@+id/lastPwdWarning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             android:gravity="center"
             android:textColor="@color/red"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/passwordText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@color/brand_navy"
             android:textSize="12sp"
-            android:textStyle="bold" />
+            android:visibility="gone" />
 
         <com.topwise.premierpay.view.PasswordView
             android:id="@+id/passwordView"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            app:password_box_hasInput_backgroundDrawable="@drawable/style2_has_input"
-            app:password_box_highLight_backgroundDrawable="@drawable/style2_high_light"
-            app:password_box_notInput_backgroundDrawable="@drawable/style2_not_input"
+            android:layout_marginBottom="10dp"
+            app:password_box_hasInput_backgroundDrawable="@drawable/dot_active"
+            app:password_box_highLight_backgroundDrawable="@drawable/dot_inactive"
+            app:password_box_notInput_backgroundDrawable="@drawable/dot_inactive"
             app:password_box_setNumber="4"
-            app:password_enableHighLight="true" />
+            app:password_box_setSize="12"
+            app:password_box_setMargin="12"
+            app:password_enableHighLight="true"
+            app:password_enableCursor="false"/>
 
-        <TextView
-            android:id="@+id/trad_amount"
+        <TextView android:id="@+id/passwordText" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+        <TextView android:id="@+id/card_num" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+        <TextView android:id="@+id/trad_amount" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+        <TextView android:id="@+id/trad_cash_amount" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+
+        <!-- Keypad -->
+        <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/pin_tip_amount"
-            android:textColor="@color/text_gray"
-            android:textSize="16sp" />
+            android:columnCount="3"
+            android:rowCount="4"
+            android:useDefaultMargins="true"
+            android:alignmentMode="alignBounds">
 
-        <TextView
-            android:id="@+id/trad_cash_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/pin_tip_amount"
-            android:textColor="@color/text_gray"
-            android:textSize="16sp"
-            android:visibility="gone" />
+            <TextView android:id="@+id/btn_key_1" android:text="1" style="@style/PinKeypadButtonStyleSmall"/>
+            <TextView android:id="@+id/btn_key_2" android:text="2" style="@style/PinKeypadButtonStyleSmall"/>
+            <TextView android:id="@+id/btn_key_3" android:text="3" style="@style/PinKeypadButtonStyleSmall"/>
 
-        <TextView
-            android:id="@+id/card_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/pin_tip_card_num"
-            android:textColor="@color/text_gray"
-            android:textSize="14sp" />
+            <TextView android:id="@+id/btn_key_4" android:text="4" style="@style/PinKeypadButtonStyleSmall"/>
+            <TextView android:id="@+id/btn_key_5" android:text="5" style="@style/PinKeypadButtonStyleSmall"/>
+            <TextView android:id="@+id/btn_key_6" android:text="6" style="@style/PinKeypadButtonStyleSmall"/>
+
+            <TextView android:id="@+id/btn_key_7" android:text="7" style="@style/PinKeypadButtonStyleSmall"/>
+            <TextView android:id="@+id/btn_key_8" android:text="8" style="@style/PinKeypadButtonStyleSmall"/>
+            <TextView android:id="@+id/btn_key_9" android:text="9" style="@style/PinKeypadButtonStyleSmall"/>
+
+            <View android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="4dp"/>
+            <TextView android:id="@+id/btn_key_0" android:text="0" style="@style/PinKeypadButtonStyleSmall"/>
+            <ImageButton
+                android:id="@+id/btn_key_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/baseline_arrow_back_24"
+                android:scaleType="centerInside"
+                app:tint="#B0BEC5"/>
+        </GridLayout>
 
     </LinearLayout>
 
-    <!-- Buttons Section (Horizontal for small screen to save space) -->
+    <!-- Bottom Buttons -->
     <LinearLayout
+        android:id="@+id/layout_bottom_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:weightSum="3">
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btn_pin_cancel"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/bg_button_outline_navy"
+                android:text="CANCEL"
+                android:textColor="@color/brand_navy"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+
+            <Button
+                android:id="@+id/btn_pin_clear"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/bg_button_navy_rounded"
+                android:text="CLEAR"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+        </LinearLayout>
 
         <Button
-            android:id="@+id/btn_pin_cancel"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="5dp"
-            android:background="@drawable/bg_button_outline_navy"
-            android:text="@string/amount_input_cancle"
-            android:textColor="@color/brand_navy"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btn_pin_clear"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="5dp"
-            android:background="@drawable/bg_button_navy_rounded"
-            android:text="@string/elec_sign_clear"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-         <Button
             android:id="@+id/btn_pin_confirm"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:background="@drawable/bg_button_lime_rounded"
-            android:text="@string/elec_sign_confirm"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:text="CONFIRM TRANSACTION"
+            android:textColor="@color/brand_navy"
+            android:textStyle="bold"
+            android:textSize="14sp"/>
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

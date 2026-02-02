@@ -43,4 +43,26 @@
         <item name="android:focusable">false</item>
 
     </style>
+
+    <style name="PinKeypadButtonStyle">
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@drawable/bg_keypad_circle</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/brand_navy</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PinKeypadButtonStyleSmall">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:background">@drawable/bg_keypad_circle</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/brand_navy</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
