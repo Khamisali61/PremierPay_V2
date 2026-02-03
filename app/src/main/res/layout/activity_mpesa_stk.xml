@@ -135,6 +135,38 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="AMOUNT (KES)"
+                android:textColor="#90A4AE"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:layout_marginTop="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_input_field"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp">
+
+                <EditText
+                    android:id="@+id/et_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="0.00"
+                    android:textColor="#263238"
+                    android:textSize="18sp"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:importantForAutofill="no"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Customer will receive an M-Pesa prompt on their phone."
                 android:textColor="#90A4AE"
                 android:textSize="12sp"

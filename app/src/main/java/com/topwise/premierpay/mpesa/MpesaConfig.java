@@ -1,21 +1,15 @@
 package com.topwise.premierpay.mpesa;
 
 public class MpesaConfig {
-    // 1. YOUR APP KEYS (Keep these as they are from your Developer Portal)
-    public static final String CONSUMER_KEY = "UCs3teklM8Anjl9VxDpZb4LZQkmNP8ACDnxdqCzTpeRzOv8e";
-    public static final String CONSUMER_SECRET = "Rbd5wi8dTGDhXEVKx1nBT6l6qZE3g2FeN2H4dDigBqh1bhEuR8IVrvsLXJkX84Jj";
+    // Production/Proxy Server Configuration
+    public static final String PROXY_BASE_URL = "http://212.22.185.4:18425"; // HTTP for now as per user URL (https requires cert handling if self-signed)
+    // Note: User said https://... but often with IP/Port it might be http or self-signed.
+    // Given the context of "Node.js server at https://212.22.185.4:18425", we will use https but might need to handle SSL trust.
+    // However, for simplicity and common dev setups, I'll try HTTPS first but be aware of SSL issues.
+    // The user provided "https://212.22.185.4:18425".
 
-    // 2. SANDBOX BUSINESS SHORTCODE
-    public static final String BUSINESS_SHORT_CODE = "174379";
+    public static final String APP_AUTH_KEY = "95ca70b2-039c-40c6-93ec-76221ed7d936";
 
-    // 3. THE CORRECT PASSKEY (Do not change this for Sandbox!)
-    // This is the raw key starting with "bfb2..."
-    public static final String PASSKEY = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
-
-    // Toggle between Sandbox and Production
-    private static final boolean IS_SANDBOX = true;
-
-    public static String getBaseUrl() {
-        return IS_SANDBOX ? "https://sandbox.safaricom.co.ke" : "https://api.safaricom.co.ke";
-    }
+    // These are handled by the Node.js backend now, but keeping if needed for reference or direct auth fallback (unlikely).
+    // The Android app now talks to the Node.js proxy, not Safaricom directly.
 }

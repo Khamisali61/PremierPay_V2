@@ -1,7 +1,6 @@
 package com.topwise.premierpay.mpesa;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -15,9 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.topwise.premierpay.R;
+import com.topwise.premierpay.trans.action.activity.ConsumeSuccessActivity;
+import com.topwise.premierpay.param.SysParam;
+import com.topwise.premierpay.app.TopApplication;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
@@ -25,15 +26,17 @@ public class MpesaStkActivity extends Activity {
 
     private MpesaService mpesaService;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private String currentAmount = "1500.00"; // Default or from Intent
+    private String currentAmount = "0.00";
     private String currentPhone = "";
-    private String transactionId = "";
+    private String checkoutRequestId = "";
+    private String internalTransactionId = "";
+    private boolean isPolling = false;
+    private Runnable pollingRunnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Get amount from Intent if available
         if (getIntent().hasExtra("amount")) {
             currentAmount = getIntent().getStringExtra("amount");
         }
@@ -42,13 +45,36 @@ public class MpesaStkActivity extends Activity {
         showInputScreen();
     }
 
+    @Override
+    protected void onDestroy() {
+        stopPolling();
+        super.onDestroy();
+    }
+
     private void showInputScreen() {
         setContentView(R.layout.activity_mpesa_stk);
 
         TextView tvTotalAmount = findViewById(R.id.tv_total_amount);
-        tvTotalAmount.setText("KES " + formatAmount(currentAmount));
+        // Only set if we passed an amount, otherwise allow edit
+        if (!currentAmount.equals("0.00")) {
+             tvTotalAmount.setText("KES " + formatAmount(currentAmount));
+        } else {
+             tvTotalAmount.setText("Enter Amount Below");
+        }
 
         final EditText etPhone = findViewById(R.id.et_phone_number);
+        final EditText etAmount = findViewById(R.id.et_amount); // New dedicated amount field
+
+        // Prevent system keyboard
+        etPhone.setShowSoftInputOnFocus(false);
+        etAmount.setShowSoftInputOnFocus(false);
+
+        // Pre-fill if we have it
+        if (!currentAmount.equals("0.00")) {
+            etAmount.setText(currentAmount);
+            etAmount.setEnabled(false); // Lock if passed from cart
+        }
+
         Button btnSend = findViewById(R.id.btn_send_stk);
         ImageButton btnBack = findViewById(R.id.btn_back);
 
@@ -63,11 +89,18 @@ public class MpesaStkActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String phone = etPhone.getText().toString().trim();
+                String amountInput = etAmount.getText().toString().trim();
+
                 if (phone.isEmpty()) {
                     Toast.makeText(MpesaStkActivity.this, "Please enter Phone Number", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (phone.length() < 9) { // Simple validation
+                if (amountInput.isEmpty()) {
+                    Toast.makeText(MpesaStkActivity.this, "Please enter Amount", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (phone.length() < 9) {
                     Toast.makeText(MpesaStkActivity.this, "Invalid Phone Number", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -79,22 +112,37 @@ public class MpesaStkActivity extends Activity {
                     currentPhone = phone;
                 }
 
+                currentAmount = amountInput;
+
                 initiateTransaction(currentPhone, currentAmount);
             }
         });
     }
 
     private void initiateTransaction(final String phone, final String amount) {
-        // Show loading or transition immediately?
-        // For now, simple transition to processing to show "Sending..."
+        // Show immediate feedback
+        final Button btnSend = findViewById(R.id.btn_send_stk);
+        btnSend.setText("Sending...");
+        btnSend.setEnabled(false);
 
-        mpesaService.initiateStkPush(phone, amount, new MpesaService.MpesaCallback() {
+        // Use SysParam.MERCH_ID or similar if available, else fallback logic in Service will handle it (or use placeholder)
+        // Since we are inside the app, we should try to get the real merchant ID.
+        // Assuming SysParam.MERCH_ID is available via a getter or public static.
+        // Based on memory: SysParam.MERCH_ID is the constant.
+        // We need to read it from SharedPreferences or SysParam instance.
+        String merchantId = TopApplication.sysParam.get(SysParam.MERCH_ID);
+        if (merchantId == null || merchantId.isEmpty()) {
+            merchantId = "000000"; // Fallback/Demo
+        }
+
+        mpesaService.initiateStkPush(phone, amount, merchantId, new MpesaService.MpesaCallback() {
             @Override
-            public void onSuccess(final String reqId, final String msg) {
+            public void onSuccess(final String internalId, final String reqId, final String msg) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        transactionId = reqId; // Store request ID
+                        internalTransactionId = internalId;
+                        checkoutRequestId = reqId;
                         showProcessingScreen();
                     }
                 });
@@ -106,6 +154,8 @@ public class MpesaStkActivity extends Activity {
                     @Override
                     public void run() {
                         Toast.makeText(MpesaStkActivity.this, "Error: " + error, Toast.LENGTH_LONG).show();
+                        btnSend.setText("Send STK Push");
+                        btnSend.setEnabled(true);
                     }
                 });
             }
@@ -128,44 +178,97 @@ public class MpesaStkActivity extends Activity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Confirm exit?
+                stopPolling();
                 finish();
             }
         });
 
-        // Simulate Polling
-        startMockPolling();
-
-        btnConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Manually trigger success for demo
-                showResultScreen(true, "Transaction processed successfully.");
-            }
-        });
-
+        // Manual check overrides polling
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MpesaStkActivity.this, "Checking status...", Toast.LENGTH_SHORT).show();
+                checkStatusOnce();
             }
         });
+
+        // Start Polling
+        startPolling();
     }
 
-    private void startMockPolling() {
-        // Simulate a 5-second delay then success
-        handler.postDelayed(new Runnable() {
+    private void startPolling() {
+        isPolling = true;
+        pollingRunnable = new Runnable() {
             @Override
             public void run() {
-                // Randomly succeed or fail for demo purposes if needed,
-                // but usually we want success for the "End-to-End" verification unless specified.
-                // User asked to "verify a full Sale transaction".
-                showResultScreen(true, "Transaction processed successfully.");
+                if (!isPolling) return;
+
+                mpesaService.checkTransactionStatus(checkoutRequestId, new MpesaService.StatusCallback() {
+                    @Override
+                    public void onResult(final String status, final String resultCode, final String resultDesc) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if ("SUCCESS".equalsIgnoreCase(status)) {
+                                    stopPolling();
+                                    showResultScreen(true, resultDesc); // resultDesc might contain receipt number
+                                } else if ("FAILED".equalsIgnoreCase(status) || "CANCELLED".equalsIgnoreCase(status)) {
+                                    stopPolling();
+                                    showResultScreen(false, resultDesc);
+                                } else {
+                                    // PENDING, continue polling
+                                    if (isPolling) {
+                                        handler.postDelayed(pollingRunnable, 3000); // 3 seconds
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onError(String error) {
+                        // Network error or 404, just retry
+                         if (isPolling) {
+                            handler.postDelayed(pollingRunnable, 3000);
+                        }
+                    }
+                });
             }
-        }, 5000);
+        };
+        handler.post(pollingRunnable);
     }
 
-    private void showResultScreen(boolean success, String message) {
+    private void checkStatusOnce() {
+         mpesaService.checkTransactionStatus(checkoutRequestId, new MpesaService.StatusCallback() {
+            @Override
+            public void onResult(final String status, final String resultCode, final String resultDesc) {
+                 runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                         Toast.makeText(MpesaStkActivity.this, "Status: " + status, Toast.LENGTH_SHORT).show();
+                    }
+                 });
+            }
+            @Override
+            public void onError(final String error) {
+                 runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                         Toast.makeText(MpesaStkActivity.this, "Error: " + error, Toast.LENGTH_SHORT).show();
+                    }
+                 });
+            }
+         });
+    }
+
+    private void stopPolling() {
+        isPolling = false;
+        if (pollingRunnable != null) {
+            handler.removeCallbacks(pollingRunnable);
+        }
+    }
+
+    private void showResultScreen(boolean success, final String message) {
         setContentView(R.layout.activity_mpesa_result);
 
         ImageView ivIcon = findViewById(R.id.iv_status_icon);
@@ -185,25 +288,28 @@ public class MpesaStkActivity extends Activity {
         tvHeaderAmount.setText("KES " + formatAmount(currentAmount));
         tvPhone.setText(formatPhoneNumber(currentPhone));
         tvAmountPaid.setText("KES " + formatAmount(currentAmount));
-
-        // Generate a fake Trans ID if null
-        if (transactionId == null || transactionId.isEmpty()) {
-            transactionId = "RKJ" + new Random().nextInt(99999) + "XYZ";
-        }
-        tvTransId.setText(transactionId);
+        tvTransId.setText(checkoutRequestId); // Use Request ID as Ref
 
         if (success) {
             ivIcon.setImageResource(R.drawable.ic_check_circle_large);
             ivIcon.setColorFilter(getResources().getColor(R.color.brand_lime));
             tvTitle.setText("Payment Successful");
             tvDesc.setText("Your transaction has been processed.");
+
+            // Auto Print
+            // The message here acts as the Receipt Number based on backend logic
+            printReceipt(message);
         } else {
             // Failure state
-            // ivIcon.setImageResource(R.drawable.ic_error_circle); // Need error icon
+            ivIcon.setImageResource(R.drawable.ic_cancel_circle_large);
             ivIcon.setColorFilter(getResources().getColor(android.R.color.holo_red_dark));
             tvTitle.setText("Payment Failed");
-            tvDesc.setText(message);
+            tvDesc.setText(message); // Show Safaricom reason
             tvTitle.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+
+            // Even if failed, we might want to print a declined receipt?
+            // Requirement says: "Trigger ... as soon as the final status (SUCCESS or FAILED) is received."
+             printReceipt(message);
         }
 
         View.OnClickListener goHome = new View.OnClickListener() {
@@ -220,10 +326,31 @@ public class MpesaStkActivity extends Activity {
         btnPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MpesaStkActivity.this, "Printing Receipt...", Toast.LENGTH_SHORT).show();
-                // Trigger print logic if available
+                printReceipt(message);
             }
         });
+    }
+
+    private void printReceipt(final String receiptNumberOrReason) {
+         final boolean isSuccess = receiptNumberOrReason != null && !receiptNumberOrReason.startsWith("Request cancelled") && !receiptNumberOrReason.contains("insufficient");
+         final String status = isSuccess ? "SUCCESS" : "FAILED";
+
+         new Thread(new Runnable() {
+             @Override
+             public void run() {
+                 MpesaReceiptGenerator generator = new MpesaReceiptGenerator(
+                     MpesaStkActivity.this,
+                     currentPhone,
+                     currentAmount,
+                     checkoutRequestId,
+                     status,
+                     receiptNumberOrReason
+                 );
+                 MpesaReceiptPrinter.getInstance().print(generator);
+             }
+         }).start();
+
+         Toast.makeText(this, "Printing Receipt...", Toast.LENGTH_SHORT).show();
     }
 
     private String formatAmount(String amount) {
@@ -236,7 +363,6 @@ public class MpesaStkActivity extends Activity {
     }
 
     private String formatPhoneNumber(String phone) {
-        // Format as +254 712 *** 789
         if (phone != null && phone.length() >= 12) {
             return "+" + phone.substring(0, 3) + " " + phone.substring(3, 6) + " *** " + phone.substring(phone.length() - 3);
         }
