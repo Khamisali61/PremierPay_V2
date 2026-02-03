@@ -39,7 +39,6 @@ public class MpesaService {
     }
 
     public MpesaService() {
-        trustAllHosts();
     }
 
     public void initiateStkPush(final String phoneNumber, final String amount, final String merchantNumber, final MpesaCallback callback) {
@@ -51,7 +50,9 @@ public class MpesaService {
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
                     if (conn instanceof HttpsURLConnection) {
-                        ((HttpsURLConnection) conn).setHostnameVerifier(DO_NOT_VERIFY);
+                        HttpsURLConnection httpsConn = (HttpsURLConnection) conn;
+                        httpsConn.setHostnameVerifier(DO_NOT_VERIFY);
+                        httpsConn.setSSLSocketFactory(getUnsafeSslSocketFactory());
                     }
 
                     conn.setRequestMethod("POST");
@@ -90,7 +91,7 @@ public class MpesaService {
 
                 } catch (Exception e) {
                     Log.e(TAG, "STK Push Init Error", e);
-                    callback.onError("Connection Error: " + e.getMessage());
+                    callback.onError("Connection Error: " + e.toString());
                 }
             }
         }).start();
@@ -105,7 +106,9 @@ public class MpesaService {
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
                      if (conn instanceof HttpsURLConnection) {
-                        ((HttpsURLConnection) conn).setHostnameVerifier(DO_NOT_VERIFY);
+                        HttpsURLConnection httpsConn = (HttpsURLConnection) conn;
+                        httpsConn.setHostnameVerifier(DO_NOT_VERIFY);
+                        httpsConn.setSSLSocketFactory(getUnsafeSslSocketFactory());
                     }
 
                     conn.setRequestMethod("GET");
@@ -129,7 +132,7 @@ public class MpesaService {
 
                 } catch (Exception e) {
                     Log.e(TAG, "Status Check Error", e);
-                    callback.onError("Connection Error: " + e.getMessage());
+                    callback.onError("Connection Error: " + e.toString());
                 }
             }
         }).start();
@@ -142,7 +145,7 @@ public class MpesaService {
         }
     };
 
-    private static void trustAllHosts() {
+    private javax.net.ssl.SSLSocketFactory getUnsafeSslSocketFactory() {
         try {
             TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
                 public java.security.cert.X509Certificate[] getAcceptedIssuers() {
@@ -156,11 +159,12 @@ public class MpesaService {
                 }
             } };
 
-            SSLContext sc = SSLContext.getInstance("TLS");
+            SSLContext sc = SSLContext.getInstance("TLSv1.2");
             sc.init(null, trustAllCerts, new java.security.SecureRandom());
-            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+            return sc.getSocketFactory();
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
     }
 }
