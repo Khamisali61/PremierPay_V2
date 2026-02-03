@@ -265,9 +265,7 @@ public class ConsumeSuccessActivity extends BaseActivityWithTickForAction implem
     protected void handleMsg(Message msg) {
         switch (msg.what){
             case TIP_TIME:
-                String time = (String)msg.obj;
-                if (!TextUtils.isEmpty(time))
-                    tVtime.setText(time);
+                // Time update ignored in new UI as it's not prominently displayed or handled elsewhere
                 break;
             case TIP_PRINT:
                 if(!transData.isNeedPrint()) {
