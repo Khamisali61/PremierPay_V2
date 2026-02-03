@@ -155,7 +155,6 @@ public class ConsumeSuccessActivity extends BaseActivityWithTickForAction implem
             if (Component.checkSave(transData) && delete) {
                 boolean save = DaoUtilsStore.getInstance().getmTransDaoUtils().save(transData);
                 AppLog.e(TAG, "transData saved: " + save);
-                handler.sendEmptyMessageDelayed(TIP_PRINT, 1000);
             }
             Device.openGreenLed();
             Device.beepSucc();
@@ -199,9 +198,17 @@ public class ConsumeSuccessActivity extends BaseActivityWithTickForAction implem
         tvMerchantId.setText(mid);
 
         // Update Small Screen (Legacy support if needed)
-        result.add(0, isSuccess ? "Approved" : "Failure");
-        result.add(2, currency + amountStr);
+        // Ensure list has enough elements to avoid IndexOutOfBoundsException
+        result.clear();
+        result.add(isSuccess ? "Approved" : "Failure"); // Index 0
+        result.add(""); // Index 1 (Placeholder)
+        result.add(currency + amountStr); // Index 2
         SmallScreenUtil.getInstance().showResult(isSuccess, result);
+
+        // Auto-Print Receipt for both Approved and Declined
+        if (transData.isNeedPrint()) {
+             handler.sendEmptyMessageDelayed(TIP_PRINT, 500);
+        }
     }
 
     private void testExit() {
