@@ -164,20 +164,41 @@ public class InputAmountActivity extends BaseActivityWithTickForAction implement
         btnConfirm = findViewById(R.id.btnConfirm);
         btnConfirm.setOnClickListener(this);
 
-        findViewById(R.id.btn0).setOnClickListener(this);
+        View btn0 = findViewById(R.id.btn0);
+        if (btn0 != null) btn0.setOnClickListener(this);
+
         View btn00 = findViewById(R.id.btn00);
         if (btn00 != null) btn00.setOnClickListener(this);
 
-        findViewById(R.id.back_btn).setOnClickListener(this);
-        findViewById(R.id.btn1).setOnClickListener(this);
-        findViewById(R.id.btn2).setOnClickListener(this);
-        findViewById(R.id.btn3).setOnClickListener(this);
-        findViewById(R.id.btn4).setOnClickListener(this);
-        findViewById(R.id.btn5).setOnClickListener(this);
-        findViewById(R.id.btn6).setOnClickListener(this);
-        findViewById(R.id.btn7).setOnClickListener(this);
-        findViewById(R.id.btn8).setOnClickListener(this);
-        findViewById(R.id.btn9).setOnClickListener(this);
+        View backBtn = findViewById(R.id.back_btn);
+        if (backBtn != null) backBtn.setOnClickListener(this);
+
+        View btn1 = findViewById(R.id.btn1);
+        if (btn1 != null) btn1.setOnClickListener(this);
+
+        View btn2 = findViewById(R.id.btn2);
+        if (btn2 != null) btn2.setOnClickListener(this);
+
+        View btn3 = findViewById(R.id.btn3);
+        if (btn3 != null) btn3.setOnClickListener(this);
+
+        View btn4 = findViewById(R.id.btn4);
+        if (btn4 != null) btn4.setOnClickListener(this);
+
+        View btn5 = findViewById(R.id.btn5);
+        if (btn5 != null) btn5.setOnClickListener(this);
+
+        View btn6 = findViewById(R.id.btn6);
+        if (btn6 != null) btn6.setOnClickListener(this);
+
+        View btn7 = findViewById(R.id.btn7);
+        if (btn7 != null) btn7.setOnClickListener(this);
+
+        View btn8 = findViewById(R.id.btn8);
+        if (btn8 != null) btn8.setOnClickListener(this);
+
+        View btn9 = findViewById(R.id.btn9);
+        if (btn9 != null) btn9.setOnClickListener(this);
 
         View btnClear = findViewById(R.id.btnClear);
         if (btnClear != null) btnClear.setOnClickListener(this);
