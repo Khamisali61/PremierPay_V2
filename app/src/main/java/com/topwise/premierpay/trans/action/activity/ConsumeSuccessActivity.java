@@ -195,7 +195,7 @@ public class ConsumeSuccessActivity extends BaseActivityWithTickForAction implem
 
         // Assuming Merchant ID is available via SysParam as it's often global,
         // or check if TransData has it. If not, fallback to SysParam.
-        String mid = TopApplication.sysParam.get(SysParam.APP_PARAM_MERCHANT_ID);
+        String mid = TopApplication.sysParam.get(SysParam.MERCH_ID);
         tvMerchantId.setText(mid);
 
         // Update Small Screen (Legacy support if needed)
