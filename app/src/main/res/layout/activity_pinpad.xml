@@ -39,17 +39,19 @@
     </LinearLayout>
 
     <!-- PIN View (Centered) -->
+    <!-- Explicitly centered and sized via custom attributes -->
     <com.topwise.premierpay.view.PasswordView
         android:id="@+id/passwordView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:gravity="center"
         app:password_enableSoftKeyboardAutoShow="false"
         app:password_box_hasInput_backgroundDrawable="@drawable/pin_box_active"
         app:password_box_highLight_backgroundDrawable="@drawable/pin_box_inactive"
         app:password_box_notInput_backgroundDrawable="@drawable/pin_box_inactive"
         app:password_box_setNumber="4"
-        app:password_box_setSize="60"
+        app:password_box_setSize="48"
         app:password_box_setMargin="20"
         app:password_enableHighLight="true"
         app:password_enableCursor="false"/>
