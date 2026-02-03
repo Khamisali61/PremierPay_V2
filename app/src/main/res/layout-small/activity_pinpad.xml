@@ -39,11 +39,11 @@
     </LinearLayout>
 
     <!-- PIN View (Centered) -->
-    <!-- Explicitly centered and sized via custom attributes -->
+    <!-- Fixed height to prevent vertical stretching -->
     <com.topwise.premierpay.view.PasswordView
         android:id="@+id/passwordView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:gravity="center"
         app:password_enableSoftKeyboardAutoShow="false"
