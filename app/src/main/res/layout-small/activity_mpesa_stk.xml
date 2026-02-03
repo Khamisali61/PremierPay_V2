@@ -10,7 +10,7 @@
     <View
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="120dp"
         android:background="@color/brand_navy"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -68,8 +68,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="16dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
         app:cardBackgroundColor="@color/white"
