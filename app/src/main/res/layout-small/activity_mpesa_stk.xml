@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:background="#F0F2F5">
 
-    <!-- Header Section -->
+    <!-- Fixed Header Background -->
     <View
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:background="@color/brand_navy"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -39,160 +39,147 @@
         app:layout_constraintBottom_toBottomOf="@id/btn_back"
         android:layout_marginStart="8dp"/>
 
-    <TextView
-        android:id="@+id/tv_total_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Amount to Pay"
-        android:textColor="#B0BEC5"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/btn_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
-
-    <TextView
-        android:id="@+id/tv_total_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="KES 0.00"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tv_total_label"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="4dp"/>
-
-    <!-- Content Card -->
-    <androidx.cardview.widget.CardView
+    <!-- ScrollView for Content -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="4dp"
-        app:cardBackgroundColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/tv_total_amount">
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/header_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingBottom="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CUSTOMER PHONE NUMBER"
-                android:textColor="#90A4AE"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.05"/>
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/bg_input_field"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="16dp">
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/white">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/flag_ke"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+254"
-                    android:textColor="#263238"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="12dp"/>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="24dp"
-                    android:background="#ECEFF1"
-                    android:layout_marginHorizontal="12dp"/>
-
-                <EditText
-                    android:id="@+id/et_phone_number"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="712 345 678"
-                    android:textColor="#263238"
-                    android:textSize="18sp"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    android:importantForAutofill="no"/>
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="AMOUNT (KES)"
-                android:textColor="#90A4AE"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.05"
-                android:layout_marginTop="16dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CUSTOMER PHONE NUMBER"
+                        android:textColor="#90A4AE"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/bg_input_field"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="16dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_input_field"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="16dp">
 
-                <EditText
-                    android:id="@+id/et_amount"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="0.00"
-                    android:textColor="#263238"
-                    android:textSize="18sp"
-                    android:inputType="numberDecimal"
-                    android:maxLines="1"
-                    android:importantForAutofill="no"/>
-            </LinearLayout>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/flag_ke"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Customer will receive an M-Pesa prompt on their phone."
-                android:textColor="#90A4AE"
-                android:textSize="12sp"
-                android:layout_marginTop="12dp"
-                android:fontFamily="sans-serif-light"
-                android:layout_gravity="center_horizontal"
-                android:textAlignment="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+254"
+                            android:textColor="#263238"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginStart="12dp"/>
 
-            <Button
-                android:id="@+id/btn_send_stk"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="24dp"
-                android:text="Send STK Push"
-                android:background="@drawable/bg_button_lime_rounded"
-                android:textColor="@color/brand_navy"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:drawableEnd="@drawable/ic_proceed"
-                android:drawableTint="@color/brand_navy"
-                android:paddingEnd="16dp"
-                android:gravity="center"/>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="24dp"
+                            android:background="#ECEFF1"
+                            android:layout_marginHorizontal="12dp"/>
 
+                        <EditText
+                            android:id="@+id/et_phone_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="712 345 678"
+                            android:textColor="#263238"
+                            android:textSize="18sp"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:importantForAutofill="no"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AMOUNT (KES)"
+                        android:textColor="#90A4AE"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05"
+                        android:layout_marginTop="20dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_input_field"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="16dp">
+
+                        <EditText
+                            android:id="@+id/et_amount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="0.00"
+                            android:textColor="#263238"
+                            android:textSize="18sp"
+                            android:inputType="numberDecimal"
+                            android:maxLines="1"
+                            android:importantForAutofill="no"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Customer will receive an M-Pesa prompt on their phone."
+                        android:textColor="#90A4AE"
+                        android:textSize="12sp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif-light"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"/>
+
+                    <Button
+                        android:id="@+id/btn_send_stk"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="24dp"
+                        android:text="Send STK Push"
+                        android:background="@drawable/bg_button_lime_rounded"
+                        android:textColor="@color/brand_navy"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:drawableEnd="@drawable/ic_proceed"
+                        android:drawableTint="@color/brand_navy"
+                        android:paddingEnd="16dp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- Keypad Removed for Small Screens -->
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

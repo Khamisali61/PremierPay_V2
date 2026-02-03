@@ -39,30 +39,6 @@
         app:layout_constraintBottom_toBottomOf="@id/btn_back"
         android:layout_marginStart="8dp"/>
 
-    <TextView
-        android:id="@+id/tv_total_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Amount to Pay"
-        android:textColor="#B0BEC5"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/btn_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
-
-    <TextView
-        android:id="@+id/tv_total_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="KES 0.00"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tv_total_label"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="4dp"/>
 
     <!-- Content Card -->
     <androidx.cardview.widget.CardView
@@ -73,7 +49,7 @@
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
         app:cardBackgroundColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/tv_total_amount">
+        app:layout_constraintTop_toBottomOf="@id/header_title">
 
         <LinearLayout
             android:layout_width="match_parent"

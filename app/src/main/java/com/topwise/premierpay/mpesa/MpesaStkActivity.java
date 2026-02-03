@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Editable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.topwise.premierpay.R;
-import com.topwise.premierpay.trans.action.activity.ConsumeSuccessActivity;
 import com.topwise.premierpay.param.SysParam;
 import com.topwise.premierpay.app.TopApplication;
 
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
-public class MpesaStkActivity extends Activity {
+public class MpesaStkActivity extends Activity implements View.OnClickListener {
 
     private MpesaService mpesaService;
     private Handler handler = new Handler(Looper.getMainLooper());
@@ -32,6 +33,11 @@ public class MpesaStkActivity extends Activity {
     private String internalTransactionId = "";
     private boolean isPolling = false;
     private Runnable pollingRunnable;
+
+    // UI References
+    private EditText etPhone;
+    private EditText etAmount;
+    private EditText focusedEditText; // Track which one is focused
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,25 +60,36 @@ public class MpesaStkActivity extends Activity {
     private void showInputScreen() {
         setContentView(R.layout.activity_mpesa_stk);
 
-        TextView tvTotalAmount = findViewById(R.id.tv_total_amount);
-        // Only set if we passed an amount, otherwise allow edit
-        if (!currentAmount.equals("0.00")) {
-             tvTotalAmount.setText("KES " + formatAmount(currentAmount));
-        } else {
-             tvTotalAmount.setText("Enter Amount Below");
-        }
+        // Bind Inputs
+        etPhone = findViewById(R.id.et_phone_number);
+        etAmount = findViewById(R.id.et_amount);
 
-        final EditText etPhone = findViewById(R.id.et_phone_number);
-        final EditText etAmount = findViewById(R.id.et_amount); // New dedicated amount field
-
-        // Prevent system keyboard
+        // Prevent system keyboard but keep focusable
         etPhone.setShowSoftInputOnFocus(false);
         etAmount.setShowSoftInputOnFocus(false);
 
-        // Pre-fill if we have it
-        if (!currentAmount.equals("0.00")) {
+        // Default Focus
+        etAmount.requestFocus();
+        focusedEditText = etAmount;
+
+        // Track focus changes
+        View.OnFocusChangeListener focusListener = new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus && v instanceof EditText) {
+                    focusedEditText = (EditText) v;
+                }
+            }
+        };
+        etPhone.setOnFocusChangeListener(focusListener);
+        etAmount.setOnFocusChangeListener(focusListener);
+
+        // Pre-fill amount if passed
+        if (currentAmount != null && !currentAmount.equals("0.00") && !currentAmount.isEmpty()) {
             etAmount.setText(currentAmount);
-            etAmount.setEnabled(false); // Lock if passed from cart
+            // If fixed amount, disable editing? Or allow overwrite?
+            // "Replace it with two distinct input fields... Amount (KES): A numeric EditText where the user enters the value."
+            // So we allow editing.
         }
 
         Button btnSend = findViewById(R.id.btn_send_stk);
@@ -100,11 +117,6 @@ public class MpesaStkActivity extends Activity {
                     return;
                 }
 
-                if (phone.length() < 9) {
-                    Toast.makeText(MpesaStkActivity.this, "Invalid Phone Number", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 // Add country code if missing
                 if (!phone.startsWith("254")) {
                     currentPhone = "254" + phone;
@@ -117,6 +129,65 @@ public class MpesaStkActivity extends Activity {
                 initiateTransaction(currentPhone, currentAmount);
             }
         });
+
+        // Bind Keypad Buttons
+        bindKeypad();
+    }
+
+    private void bindKeypad() {
+        int[] ids = {
+            R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9,
+            R.id.btn00, R.id.btnClear
+        };
+
+        for (int id : ids) {
+            View v = findViewById(id);
+            if (v != null) {
+                v.setOnClickListener(this);
+            }
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (focusedEditText == null) return;
+
+        int id = v.getId();
+        if (id == R.id.btnClear) {
+            handleBackspace();
+        } else if (id == R.id.btn00) {
+            appendKey("00");
+        } else {
+            // Numeric buttons
+            if (v instanceof Button) {
+                String text = ((Button) v).getText().toString();
+                appendKey(text);
+            }
+        }
+    }
+
+    private void appendKey(String key) {
+        if (focusedEditText == null) return;
+        int start = focusedEditText.getSelectionStart();
+        int end = focusedEditText.getSelectionEnd();
+
+        Editable editable = focusedEditText.getText();
+        editable.replace(Math.min(start, end), Math.max(start, end), key);
+    }
+
+    private void handleBackspace() {
+        if (focusedEditText == null) return;
+        int start = focusedEditText.getSelectionStart();
+        int end = focusedEditText.getSelectionEnd();
+
+        if (start == end && start > 0) {
+            // Delete one char
+            focusedEditText.getText().delete(start - 1, start);
+        } else if (start != end) {
+            // Delete selection
+            focusedEditText.getText().delete(Math.min(start, end), Math.max(start, end));
+        }
     }
 
     private void initiateTransaction(final String phone, final String amount) {
@@ -125,11 +196,6 @@ public class MpesaStkActivity extends Activity {
         btnSend.setText("Sending...");
         btnSend.setEnabled(false);
 
-        // Use SysParam.MERCH_ID or similar if available, else fallback logic in Service will handle it (or use placeholder)
-        // Since we are inside the app, we should try to get the real merchant ID.
-        // Assuming SysParam.MERCH_ID is available via a getter or public static.
-        // Based on memory: SysParam.MERCH_ID is the constant.
-        // We need to read it from SharedPreferences or SysParam instance.
         String merchantId = TopApplication.sysParam.get(SysParam.MERCH_ID);
         if (merchantId == null || merchantId.isEmpty()) {
             merchantId = "000000"; // Fallback/Demo
