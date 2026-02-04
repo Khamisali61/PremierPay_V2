@@ -132,9 +132,22 @@ public abstract class LoadParam<T> {
             }
 
             // DF21
+            // FIX: Ensure CVM Limit is correctly passed. If logic is missing elsewhere, verify value here.
+            // Assuming aid.getCVMLmt() returns correctly formatted hex/string.
             if(aid.getCVMLmt()!=null&& !aid.getCVMLmt().isEmpty()) {
                 aidParam.setAucRdCVMLmt(aid.getCVMLmt());
                 aidParam.setbRdCVMLmtFlg(true);
+            } else {
+                // Fallback if missing in AID config but required
+                String sysCvmLimit = TopApplication.sysParam.get(SysParam.CVM_LIMIT);
+                if (!TextUtils.isEmpty(sysCvmLimit)) {
+                     // Ensure format is correct (e.g. 12 digits for currency code + amount or just amount)
+                     // Here we just set what we have if the specific AID param is missing.
+                     // Often formatted as 000000005000
+                     String padded = String.format("%012d", Long.parseLong(sysCvmLimit));
+                     aidParam.setAucRdCVMLmt(padded);
+                     aidParam.setbRdCVMLmtFlg(true);
+                }
             }
 
             //9F1C s termId

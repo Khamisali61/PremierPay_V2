@@ -161,7 +161,8 @@ public class ActionEmvProcess extends AAction {
                         if ("N".equals(TopApplication.sysParam.get(SysParam.AUTO_IN_MDB))) {
                             TransProcessListener transProcessListener = new TransProcessListenerImpl();
                             transProcessListener.onUpdateProgressTitle(eTransType.getTransName().toUpperCase());
-                            transProcessListener.onShowFailWithConfirm(emvOutCome.toString(), 8);
+                            // Suppress technical popup
+                            // transProcessListener.onShowFailWithConfirm(emvOutCome.toString(), 8);
                         }
                         setResult(new ActionResult(TransResult.ERR_ABORTED, transData));
                     }

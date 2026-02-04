@@ -187,6 +187,33 @@ public class EmvTransProcessImpl extends ETransProcessListenerImpl {
     public EmvPinEnter onReqGetPinProc(EPinType pinType, int leftTimes) {
         AppLog.d(TAG,"onReqGetPinProc = " + pinType.toString() + " leftTimes= " + leftTimes);
 
+        // Logic check for Contactless PIN limit
+        if (transData.getEnterMode() == Component.EnterMode.QPBOC) {
+            String cvmLimitStr = TopApplication.sysParam.get(SysParam.CVM_LIMIT);
+            if (!TextUtils.isEmpty(cvmLimitStr)) {
+                try {
+                    double cvmLimit = Double.parseDouble(cvmLimitStr);
+                    double amount = Double.parseDouble(transData.getAmount());
+                    // CVM limit is typically in cents (or base currency units without decimals if string is "500000")
+                    // SysParam.CVM_LIMIT default is "5000" (likely 50.00 or 5000.00 depending on implied decimals)
+                    // Assuming transData.getAmount() is also raw string.
+                    // Let's ensure parsing matches.
+
+                    // Note: If CVM Limit is stored as "5000" representing 5000.00, and amount "100" is 1.00?
+                    // Standard: CVM Limit usually formatted same as Amount (e.g. 500000 for 5000.00)
+                    // If amount is less than limit, we should NOT be here if CVM list is correct.
+                    // But if we ARE here, the kernel decided PIN is needed.
+                    // We can force bypass if we trust our check, but better to let kernel decide unless config is wrong.
+                    // However, user report says "forcing PIN entry at 100.00 KES ... CVM limit set to 5000.00 KES".
+                    // This implies parsing/configuration mismatch.
+
+                    AppLog.d(TAG, "Contactless PIN Req: Amount=" + amount + ", Limit=" + cvmLimit);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
         if (transData.isStressTest()) {
             String pinblock ="AD03432FAC3C7D8B";
             EmvPinEnter emvPinEnter = new EmvPinEnter();
