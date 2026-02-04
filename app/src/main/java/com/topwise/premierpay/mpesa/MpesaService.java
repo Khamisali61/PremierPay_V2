@@ -8,25 +8,12 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 
 public class MpesaService {
 
     private static final String TAG = "MpesaService";
     // Using the IP provided by user.
-    // WARNING: Using 'https' with an IP often causes SSL hostname verification issues.
-    // We will implement a trust-all mechanism for this specific IP/Port if needed,
-    // or rely on the user having a valid cert.
-    // For this implementation, I will add a TrustManager to ignore SSL errors for this specific task
-    // as it's a common requirement for dev/IP-based servers.
-    private static final String BASE_URL = "https://212.22.185.4:18425";
+    private static final String BASE_URL = "http://212.22.185.4:18425";
 
     public interface MpesaCallback {
         void onSuccess(String internalId, String checkoutRequestId, String message);
@@ -48,12 +35,6 @@ public class MpesaService {
                 try {
                     URL url = new URL(BASE_URL + "/api/mpesa/initiate");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-                    if (conn instanceof HttpsURLConnection) {
-                        HttpsURLConnection httpsConn = (HttpsURLConnection) conn;
-                        httpsConn.setHostnameVerifier(DO_NOT_VERIFY);
-                        httpsConn.setSSLSocketFactory(getUnsafeSslSocketFactory());
-                    }
 
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json");
@@ -105,12 +86,6 @@ public class MpesaService {
                     URL url = new URL(BASE_URL + "/api/mpesa/status?checkoutRequestId=" + checkoutRequestId);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-                     if (conn instanceof HttpsURLConnection) {
-                        HttpsURLConnection httpsConn = (HttpsURLConnection) conn;
-                        httpsConn.setHostnameVerifier(DO_NOT_VERIFY);
-                        httpsConn.setSSLSocketFactory(getUnsafeSslSocketFactory());
-                    }
-
                     conn.setRequestMethod("GET");
                     conn.setRequestProperty("APP-AUTH-KEY", MpesaConfig.APP_AUTH_KEY);
                     conn.setConnectTimeout(10000);
@@ -138,33 +113,4 @@ public class MpesaService {
         }).start();
     }
 
-    // SSL Bypass for IP-based HTTPS
-    private final static HostnameVerifier DO_NOT_VERIFY = new HostnameVerifier() {
-        public boolean verify(String hostname, SSLSession session) {
-            return true;
-        }
-    };
-
-    private javax.net.ssl.SSLSocketFactory getUnsafeSslSocketFactory() {
-        try {
-            TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
-                public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                    return new java.security.cert.X509Certificate[] {};
-                }
-                public void checkClientTrusted(X509Certificate[] chain,
-                                               String authType) throws CertificateException {
-                }
-                public void checkServerTrusted(X509Certificate[] chain,
-                                               String authType) throws CertificateException {
-                }
-            } };
-
-            SSLContext sc = SSLContext.getInstance("TLSv1.2");
-            sc.init(null, trustAllCerts, new java.security.SecureRandom());
-            return sc.getSocketFactory();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 }
