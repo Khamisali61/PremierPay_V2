@@ -225,9 +225,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         TextView tvLocation = findViewById(R.id.tv_location);
 
         SysParam sysParam = SysParam.getInstance(this);
-        String merchName = sysParam.getString(SysParam.MERCH_NAME);
-        String termId = sysParam.getString(SysParam.TERMINAL_ID);
-        String city = sysParam.getString(SysParam.CITY_INFO);
+        String merchName = sysParam.get(SysParam.MERCH_NAME);
+        String termId = sysParam.get(SysParam.TERMINAL_ID);
+        String city = sysParam.get(SysParam.CITY_INFO);
 
         if (tvMerchName != null) tvMerchName.setText(merchName);
         if (tvTermId != null) tvTermId.setText("TID: " + termId);
@@ -242,7 +242,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void run() {
                 final boolean isConnected;
-                String hostIp = SysParam.getInstance(MainActivity.this).getString(SysParam.HOSTIP);
+                String hostIp = SysParam.getInstance(MainActivity.this).get(SysParam.HOSTIP);
                 int hostPort = SysParam.getInstance(MainActivity.this).getInt(SysParam.HOSTPORT);
 
                 if (hostIp == null || hostIp.isEmpty()) {
