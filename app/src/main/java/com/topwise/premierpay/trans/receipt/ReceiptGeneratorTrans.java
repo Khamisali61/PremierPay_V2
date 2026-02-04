@@ -150,6 +150,24 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         textUnit = new   PrintItemObj(temp,PrinterConstant.FontSize.LARGE,true, PrintItemObj.ALIGN.CENTER);
         list.add(textUnit);
 
+        if (transData.getTransresult() != TransResult.SUCC) {
+            String reason = TransResult.getMessage(context, transData.getTransresult());
+            // Map specific response code if available
+            String rspCode = transData.getResponseCode();
+            if (!TextUtils.isEmpty(rspCode)) {
+                 // Try to get message from ResponseCode map if available in TopApplication
+                 // Assuming standard mapping or fallback to TransResult
+                 // For now, appending raw code or relying on TransResult if generic
+                 if ("51".equals(rspCode)) reason = "Insufficient Funds";
+                 else if ("55".equals(rspCode)) reason = "Incorrect PIN";
+                 // ... add other common ones if TransResult doesn't cover them
+            }
+
+            temp = "Reason: " + reason;
+            textUnit = new PrintItemObj(temp, PrinterConstant.FontSize.NORMAL, true, PrintItemObj.ALIGN.CENTER);
+            list.add(textUnit);
+        }
+
         //AID	    M	Tag 84
         //App Name	M	Tag 9F12
         //TC	    M	Tag 9F26 (2GAC)
@@ -346,6 +364,15 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
 
         template.add(new TextUnit(curr+temp, LARGE, Align.CENTER).setBold(true));
 
+        if (transData.getTransresult() != TransResult.SUCC) {
+            String reason = TransResult.getMessage(context, transData.getTransresult());
+            String rspCode = transData.getResponseCode();
+            if (!TextUtils.isEmpty(rspCode)) {
+                 if ("51".equals(rspCode)) reason = "Insufficient Funds";
+                 else if ("55".equals(rspCode)) reason = "Incorrect PIN";
+            }
+            template.add(new TextUnit("Reason: " + reason, NORMAL, Align.CENTER).setBold(true));
+        }
 
         //AID	    M	Tag 84
         //App Name	M	Tag 9F12
@@ -565,6 +592,15 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
             page.addLine().addUnit("RMB: "+temp ,NORMAL, EAlign.CENTER);
         }
 
+        if (transData.getTransresult() != TransResult.SUCC) {
+            String reason = TransResult.getMessage(context, transData.getTransresult());
+            String rspCode = transData.getResponseCode();
+            if (!TextUtils.isEmpty(rspCode)) {
+                 if ("51".equals(rspCode)) reason = "Insufficient Funds";
+                 else if ("55".equals(rspCode)) reason = "Incorrect PIN";
+            }
+            page.addLine().addUnit("Reason: " + reason, NORMAL, EAlign.CENTER);
+        }
 
         //AID	    M	Tag 84
         //App Name	M	Tag 9F12

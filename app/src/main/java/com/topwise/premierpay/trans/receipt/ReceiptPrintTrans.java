@@ -31,7 +31,7 @@ public class ReceiptPrintTrans extends AReceiptPrint {
         this.listener = listener;
 
         receiptNum = getVoucherNum();
-        if (isRePrint)
+        if (isRePrint || transData.getTransresult() != TransResult.SUCC)
             receiptNum = 1;
 
    //     if (listener != null)
