@@ -243,10 +243,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             public void run() {
                 final boolean isConnected;
                 String hostIp = SysParam.getInstance(MainActivity.this).get(SysParam.HOSTIP);
-                int hostPort = SysParam.getInstance(MainActivity.this).getInt(SysParam.HOSTPORT);
+                String hostPortStr = SysParam.getInstance(MainActivity.this).get(SysParam.HOSTPORT);
+                int hostPort = 0;
+                try {
+                    hostPort = Integer.parseInt(hostPortStr);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
 
                 boolean connected = false;
-                if (hostIp != null && !hostIp.isEmpty()) {
+                if (hostIp != null && !hostIp.isEmpty() && hostPort > 0) {
                     Socket socket = null;
                     try {
                         socket = new Socket();
