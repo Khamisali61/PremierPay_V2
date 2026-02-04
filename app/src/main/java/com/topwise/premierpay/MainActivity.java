@@ -19,9 +19,14 @@ import com.topwise.premierpay.daoutils.DaoUtlis;
 import com.topwise.premierpay.menu.AuthMenuActivity;
 import com.topwise.premierpay.menu.SettingMenuActivity;
 import com.topwise.premierpay.mpesa.MpesaStkActivity;
+import com.topwise.premierpay.param.SysParam;
 import com.topwise.premierpay.thirdcall.ThirdCall;
 import com.topwise.premierpay.trans.TransRefund;
 import com.topwise.premierpay.trans.TransSale;
+import android.widget.TextView;
+import android.graphics.Color;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import com.topwise.premierpay.trans.core.ATransaction;
 import com.topwise.premierpay.trans.core.ActionResult;
 import com.topwise.premierpay.trans.model.Device;
@@ -210,6 +215,70 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         AppLog.d(TAG,"onResume " + TopApplication.isInstallDeviceService);
         handler.sendEmptyMessage(CHECK_PON_STATER);
         SmallScreenUtil.getInstance().showLogo("topwise.bmp");
+        updateHeaderInfo();
+        checkHostConnection();
+    }
+
+    private void updateHeaderInfo() {
+        TextView tvMerchName = findViewById(R.id.tv_merch_name);
+        TextView tvTermId = findViewById(R.id.tv_term_id);
+        TextView tvLocation = findViewById(R.id.tv_location);
+
+        SysParam sysParam = SysParam.getInstance(this);
+        String merchName = sysParam.getString(SysParam.MERCH_NAME);
+        String termId = sysParam.getString(SysParam.TERMINAL_ID);
+        String city = sysParam.getString(SysParam.CITY_INFO);
+
+        if (tvMerchName != null) tvMerchName.setText(merchName);
+        if (tvTermId != null) tvTermId.setText("TID: " + termId);
+        if (tvLocation != null) tvLocation.setText(city);
+    }
+
+    private void checkHostConnection() {
+        final TextView tvSystemStatus = findViewById(R.id.tv_system_status);
+        if (tvSystemStatus == null) return;
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final boolean isConnected;
+                String hostIp = SysParam.getInstance(MainActivity.this).getString(SysParam.HOSTIP);
+                int hostPort = SysParam.getInstance(MainActivity.this).getInt(SysParam.HOSTPORT);
+
+                if (hostIp == null || hostIp.isEmpty()) {
+                    isConnected = false;
+                } else {
+                    Socket socket = null;
+                    try {
+                        socket = new Socket();
+                        socket.connect(new InetSocketAddress(hostIp, hostPort), 3000);
+                        isConnected = true;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        isConnected = false;
+                    } finally {
+                        if (socket != null) {
+                            try { socket.close(); } catch (Exception e) {}
+                        }
+                    }
+                }
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                         if (isConnected) {
+                            tvSystemStatus.setText("SYSTEM READY");
+                            tvSystemStatus.setTextColor(Color.GREEN);
+                            tvSystemStatus.setAlpha(1.0f);
+                        } else {
+                            tvSystemStatus.setText("CONNECTION DOWN");
+                            tvSystemStatus.setTextColor(Color.RED);
+                            tvSystemStatus.setAlpha(1.0f);
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 
     @Override

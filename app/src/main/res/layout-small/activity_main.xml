@@ -15,21 +15,33 @@
         android:padding="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MERCHANT TERMINAL"
-            android:textColor="#FFFFFF"
-            android:textSize="8sp"
-            android:alpha="0.7"/>
-
-        <TextView
+            android:id="@+id/tv_merch_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Artisan Coffee Co."
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            android:textStyle="bold"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_term_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MERCHANT TERMINAL"
+            android:textColor="#FFFFFF"
+            android:textSize="8sp"
+            android:alpha="0.7"
             android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textColor="#FFFFFF"
+            android:textSize="8sp"
+            android:alpha="0.7"
+            android:layout_marginTop="1dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -45,6 +57,7 @@
                 android:textStyle="bold"/>
 
             <TextView
+                android:id="@+id/tv_system_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SYSTEM READY"
@@ -62,7 +75,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/header"
-        android:layout_above="@id/bottom_nav"
         android:padding="8dp">
 
         <GridLayout
@@ -337,46 +349,5 @@
         </GridLayout>
 
     </ScrollView>
-
-    <!-- Bottom Nav -->
-    <LinearLayout
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:background="#FFFFFF"
-        android:elevation="8dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_window_24"
-            app:tint="#8CC63F"/>
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_credit_card_24"
-            app:tint="#CCCCCC"/>
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_list_alt_24"
-            app:tint="#CCCCCC"/>
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_build_24"
-            app:tint="#CCCCCC"/>
-
-    </LinearLayout>
 
 </RelativeLayout>

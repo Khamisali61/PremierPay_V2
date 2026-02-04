@@ -93,25 +93,8 @@ public class TransSale extends BaseTrans {
 
 
 
-        if (ret ==EmvErrorCode.EMV_DECLINED){
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    String message = TransResult.getMessage(getCurrentContext(), result.getRet());
-                    DialogSure dialogSure = new DialogSure(getCurrentContext());
-                    dialogSure.setContent(message);
-                    dialogSure.setContent("Transaction Declined");
-                    dialogSure.tickTimerStart(3);
-                    dialogSure.setFailLogo();
-                    dialogSure.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialog) {
-                            gotoState(State.TRANS_STATE.toString());
-                        }
-                    });
-                    dialogSure.show();
-                }
-            });
+        if (ret == EmvErrorCode.EMV_DECLINED){
+            gotoState(State.TRANS_STATE.toString());
             return;
         }
         if (ret == EmvErrorCode.CLSS_NEED_CONTACT) {
@@ -135,25 +118,8 @@ public class TransSale extends BaseTrans {
             return;
         }
 
-        if (ret ==EmvErrorCode.CLSS_CARD_NOT_SUPPORT){
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    String message = TransResult.getMessage(getCurrentContext(), result.getRet());
-                    DialogSure dialogSure = new DialogSure(getCurrentContext());
-                    dialogSure.setContent(message);
-                    dialogSure.setContent("card not support");
-                    dialogSure.tickTimerStart(3);
-                    dialogSure.setFailLogo();
-                    dialogSure.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialog) {
-                            gotoState(State.TRANS_STATE.toString());
-                        }
-                    });
-                    dialogSure.show();
-                }
-            });
+        if (ret == EmvErrorCode.CLSS_CARD_NOT_SUPPORT){
+            gotoState(State.TRANS_STATE.toString());
             return;
         }
 
@@ -179,7 +145,7 @@ public class TransSale extends BaseTrans {
         }
 
         if (ret != TransResult.SUCC) {
-            transEnd(result);
+            gotoState(State.TRANS_STATE.toString());
             return;
         }
 
