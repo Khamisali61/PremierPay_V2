@@ -917,7 +917,7 @@
       "RdClssTxnNoOnDeviceLmt": "000099999999",
       "RdClssFLmt": "000000000000",
       "TermFLmt": "000000000000",
-      "CVMLmt": "000000005000",
+      "CVMLmt": "0000005000000",
       "TargetPercent": "20",
       "MaxTargetPercent": "50",
       "Threshold": "000000002000",
