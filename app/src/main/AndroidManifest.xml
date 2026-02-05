@@ -90,9 +90,11 @@
         android:preserveLegacyExternalStorage="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.topwise.premierpay.LoginActivity"></activity>
+        <activity android:name="com.topwise.premierpay.LoginActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustNothing"></activity>
         <activity android:name="com.topwise.premierpay.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -149,7 +151,8 @@
 		
 		<activity android:name=".mpesa.MpesaStkActivity"
           android:label="M-Pesa STK Push"
-          android:screenOrientation="portrait"/>
+          android:screenOrientation="portrait"
+          android:windowSoftInputMode="stateAlwaysHidden|adjustNothing"/>
 
         <activity android:name=".trans.action.activity.ShowCodeActivity" />
 

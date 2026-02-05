@@ -67,9 +67,17 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
     private void showInputScreen() {
         setContentView(R.layout.activity_mpesa_stk);
 
+        View rootLayout = findViewById(R.id.mpesa_stk_root);
+
         // Bind Inputs
         etPhone = findViewById(R.id.et_phone_number);
         etAmount = findViewById(R.id.et_amount);
+
+        if (rootLayout != null) {
+            etPhone.clearFocus();
+            etAmount.clearFocus();
+            rootLayout.requestFocus();
+        }
 
         // Prevent system keyboard but keep focusable
         etPhone.setShowSoftInputOnFocus(false);
