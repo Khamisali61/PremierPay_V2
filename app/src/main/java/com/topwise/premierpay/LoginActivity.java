@@ -1,5 +1,6 @@
 package com.topwise.premierpay;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
@@ -10,6 +11,7 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,6 +33,7 @@ import com.topwise.premierpay.view.TopToast;
 import com.topwise.premierpay.setting.activity.SettingActivity;
 import com.topwise.premierpay.trans.core.TransContext;
 import com.topwise.premierpay.trans.model.Controller;
+import com.topwise.premierpay.trans.model.Device;
 import com.topwise.premierpay.trans.model.EUIParamKeys;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
@@ -44,6 +47,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Device.isPhysicalKeyDevice()) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM, WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+        }
     }
 
     @Override
@@ -298,7 +304,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         return super.onKeyDown(keyCode, event);
     }
 
-    public void showSoftInputFromWindow(EditText editText) {
+    public void showSoftInputFromWindow(final EditText editText) {
         editText.setFocusable(true);
         editText.setFocusableInTouchMode(true);
         editText.requestFocus();
@@ -307,5 +313,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             edtOperPwd.setShowSoftInputOnFocus(false);
         }
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        if (Device.isPhysicalKeyDevice()) {
+            editText.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    if (imm != null) {
+                        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+                    }
+                }
+            }, 100);
+        }
     }
 }

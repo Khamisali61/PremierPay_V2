@@ -1,8 +1,10 @@
 package com.topwise.premierpay.mpesa;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 import com.topwise.premierpay.R;
 import com.topwise.premierpay.param.SysParam;
 import com.topwise.premierpay.app.TopApplication;
+import com.topwise.premierpay.trans.model.Device;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -43,6 +46,9 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Device.isPhysicalKeyDevice()) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM, WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+        }
 
         if (getIntent().hasExtra("amount")) {
             currentAmount = getIntent().getStringExtra("amount");
@@ -77,9 +83,20 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
         // Track focus changes
         View.OnFocusChangeListener focusListener = new View.OnFocusChangeListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
+            public void onFocusChange(final View v, boolean hasFocus) {
                 if (hasFocus && v instanceof EditText) {
                     focusedEditText = (EditText) v;
+                    if (Device.isPhysicalKeyDevice()) {
+                        v.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                                if (imm != null) {
+                                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                                }
+                            }
+                        }, 100);
+                    }
                 }
             }
         };

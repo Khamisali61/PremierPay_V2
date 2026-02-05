@@ -1,6 +1,7 @@
 package com.topwise.premierpay.trans.model;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.SystemClock;
@@ -327,6 +328,15 @@ public class Device {
             manufacture = "";
         }
         return manufacture +" "+model+" ";
+    }
+
+    /**
+     * Check if the current device has a physical keypad (MP45P or T3)
+     * @return true if it's MP45P or T3
+     */
+    public static boolean isPhysicalKeyDevice() {
+        String model = Build.MODEL;
+        return "MP45P".equalsIgnoreCase(model) || "T3".equalsIgnoreCase(model);
     }
 
     /**
