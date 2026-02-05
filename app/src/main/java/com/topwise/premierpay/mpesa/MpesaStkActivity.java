@@ -2,6 +2,7 @@ package com.topwise.premierpay.mpesa;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
@@ -67,6 +68,7 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
         // Prevent system keyboard but keep focusable
         etPhone.setShowSoftInputOnFocus(false);
         etAmount.setShowSoftInputOnFocus(false);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         // Default Focus
         etAmount.requestFocus();

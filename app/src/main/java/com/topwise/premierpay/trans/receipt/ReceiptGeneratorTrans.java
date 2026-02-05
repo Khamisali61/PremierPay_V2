@@ -68,6 +68,12 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         ETransType eTransType = ETransType.valueOf(transData.getTransType());
 
         List<PrintItemObj> list = new ArrayList<>();
+
+        if (transData.getTransresult() != TransResult.SUCC) {
+            PrintItemObj failHeader = new PrintItemObj("TRANSACTION FAILED", PrinterConstant.FontSize.LARGE, true, PrintItemObj.ALIGN.CENTER);
+            list.add(failHeader);
+        }
+
         PrintItemObj textUnit = new PrintItemObj(context.getString(R.string.pos_ticket), PrinterConstant.FontSize.LARGE,false, PrintItemObj.ALIGN.CENTER);
         list.add(textUnit);
 
@@ -152,18 +158,7 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         list.add(textUnit);
 
         if (transData.getTransresult() != TransResult.SUCC) {
-            String reason = TransResult.getMessage(context, transData.getTransresult());
-            // Map specific response code if available
-            String rspCode = transData.getResponseCode();
-            if (!TextUtils.isEmpty(rspCode)) {
-                 // Try to get message from ResponseCode map if available in TopApplication
-                 // Assuming standard mapping or fallback to TransResult
-                 // For now, appending raw code or relying on TransResult if generic
-                 if ("51".equals(rspCode)) reason = "Insufficient Funds";
-                 else if ("55".equals(rspCode)) reason = "Incorrect PIN";
-                 // ... add other common ones if TransResult doesn't cover them
-            }
-
+            String reason = getFailureReason(transData.getResponseCode());
             temp = "Reason: " + reason;
             textUnit = new PrintItemObj(temp, PrinterConstant.FontSize.NORMAL, true, PrintItemObj.ALIGN.CENTER);
             list.add(textUnit);
@@ -282,6 +277,10 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         template.clear();
         // 凭单抬头
 
+        if (transData.getTransresult() != TransResult.SUCC) {
+            template.add(new TextUnit("TRANSACTION FAILED", LARGE, Align.CENTER).setBold(true));
+        }
+
         ETransType eTransType = ETransType.valueOf(transData.getTransType());
 
         List<TextUnit> list = new ArrayList<>();
@@ -366,12 +365,7 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         template.add(new TextUnit(curr+temp, LARGE, Align.CENTER).setBold(true));
 
         if (transData.getTransresult() != TransResult.SUCC) {
-            String reason = TransResult.getMessage(context, transData.getTransresult());
-            String rspCode = transData.getResponseCode();
-            if (!TextUtils.isEmpty(rspCode)) {
-                 if ("51".equals(rspCode)) reason = "Insufficient Funds";
-                 else if ("55".equals(rspCode)) reason = "Incorrect PIN";
-            }
+            String reason = getFailureReason(transData.getResponseCode());
             template.add(new TextUnit("Reason: " + reason, NORMAL, Align.CENTER).setBold(true));
         }
 
@@ -474,6 +468,11 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         String temp = "",temp1 = "";
         Context context = TopApplication.mApp;
         page.setTypeFace(TYPE_FACE);
+
+        if (transData.getTransresult() != TransResult.SUCC) {
+            page.addLine().addUnit("TRANSACTION FAILED", FONT_BIG, EAlign.CENTER);
+        }
+
         // 交易类型
         ETransType transType = ETransType.valueOf(transData.getTransType());
         SysParam sysParam = TopApplication.sysParam;
@@ -594,12 +593,7 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         }
 
         if (transData.getTransresult() != TransResult.SUCC) {
-            String reason = TransResult.getMessage(context, transData.getTransresult());
-            String rspCode = transData.getResponseCode();
-            if (!TextUtils.isEmpty(rspCode)) {
-                 if ("51".equals(rspCode)) reason = "Insufficient Funds";
-                 else if ("55".equals(rspCode)) reason = "Incorrect PIN";
-            }
+            String reason = getFailureReason(transData.getResponseCode());
             page.addLine().addUnit("Reason: " + reason, NORMAL, EAlign.CENTER);
         }
 
@@ -695,6 +689,19 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
     @Override
     public String generateStr() {
         return null;
+    }
+
+    private String getFailureReason(String rspCode) {
+        if (TextUtils.isEmpty(rspCode)) {
+            return "Unknown Error";
+        }
+        switch (rspCode) {
+            case "51": return "Insufficient Funds";
+            case "55": return "Incorrect PIN";
+            case "59": return "Suspected Fraud";
+            case "Q1": return "Card Auth Failed";
+            default: return "Error: " + rspCode;
+        }
     }
 
     private String getTerminalandAppVersion(){

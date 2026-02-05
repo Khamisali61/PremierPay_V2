@@ -187,7 +187,8 @@ public class InputDataActivity extends BaseActivityWithTickForAction implements 
         editText.setFocusable(true);
         editText.setFocusableInTouchMode(true);
         editText.requestFocus();
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        editText.setShowSoftInputOnFocus(false);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
 }

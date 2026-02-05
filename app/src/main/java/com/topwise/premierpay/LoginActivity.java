@@ -302,6 +302,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         editText.setFocusable(true);
         editText.setFocusableInTouchMode(true);
         editText.requestFocus();
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        editText.setShowSoftInputOnFocus(false);
+        if (edtOperPwd != null) {
+            edtOperPwd.setShowSoftInputOnFocus(false);
+        }
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 }

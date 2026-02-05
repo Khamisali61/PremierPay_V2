@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Message;
+import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.View;
@@ -51,6 +52,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         requestPermission();
         DaoUtlis.initData();
         NetWorkUtils.startMobileSignal(this);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     @Override
