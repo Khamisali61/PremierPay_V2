@@ -77,8 +77,10 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         PrintItemObj textUnit = new PrintItemObj(context.getString(R.string.pos_ticket), PrinterConstant.FontSize.LARGE,false, PrintItemObj.ALIGN.CENTER);
         list.add(textUnit);
 
+        int fontSize = Device.isPhysicalKeyDevice() ? PrinterConstant.FontSize.NORMAL : PrinterConstant.FontSize.LARGE;
+
         temp = context.getString(R.string.receipt_en_merchant_name)+TopApplication.sysParam.get(SysParam.MERCH_NAME);
-        textUnit = new   PrintItemObj(temp);
+        textUnit = new   PrintItemObj(temp, fontSize, false, PrintItemObj.ALIGN.LEFT);
         list.add(textUnit);
 
 
@@ -111,10 +113,10 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         } else if (enterMode == Component.EnterMode.CLSS_PBOC || enterMode == Component.EnterMode.QPBOC) {
             temp += " C";
         }
-        textUnit = new PrintItemObj(temp, PrinterConstant.FontSize.LARGE,true, PrintItemObj.ALIGN.CENTER);
+        textUnit = new PrintItemObj(temp, fontSize, true, PrintItemObj.ALIGN.CENTER);
         list.add(textUnit);
         //交易类型
-        textUnit = new PrintItemObj(eTransType.getTransName().toUpperCase(), PrinterConstant.FontSize.LARGE,false, PrintItemObj.ALIGN.CENTER);
+        textUnit = new PrintItemObj(eTransType.getTransName().toUpperCase(), fontSize, false, PrintItemObj.ALIGN.CENTER);
         list.add(textUnit);
 
         //有效期
@@ -154,7 +156,7 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
 
         temp = curr+":"+Utils.ftoYuan(transData.getAmount());
 
-        textUnit = new   PrintItemObj(temp,PrinterConstant.FontSize.LARGE,true, PrintItemObj.ALIGN.CENTER);
+        textUnit = new   PrintItemObj(temp, fontSize, true, PrintItemObj.ALIGN.CENTER);
         list.add(textUnit);
 
         if (transData.getTransresult() != TransResult.SUCC) {
@@ -277,14 +279,16 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         template.clear();
         // 凭单抬头
 
+        int fontSize = Device.isPhysicalKeyDevice() ? NORMAL : LARGE;
+
         if (transData.getTransresult() != TransResult.SUCC) {
-            template.add(new TextUnit("TRANSACTION FAILED", LARGE, Align.CENTER).setBold(true));
+            template.add(new TextUnit("TRANSACTION FAILED", fontSize, Align.CENTER).setBold(true));
         }
 
         ETransType eTransType = ETransType.valueOf(transData.getTransType());
 
         List<TextUnit> list = new ArrayList<>();
-        TextUnit textUnit = new TextUnit(context.getString(R.string.pos_ticket), LARGE, Align.CENTER);
+        TextUnit textUnit = new TextUnit(context.getString(R.string.pos_ticket), fontSize, Align.CENTER);
         list.add(textUnit);
 //        Bitmap imageLogoFile = Utils.getImageFromAssetsFile();
 //        ImageUnit imageUnit = new ImageUnit(Align.RIGHT,imageLogoFile, imageLogoFile.getWidth(), imageLogoFile.getHeight());
@@ -326,10 +330,10 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         } else if (enterMode == Component.EnterMode.CLSS_PBOC || enterMode == Component.EnterMode.QPBOC) {
             temp += " C";
         }
-        template.add(new TextUnit(temp, LARGE, Align.CENTER).setBold(true));
+        template.add(new TextUnit(temp, fontSize, Align.CENTER).setBold(true));
 
         //交易类型
-        template.add(new TextUnit(eTransType.getTransName().toUpperCase() , PrinterConstant.FontSize.LARGE, Align.CENTER));
+        template.add(new TextUnit(eTransType.getTransName().toUpperCase() , fontSize, Align.CENTER));
 
         //有效期
         temp = transData.getExpDate();
@@ -362,7 +366,7 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         //金额
         String curr = TopApplication.sysParam.get(SysParam.APP_PARAM_TRANS_CURRENCY_SYMBOL);
 
-        template.add(new TextUnit(curr+temp, LARGE, Align.CENTER).setBold(true));
+        template.add(new TextUnit(curr+temp, fontSize, Align.CENTER).setBold(true));
 
         if (transData.getTransresult() != TransResult.SUCC) {
             String reason = getFailureReason(transData.getResponseCode());
@@ -469,8 +473,10 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         Context context = TopApplication.mApp;
         page.setTypeFace(TYPE_FACE);
 
+        int fontBig = Device.isPhysicalKeyDevice() ? FONT_NORMAL : FONT_BIG;
+
         if (transData.getTransresult() != TransResult.SUCC) {
-            page.addLine().addUnit("TRANSACTION FAILED", FONT_BIG, EAlign.CENTER);
+            page.addLine().addUnit("TRANSACTION FAILED", fontBig, EAlign.CENTER);
         }
 
         // 交易类型
@@ -478,9 +484,9 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
         SysParam sysParam = TopApplication.sysParam;
 
 //        Bitmap imageLogoFile = Utils.getImageFromAssetsFile();
-//        page.addLine().addUnit(imageLogoFile, EAlign.CENTER).addUnit(context.getString(R.string.pos_ticket),FONT_BIG, EAlign.CENTER);
+//        page.addLine().addUnit(imageLogoFile, EAlign.CENTER).addUnit(context.getString(R.string.pos_ticket),fontBig, EAlign.CENTER);
 
-        page.addLine().addUnit(context.getString(R.string.test_application), FONT_BIG);
+        page.addLine().addUnit(context.getString(R.string.test_application), fontBig);
         // 商户名称
         temp = TopApplication.sysParam.get(SysParam.MERCH_NAME);
         page.addLine().addUnit(context.getString(R.string.receipt_en_merchant_name),NORMAL, EAlign.LEFT);
@@ -531,7 +537,7 @@ public class ReceiptGeneratorTrans implements IReceiptGenerator {
 
         //交易类型
         page.addLine().addUnit(context.getString(R.string.receipt_en_trans_type) ,NORMAL, EAlign.LEFT);
-        page.addLine().addUnit(transType.getTransName().toUpperCase() ,LARGE, EAlign.CENTER);
+        page.addLine().addUnit(transType.getTransName().toUpperCase() ,fontBig, EAlign.CENTER);
 
         if (ETransType.TRANS_QR_SALE == transType || ETransType.TRANS_QR_VOID == transType ||
                 ETransType.TRANS_QR_REFUND == transType ){

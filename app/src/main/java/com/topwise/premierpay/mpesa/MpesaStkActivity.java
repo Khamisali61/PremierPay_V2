@@ -2,6 +2,7 @@ package com.topwise.premierpay.mpesa;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -46,6 +47,11 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (Device.isPhysicalKeyDevice()) {
+            Configuration config = getResources().getConfiguration();
+            config.smallestScreenWidthDp = 320;
+            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+        }
         super.onCreate(savedInstanceState);
         if (Device.isPhysicalKeyDevice()) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM, WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
@@ -83,8 +89,8 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
         // Prevent system keyboard but keep focusable
         etPhone.setShowSoftInputOnFocus(false);
         etAmount.setShowSoftInputOnFocus(false);
-        etPhone.setInputType(InputType.TYPE_NULL);
-        etAmount.setInputType(InputType.TYPE_NULL);
+        etPhone.setInputType(InputType.TYPE_CLASS_PHONE);
+        etAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         // Default Focus

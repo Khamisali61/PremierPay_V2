@@ -1,6 +1,7 @@
 package com.topwise.premierpay.app;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Message;
 import androidx.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 
 import com.topwise.manager.AppLog;
+import com.topwise.premierpay.trans.model.Device;
 
 public abstract class BaseActivity extends FragmentActivity {
     protected static final int TIP_TIME = 0x99;
@@ -18,6 +20,11 @@ public abstract class BaseActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        if (Device.isPhysicalKeyDevice()) {
+            Configuration config = getResources().getConfiguration();
+            config.smallestScreenWidthDp = 320;
+            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+        }
         super.onCreate(savedInstanceState);
         mContext = this;
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
