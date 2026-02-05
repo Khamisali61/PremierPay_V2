@@ -26,6 +26,7 @@ import com.topwise.premierpay.trans.model.Component;
 import com.topwise.premierpay.trans.model.Device;
 import com.topwise.premierpay.trans.model.ETransType;
 import com.topwise.premierpay.trans.model.TransData;
+import com.topwise.premierpay.trans.model.TransResult;
 import com.topwise.premierpay.utils.Utils;
 
 import java.io.FileInputStream;
