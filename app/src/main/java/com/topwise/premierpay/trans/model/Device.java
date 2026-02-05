@@ -331,14 +331,24 @@ public class Device {
     }
 
     /**
-     * Check if the current device has a physical keypad (MP45P, T3, T6)
-     * @return true if it's MP45P, T3, T6 or related hardware
+     * Check if the current device has a physical keypad (MP45P, T3)
+     * @return true if it's MP45P or T3 hardware
      */
     public static boolean isPhysicalKeyDevice() {
         String model = Build.MODEL;
         if (model == null) return false;
         String upperModel = model.toUpperCase();
-        return upperModel.contains("T3") || upperModel.contains("T6") || upperModel.contains("MP45P");
+        return upperModel.contains("T3") || upperModel.contains("MP45P");
+    }
+
+    /**
+     * Check if the current device is a T3 (high density, needs forced small layout)
+     * @return true if it's a T3
+     */
+    public static boolean isT3Device() {
+        String model = Build.MODEL;
+        if (model == null) return false;
+        return model.toUpperCase().contains("T3");
     }
 
     /**

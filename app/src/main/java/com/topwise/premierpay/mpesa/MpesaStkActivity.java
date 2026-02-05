@@ -47,7 +47,7 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (Device.isPhysicalKeyDevice()) {
+        if (Device.isT3Device()) {
             Configuration config = getResources().getConfiguration();
             config.smallestScreenWidthDp = 320;
             getResources().updateConfiguration(config, getResources().getDisplayMetrics());

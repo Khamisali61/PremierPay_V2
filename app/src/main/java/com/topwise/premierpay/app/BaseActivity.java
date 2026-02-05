@@ -20,7 +20,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        if (Device.isPhysicalKeyDevice()) {
+        if (Device.isT3Device()) {
             Configuration config = getResources().getConfiguration();
             config.smallestScreenWidthDp = 320;
             getResources().updateConfiguration(config, getResources().getDisplayMetrics());
