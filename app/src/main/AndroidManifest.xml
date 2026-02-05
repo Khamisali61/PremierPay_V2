@@ -112,8 +112,9 @@
         <activity android:name="com.topwise.premierpay.trans.action.activity.CardConfirmActivity" />
         <activity android:name="com.topwise.premierpay.trans.action.activity.ConsumeSuccessActivity" />
         <activity android:name="com.topwise.premierpay.trans.action.activity.InputDataActivity"
-            android:windowSoftInputMode="stateVisible|adjustResize"/>
-        <activity android:name="com.topwise.premierpay.trans.action.activity.InputData2Activity" />
+            android:windowSoftInputMode="stateVisible|adjustPan"/>
+        <activity android:name="com.topwise.premierpay.trans.action.activity.InputData2Activity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name="com.topwise.premierpay.trans.action.activity.DispTransDetailActivity" />
         <activity android:name="com.topwise.premierpay.trans.action.activity.ElecSignActivity" />
         <activity android:name="com.topwise.premierpay.trans.action.activity.FingerprintActivity" />

@@ -1,6 +1,5 @@
 package com.topwise.premierpay.trans.action.activity;
 
-import android.content.Context;
 import android.os.Message;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -8,7 +7,6 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,7 +19,6 @@ import com.topwise.premierpay.app.TopApplication;
 import com.topwise.premierpay.utils.ScanCodeUtils;
 import com.topwise.premierpay.view.TopToast;
 import com.topwise.premierpay.trans.core.ActionResult;
-import com.topwise.premierpay.trans.model.Device;
 import com.topwise.premierpay.trans.model.EUIParamKeys;
 import com.topwise.premierpay.trans.model.TransResult;
 
@@ -77,14 +74,6 @@ public class InputDataActivity extends BaseActivityWithTickForAction implements 
                 });
                 scanCodeUtils.startScan();
                 break;
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (Device.isPhysicalKeyDevice()) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM, WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
         }
     }
 
@@ -188,24 +177,11 @@ public class InputDataActivity extends BaseActivityWithTickForAction implements 
         return super.onKeyDown(keyCode, event);
     }
 
-    public void showSoftInputFromWindow(final EditText editText){
+    public void showSoftInputFromWindow(EditText editText){
         editText.setFocusable(true);
         editText.setFocusableInTouchMode(true);
         editText.requestFocus();
-        editText.setShowSoftInputOnFocus(false);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-        if (Device.isPhysicalKeyDevice()) {
-            editText.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    if (imm != null) {
-                        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-                    }
-                }
-            }, 100);
-        }
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
     }
 
 }

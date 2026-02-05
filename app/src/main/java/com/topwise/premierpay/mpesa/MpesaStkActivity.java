@@ -8,6 +8,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
+import android.text.InputType;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -82,6 +83,8 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
         // Prevent system keyboard but keep focusable
         etPhone.setShowSoftInputOnFocus(false);
         etAmount.setShowSoftInputOnFocus(false);
+        etPhone.setInputType(InputType.TYPE_NULL);
+        etAmount.setInputType(InputType.TYPE_NULL);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         // Default Focus
