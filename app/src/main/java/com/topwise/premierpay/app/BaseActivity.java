@@ -20,11 +20,6 @@ public abstract class BaseActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        if (Device.isT3Device()) {
-            Configuration config = getResources().getConfiguration();
-            config.smallestScreenWidthDp = 320;
-            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-        }
         super.onCreate(savedInstanceState);
         mContext = this;
         requestWindowFeature(Window.FEATURE_ACTION_BAR);

@@ -24,7 +24,7 @@
             <TextView
                 android:id="@+id/btn1"
                 android:layout_width="0.0dip"
-                android:layout_height="75.0dip"
+                android:layout_height="60.0dip"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/btn_cal_1"
@@ -38,7 +38,7 @@
             <TextView
                 android:id="@+id/btn2"
                 android:layout_width="0.0dip"
-                android:layout_height="75.0dip"
+                android:layout_height="60.0dip"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/btn_cal_2"
@@ -52,7 +52,7 @@
             <TextView
                 android:id="@+id/btn3"
                 android:layout_width="0.0dip"
-                android:layout_height="75.0dip"
+                android:layout_height="60.0dip"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/btn_cal_3"
@@ -66,7 +66,7 @@
             <TextView
                 android:id="@+id/btn4"
                 android:layout_width="0.0dip"
-                android:layout_height="75.0dip"
+                android:layout_height="60.0dip"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/btn_cal_4"
@@ -80,7 +80,7 @@
             <TextView
                 android:id="@+id/btn5"
                 android:layout_width="0.0dip"
-                android:layout_height="75.0dip"
+                android:layout_height="60.0dip"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/btn_cal_5"
@@ -94,7 +94,7 @@
             <TextView
                 android:id="@+id/btn6"
                 android:layout_width="0.0dip"
-                android:layout_height="75.0dip"
+                android:layout_height="60.0dip"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/btn_cal_6"
@@ -108,7 +108,7 @@
             <TextView
                 android:id="@+id/btn7"
                 android:layout_width="0.0dip"
-                android:layout_height="75.0dip"
+                android:layout_height="60.0dip"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/btn_cal_7"
@@ -122,7 +122,7 @@
             <TextView
                 android:id="@+id/btn8"
                 android:layout_width="0.0dip"
-                android:layout_height="75.0dip"
+                android:layout_height="60.0dip"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/btn_cal_8"
@@ -136,7 +136,7 @@
             <TextView
                 android:id="@+id/btn9"
                 android:layout_width="0.0dip"
-                android:layout_height="75.0dip"
+                android:layout_height="60.0dip"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/btn_cal_9"
@@ -150,7 +150,7 @@
             <TextView
                 android:id="@+id/btn_dot"
                 android:layout_width="0.0dip"
-                android:layout_height="75.0dip"
+                android:layout_height="60.0dip"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="."
@@ -179,7 +179,7 @@
             <TextView
                 android:id="@+id/btn0"
                 android:layout_width="0.0dip"
-                android:layout_height="75.0dip"
+                android:layout_height="60.0dip"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/btn_cal_0"

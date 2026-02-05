@@ -1,86 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:focusable="false"
     android:descendantFocusability="blocksDescendants">
 
-    <Button
-        android:id="@+id/btn1"
-        style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_1" />
+    <!-- Keypad removed for small screen devices with physical keys -->
 
-    <Button
-        android:id="@+id/btn2"
-        style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_2" />
-
-    <Button
-        android:id="@+id/btn3"
-        style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_3" />
-
-    <Button
-        android:id="@+id/btn4"
-        style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_4" />
-
-    <Button
-        android:id="@+id/btn5"
-        style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_5" />
-
-    <Button
-        android:id="@+id/btn6"
-        style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_6" />
-
-    <Button
-        android:id="@+id/btn7"
-        style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_7" />
-
-    <Button
-        android:id="@+id/btn8"
-        style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_8" />
-
-    <Button
-        android:id="@+id/btn9"
-        style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_9" />
-
-    <!-- 00 Button -->
-    <Button
-        android:id="@+id/btn00"
-        style="@style/NumberPadButtonStyle"
-        android:text="00" />
-
-    <Button
-        android:id="@+id/btn0"
-        style="@style/NumberPadButtonStyle"
-        android:text="@string/btn_cal_0" />
-
-    <!-- Backspace/Clear -->
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnClear"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/bg_keypad_number_field"
-        android:backgroundTint="#f2f4f7"
-        android:scaleType="center"
-        app:srcCompat="@drawable/db_clears"
-        android:focusable="false"
-        android:focusableInTouchMode="false"/>
-
-    <androidx.constraintlayout.helper.widget.Flow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:orientation="horizontal"
-        app:constraint_referenced_ids="btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn00,btn0,btnClear"
-        app:flow_maxElementsWrap="3"
-        app:flow_wrapMode="chain"
-        app:flow_verticalGap="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

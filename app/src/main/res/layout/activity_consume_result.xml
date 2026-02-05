@@ -4,17 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:padding="20dp">
+    android:padding="16dp">
 
     <!-- Close Button (Top Left) -->
     <ImageView
         android:id="@+id/btn_close"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/ic_close_white"
         app:tint="@color/brand_navy"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:clickable="true"
         android:focusable="true"/>
 
@@ -26,157 +26,169 @@
         android:layout_centerHorizontal="true"
         android:text="Transaction Status"
         android:textColor="@color/brand_navy"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:layout_alignTop="@id/btn_close"/>
 
-    <!-- Status Icon & Text Container -->
-    <LinearLayout
-        android:id="@+id/status_container"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
+        android:layout_height="match_parent"
         android:layout_below="@id/header_title"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:id="@+id/iv_trans_status"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_check_circle_large"/>
-
-        <TextView
-            android:id="@+id/tv_status_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Approved"
-            android:textColor="@color/brand_navy"
-            android:textSize="24sp"
-            android:textStyle="bold"/>
-
-        <!-- Failure Reason (Initially Gone) -->
-        <TextView
-            android:id="@+id/tv_failure_reason"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Insufficient Funds"
-            android:textColor="#F44336"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:visibility="gone"/>
-    </LinearLayout>
-
-    <!-- Details Card -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/status_container"
-        android:layout_marginTop="24dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="0dp"
-        app:cardBackgroundColor="#F8F9FA">
+        android:layout_above="@+id/action_buttons"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp"
-            android:gravity="center_horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TOTAL AMOUNT"
-                android:textColor="#90A4AE"
-                android:textSize="12sp"
-                android:letterSpacing="0.1"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/tv_total_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="$124.50"
-                android:textColor="@color/brand_navy"
-                android:textSize="32sp"
-                android:textStyle="bold"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#E0E0E0"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"/>
-
-            <!-- Details Rows -->
-            <RelativeLayout
+            <!-- Status Icon & Text Container -->
+            <LinearLayout
+                android:id="@+id/status_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/iv_trans_status"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_check_circle_large"/>
+
                 <TextView
+                    android:id="@+id/tv_status_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Auth Code"
-                    android:textColor="#546E7A"
-                    android:textSize="14sp"/>
-                <TextView
-                    android:id="@+id/tv_auth_code"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="882941"
+                    android:layout_marginTop="10dp"
+                    android:text="Approved"
                     android:textColor="@color/brand_navy"
-                    android:textStyle="bold"
-                    android:textSize="14sp"/>
-            </RelativeLayout>
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
 
-            <RelativeLayout
+                <!-- Failure Reason (Initially Gone) -->
+                <TextView
+                    android:id="@+id/tv_failure_reason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Insufficient Funds"
+                    android:textColor="#F44336"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <!-- Details Card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Card No."
-                    android:textColor="#546E7A"
-                    android:textSize="14sp"/>
-                <TextView
-                    android:id="@+id/tv_card_no"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="**** 4242"
-                    android:textColor="@color/brand_navy"
-                    android:textStyle="bold"
-                    android:textSize="14sp"/>
-            </RelativeLayout>
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#F8F9FA">
 
-             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Merchant ID"
-                    android:textColor="#546E7A"
-                    android:textSize="14sp"/>
-                <TextView
-                    android:id="@+id/tv_merchant_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="POS-772-K1"
-                    android:textColor="@color/brand_navy"
-                    android:textStyle="bold"
-                    android:textSize="14sp"/>
-            </RelativeLayout>
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center_horizontal">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TOTAL AMOUNT"
+                        android:textColor="#90A4AE"
+                        android:textSize="10sp"
+                        android:letterSpacing="0.1"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tv_total_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="$124.50"
+                        android:textColor="@color/brand_navy"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E0E0E0"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- Details Rows -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Auth Code"
+                            android:textColor="#546E7A"
+                            android:textSize="12sp"/>
+                        <TextView
+                            android:id="@+id/tv_auth_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="882941"
+                            android:textColor="@color/brand_navy"
+                            android:textStyle="bold"
+                            android:textSize="12sp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Card No."
+                            android:textColor="#546E7A"
+                            android:textSize="12sp"/>
+                        <TextView
+                            android:id="@+id/tv_card_no"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="**** 4242"
+                            android:textColor="@color/brand_navy"
+                            android:textStyle="bold"
+                            android:textSize="12sp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Merchant ID"
+                            android:textColor="#546E7A"
+                            android:textSize="12sp"/>
+                        <TextView
+                            android:id="@+id/tv_merchant_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="POS-772-K1"
+                            android:textColor="@color/brand_navy"
+                            android:textStyle="bold"
+                            android:textSize="12sp"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </ScrollView>
 
     <!-- Action Buttons (Print/Email) -->
     <LinearLayout
@@ -184,7 +196,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/btn_done"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -193,15 +205,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_capsule_gray"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_marginEnd="16dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginEnd="12dp"
             android:gravity="center">
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
                 android:src="@drawable/baseline_print_24"
                 app:tint="@color/brand_navy"/>
             <TextView
@@ -210,8 +222,8 @@
                 android:text="Print Receipt"
                 android:textColor="@color/brand_navy"
                 android:textStyle="bold"
-                android:textSize="12sp"
-                android:layout_marginStart="8dp"/>
+                android:textSize="10sp"
+                android:layout_marginStart="6dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -219,14 +231,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_capsule_gray"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:gravity="center">
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
                 android:src="@drawable/baseline_email_24"
                 app:tint="@color/brand_navy"/>
             <TextView
@@ -235,8 +247,8 @@
                 android:text="Email"
                 android:textColor="@color/brand_navy"
                 android:textStyle="bold"
-                android:textSize="12sp"
-                android:layout_marginStart="8dp"/>
+                android:textSize="10sp"
+                android:layout_marginStart="6dp"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -244,13 +256,13 @@
     <Button
         android:id="@+id/btn_done"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         android:text="Continue"
         android:background="@drawable/bg_button_lime_rounded"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold"/>
 
     <!-- Hidden Views for Compatibility if needed by Java, though we will update Java to use new IDs -->

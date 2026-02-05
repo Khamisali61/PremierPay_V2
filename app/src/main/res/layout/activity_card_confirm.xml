@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:descendantFocusability="blocksDescendants"
     android:id="@+id/activity_card_confirm"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,32 +26,20 @@
 
         <ImageView
             android:id="@+id/image_result"
-            android:layout_width="@dimen/dp_200"
-            android:layout_height="@dimen/dp_200"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="@dimen/dp_90"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/card_confirm" />
-
-        <TextView
-            android:id="@+id/card_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_below="@id/image_result"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:text="Card Number:"
-            android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/card_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/card_number"
-
-            android:layout_marginBottom="20dp"
+            android:layout_below="@+id/image_result"
+            android:layout_marginTop="@dimen/dp_10"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="30sp"/>
     </RelativeLayout>
@@ -59,8 +48,7 @@
         android:id="@+id/confirm_button"
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_height"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp">
+        android:layout_alignParentBottom="true" >
 
         <Button
             android:id="@+id/btn_cancle"
@@ -68,18 +56,18 @@
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="20dp"
+            android:focusable="false"
             android:background="@drawable/drawable_button"
             android:text="@string/card_num_confirm_cancle"
-            android:focusable="false"
             android:onClick="onClick"/>
         <Button
             android:id="@+id/btn_ok"
             android:layout_width="@dimen/button_width"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
             android:focusable="true"
-            android:background="@drawable/drawable_button_ok"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/drawable_button"
             android:text="@string/card_num_confirm_ok"
             android:onClick="onClick"/>
     </RelativeLayout>

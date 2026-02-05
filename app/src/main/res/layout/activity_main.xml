@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="#003366"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/tv_merch_name"
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="Artisan Coffee Co."
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
 
         <TextView
@@ -29,9 +29,9 @@
             android:layout_height="wrap_content"
             android:text="MERCHANT TERMINAL"
             android:textColor="#FFFFFF"
-            android:textSize="10sp"
+            android:textSize="8sp"
             android:alpha="0.7"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="2dp"/>
 
         <TextView
             android:id="@+id/tv_location"
@@ -39,21 +39,21 @@
             android:layout_height="wrap_content"
             android:text="Location"
             android:textColor="#FFFFFF"
-            android:textSize="10sp"
+            android:textSize="8sp"
             android:alpha="0.7"
-            android:layout_marginTop="2dp"/>
+            android:layout_marginTop="1dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dashboard"
                 android:textColor="#FFFFFF"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:text="SYSTEM READY"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="8sp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/header"
-        android:padding="16dp">
+        android:padding="8dp">
 
         <GridLayout
             android:layout_width="match_parent"
@@ -92,23 +92,23 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="8dp"
                 app:cardElevation="2dp"
                 app:cardBackgroundColor="#8CC63F">
 
                 <LinearLayout
                     android:id="@+id/btn_sale"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:orientation="vertical"
-                    android:padding="16dp"
+                    android:padding="12dp"
                     android:gravity="center_vertical">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@mipmap/sale_2"
                         app:tint="#003366"/>
 
@@ -117,7 +117,7 @@
                         android:layout_height="wrap_content"
                         android:text="Sale"
                         android:textColor="#003366"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         android:layout_marginTop="8dp"/>
 
@@ -126,7 +126,7 @@
                         android:layout_height="wrap_content"
                         android:text="Start payment"
                         android:textColor="#003366"
-                        android:textSize="12sp"
+                        android:textSize="10sp"
                         android:alpha="0.7"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -137,22 +137,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                  android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="8dp"
                 app:cardElevation="2dp">
 
                 <LinearLayout
                     android:id="@+id/btn_refund"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:orientation="vertical"
-                    android:padding="16dp"
+                    android:padding="12dp"
                     android:gravity="center_vertical">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/ic_refund"
                         app:tint="#003366"/>
 
@@ -161,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:text="Refund"
                         android:textColor="#003366"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         android:layout_marginTop="8dp"/>
 
@@ -170,7 +170,7 @@
                         android:layout_height="wrap_content"
                         android:text="Reverse charge"
                         android:textColor="#666666"
-                        android:textSize="12sp"/>
+                        android:textSize="10sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -180,22 +180,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                  android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="8dp"
                 app:cardElevation="2dp">
 
                 <LinearLayout
                     android:id="@+id/btn_preauth"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:orientation="vertical"
-                    android:padding="16dp"
+                    android:padding="12dp"
                     android:gravity="center_vertical">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/pre_auth"
                         app:tint="#003366"/>
 
@@ -204,7 +204,7 @@
                         android:layout_height="wrap_content"
                         android:text="Pre-Auth"
                         android:textColor="#003366"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         android:layout_marginTop="8dp"/>
 
@@ -213,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:text="Hold funds"
                         android:textColor="#666666"
-                        android:textSize="12sp"/>
+                        android:textSize="10sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -223,22 +223,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                  android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="8dp"
                 app:cardElevation="2dp">
 
                 <LinearLayout
                     android:id="@+id/btn_reports"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:orientation="vertical"
-                    android:padding="16dp"
+                    android:padding="12dp"
                     android:gravity="center_vertical">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/ic_reports"
                         app:tint="#003366"/>
 
@@ -247,7 +247,7 @@
                         android:layout_height="wrap_content"
                         android:text="Reports"
                         android:textColor="#003366"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         android:layout_marginTop="8dp"/>
 
@@ -256,7 +256,7 @@
                         android:layout_height="wrap_content"
                         android:text="Daily summary"
                         android:textColor="#666666"
-                        android:textSize="12sp"/>
+                        android:textSize="10sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -266,22 +266,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                  android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="8dp"
                 app:cardElevation="2dp">
 
                 <LinearLayout
                     android:id="@+id/btn_mpesa"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:orientation="vertical"
-                    android:padding="16dp"
+                    android:padding="12dp"
                     android:gravity="center_vertical">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@mipmap/spp_phone_setting"
                         app:tint="#003366"/>
 
@@ -290,7 +290,7 @@
                         android:layout_height="wrap_content"
                         android:text="Mpesa STK Push"
                         android:textColor="#003366"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         android:layout_marginTop="8dp"/>
 
@@ -299,7 +299,7 @@
                         android:layout_height="wrap_content"
                         android:text="Remote payment"
                         android:textColor="#666666"
-                        android:textSize="12sp"/>
+                        android:textSize="10sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -309,22 +309,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                  android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="8dp"
                 app:cardElevation="2dp">
 
                 <LinearLayout
                     android:id="@+id/btn_settings"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:orientation="vertical"
-                    android:padding="16dp"
+                    android:padding="12dp"
                     android:gravity="center_vertical">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/baseline_settings_24"
                         app:tint="#003366"/>
 
@@ -333,7 +333,7 @@
                         android:layout_height="wrap_content"
                         android:text="Settings"
                         android:textColor="#003366"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         android:layout_marginTop="8dp"/>
 
@@ -342,7 +342,7 @@
                         android:layout_height="wrap_content"
                         android:text="Device config"
                         android:textColor="#666666"
-                        android:textSize="12sp"/>
+                        android:textSize="10sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

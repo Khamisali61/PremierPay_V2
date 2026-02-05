@@ -11,12 +11,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/back_btn"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/btn_amount_back"
             app:tint="#003366"/>
 
@@ -27,12 +27,12 @@
             android:layout_centerInParent="true"
             android:text="New Sale"
             android:textColor="#003366"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:src="@drawable/baseline_settings_24"
@@ -51,12 +51,12 @@
             android:layout_height="wrap_content"
             android:text="TOTAL AMOUNT"
             android:textColor="#666666"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:letterSpacing="0.1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="32dp"/>
 
         <LinearLayout
             android:id="@+id/amount_container"
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toBottomOf="@id/label_total_amount"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="8dp">
 
             <TextView
                 android:id="@+id/currency_icon"
@@ -74,9 +74,9 @@
                 android:layout_height="wrap_content"
                 android:text="Ksh"
                 android:textColor="#003366"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
-                android:layout_marginEnd="5dp"/>
+                android:layout_marginEnd="8dp"/>
 
             <TextView
                 android:id="@+id/output"
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:text="0.00"
                 android:textColor="#003366"
-                android:textSize="32sp"
+                android:textSize="48sp"
                 android:textStyle="bold"/>
 
         </LinearLayout>
@@ -97,21 +97,21 @@
             android:layout_height="0dp"
             app:layout_constraintTop_toBottomOf="@id/amount_container"
             app:layout_constraintBottom_toTopOf="@id/btnConfirm"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
 
         <!-- Charge Button -->
         <Button
             android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="56dp"
             android:text="CHARGE"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:background="@drawable/bg_button_lime_rounded"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="10dp"/>
+            android:layout_margin="16dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -11,14 +11,16 @@ android:background="@drawable/grid_view_bg"-->
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:paddingBottom="@dimen/small_grid_item_padding"
-        android:paddingTop="@dimen/small_grid_item_padding"
+
+
+        android:paddingBottom="@dimen/grid_item_padding"
+        android:paddingTop="@dimen/grid_item_padding"
         >
 
         <ImageView
             android:id="@+id/iv_item"
-            android:layout_width="@dimen/small_grid_height"
-            android:layout_height="@dimen/small_grid_height"
+            android:layout_width="@dimen/grid_height"
+            android:layout_height="@dimen/grid_height"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/app_name"
             android:src="@mipmap/icon_grid_item" />
@@ -35,7 +37,7 @@ android:background="@drawable/grid_view_bg"-->
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_item"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/small_grid_text_margin"
+            android:layout_marginTop="@dimen/grid_text_margin"
             android:gravity="center"
 
             android:textColor="@color/common_text_color"

@@ -48,6 +48,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        if (Device.isT3Device()) {
+             setContentView(R.layout.activity_main);
+        }
         super.onCreate(savedInstanceState);
         requestPermission();
         DaoUtlis.initData();

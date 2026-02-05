@@ -10,7 +10,7 @@
     <View
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="220dp"
         android:background="@drawable/bg_header_rounded_bottom"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_close_white"
         app:tint="@color/white"
-        android:padding="12dp"
+        android:padding="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -30,13 +30,13 @@
         android:layout_height="wrap_content"
         android:text="TOTAL AMOUNT"
         android:textColor="#80FFFFFF"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:letterSpacing="0.1"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="32dp"/>
 
     <!-- Amount Wrapper -->
     <RelativeLayout
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_total_amount_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="4dp">
+        android:layout_marginTop="8dp">
 
         <TextView
             android:id="@+id/trad_amount"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:text="$0.00"
             android:textColor="@color/white"
-            android:textSize="32sp"
+            android:textSize="48sp"
             android:textStyle="bold"/>
     </RelativeLayout>
 
@@ -66,21 +66,22 @@
         app:layout_constraintTop_toBottomOf="@id/rl_amount"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="4dp"
         android:visibility="gone">
 
         <TextView
             android:id="@+id/cash_trad_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
     </RelativeLayout>
 
+    <!-- Manual input PAN, default gone. Kept for logic compatibility. -->
     <RelativeLayout
         android:id="@+id/rl_input_pan"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="55dp"
         android:layout_margin="10dp"
         android:background="@drawable/btn_main_background"
         android:focusable="true"
@@ -94,8 +95,7 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:background="@null"
-            android:hint="Pan"
-            android:textSize="12sp"
+            android:hint="Please input Pan"
             android:inputType="number"
             android:maxLength="19"
             android:textColor="@color/brand_navy"/>
@@ -104,15 +104,15 @@
     <!-- Center Content -->
     <ImageView
         android:id="@+id/img_actions"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:background="@drawable/anim_list"
         android:contentDescription="Read Card Animation"
         app:layout_constraintTop_toBottomOf="@id/header_bg"
         app:layout_constraintBottom_toTopOf="@id/tv_prompt_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="32dp"/>
 
     <TextView
         android:id="@+id/tv_prompt_title"
@@ -120,27 +120,27 @@
         android:layout_height="wrap_content"
         android:text="Tap, Insert or Swipe"
         android:textColor="@color/brand_navy"
-        android:textSize="18sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:fontFamily="serif"
         app:layout_constraintBottom_toTopOf="@id/tv_prompt_readcard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="4dp"/>
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:id="@+id/tv_prompt_readcard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hold your card/device near the reader."
+        android:text="Hold your card or mobile device near the contactless reader or use the chip slot."
         android:textColor="#666666"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:gravity="center"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="48dp"
         app:layout_constraintBottom_toTopOf="@id/footer_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="32dp"/>
 
     <!-- Footer -->
     <LinearLayout
@@ -150,25 +150,26 @@
         android:orientation="vertical"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="24dp">
 
+        <!-- Icons Row -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="24dp">
 
             <ImageView
-                android:layout_width="36dp"
-                android:layout_height="22dp"
+                android:layout_width="48dp"
+                android:layout_height="30dp"
                 android:src="@mipmap/icon_visa"
-                android:layout_marginEnd="12dp"
+                android:layout_marginEnd="16dp"
                 android:scaleType="fitCenter"/>
 
             <ImageView
-                android:layout_width="36dp"
-                android:layout_height="22dp"
+                android:layout_width="48dp"
+                android:layout_height="30dp"
                 android:src="@mipmap/icon_mc"
                 android:scaleType="fitCenter"/>
         </LinearLayout>
@@ -178,10 +179,10 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="16dp">
             <ImageView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
                 android:src="@drawable/baseline_lock_24"
                 app:tint="#999999"/>
             <TextView
@@ -189,7 +190,7 @@
                 android:layout_height="wrap_content"
                 android:text="Securely Processed"
                 android:textColor="#999999"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:layout_marginStart="4dp"/>
         </LinearLayout>
 
@@ -198,9 +199,9 @@
             android:layout_height="wrap_content"
             android:text="BRANDED TERMINAL"
             android:background="@drawable/bg_capsule_gray"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="4dp"
-            android:textSize="8sp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp"
+            android:textSize="10sp"
             android:textColor="#666666"
             android:textStyle="bold"
             android:letterSpacing="0.1"/>

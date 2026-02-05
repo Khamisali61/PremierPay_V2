@@ -1,1 +1,159 @@
-<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:tools="http://schemas.android.com/tools"    android:layout_width="match_parent"    android:layout_height="match_parent"    android:orientation="vertical">    <include        android:id="@+id/header"        layout="@layout/header_layout"/>    <!--Manul input PAN, default gone-->    <RelativeLayout        android:id="@+id/rl_input_pan"        android:layout_width="match_parent"        android:layout_height="@dimen/dp_55"        android:layout_marginLeft="@dimen/padding_left"        android:layout_marginTop="@dimen/padding_top"        android:layout_marginRight="@dimen/padding_right"        android:background="@drawable/btn_main_background"        android:focusable="true"        android:focusableInTouchMode="true"        android:visibility="gone">        <EditText            android:id="@+id/ed_indata"            android:layout_width="match_parent"            android:layout_height="@dimen/login_num_hight"            android:layout_marginLeft="@dimen/padding_top"            android:layout_marginRight="@dimen/padding_top"            android:background="@null"            android:hint="Please input Pan"            android:inputType="number"            android:maxLength="19"/>    </RelativeLayout>    <RelativeLayout        android:layout_width="match_parent"        android:layout_height="match_parent"        android:paddingLeft="@dimen/activity_horizontal_margin"        android:paddingTop="@dimen/activity_vertical_margin"        android:paddingRight="@dimen/activity_horizontal_margin"        android:paddingBottom="@dimen/activity_vertical_margin">        <!--Amount-->        <RelativeLayout            android:id="@+id/rl_amount"            android:layout_width="match_parent"            android:layout_height="wrap_content"            android:layout_alignParentTop="true"            android:layout_marginLeft="10dp"            android:layout_marginRight="10dp">            <TextView                android:id="@+id/trad_amount"                android:layout_width="wrap_content"                android:layout_height="wrap_content"                android:layout_alignParentLeft="true"                android:textColor="@color/red"                android:textSize="24sp" />        </RelativeLayout>        <!--Cash_amount-->        <RelativeLayout            android:id="@+id/rl_cash_amount"            android:layout_width="match_parent"            android:layout_height="wrap_content"            android:layout_below="@id/rl_amount"            android:layout_marginLeft="10dp"            android:layout_marginTop="8dp"            android:layout_marginRight="10dp"            android:visibility="gone">            <TextView                android:id="@+id/cash_trad_amount"                android:layout_width="wrap_content"                android:layout_height="wrap_content"                android:layout_alignParentLeft="true"                android:textSize="20sp" />        </RelativeLayout>        <!--Tips-->        <LinearLayout            android:layout_width="match_parent"            android:layout_height="match_parent"            android:layout_below="@id/rl_cash_amount"            android:layout_marginTop="8dp"            android:layout_marginBottom="30dp"            android:orientation="vertical">            <!--RF Tips Image-->            <RelativeLayout                android:id="@+id/layout_rf"                android:layout_width="match_parent"                android:layout_height="wrap_content"                android:layout_marginTop="30dp"                android:layout_weight="1"                android:background="@drawable/btn_background">                <ImageView                    android:id="@+id/rf_image"                    android:layout_width="150dp"                    android:layout_height="match_parent"                    android:scaleType="centerInside"                    android:layout_alignParentLeft="true"                    android:layout_centerVertical="true"                    android:layout_marginLeft="0dp"                    android:background="@mipmap/rf_card" />                <TextView                    android:layout_width="wrap_content"                    android:layout_height="wrap_content"                    android:layout_alignParentRight="true"                    android:layout_centerVertical="true"                    android:layout_toRightOf="@+id/rf_image"                    android:layout_marginRight="10dp"                    android:paddingRight="0dp"                    android:text="@string/search_card_rf"                    android:textSize="20sp" />            </RelativeLayout>            <!--IC Tips Image-->            <RelativeLayout                android:id="@+id/layout_ic"                android:layout_width="match_parent"                android:layout_height="wrap_content"                android:layout_marginTop="30dp"                android:layout_weight="1"                android:background="@drawable/btn_background">                <TextView                    android:layout_width="wrap_content"                    android:layout_height="wrap_content"                    android:layout_alignParentLeft="true"                    android:layout_centerVertical="true"                    android:layout_marginLeft="10dp"                    android:layout_toLeftOf="@+id/ic_image"                    android:paddingLeft="0dp"                    android:text="@string/search_card_ic"                    android:textSize="20sp" />                <ImageView                    android:id="@+id/ic_image"                    android:layout_width="150dp"                    android:layout_height="match_parent"                    android:scaleType="centerInside"                    android:layout_alignParentRight="true"                    android:layout_centerVertical="true"                    android:layout_marginRight="0dp"                    android:background="@mipmap/ic_card" />            </RelativeLayout>            <!--Mag Tips Image-->            <RelativeLayout                android:id="@+id/layout_msr"                android:layout_width="match_parent"                android:layout_height="wrap_content"                android:layout_marginTop="30dp"                android:layout_weight="1"                android:background="@drawable/btn_background">                <ImageView                    android:id="@+id/mag_image"                    android:layout_width="150dp"                    android:layout_height="match_parent"                    android:scaleType="centerInside"                    android:layout_alignParentLeft="true"                    android:layout_centerVertical="true"                    android:layout_marginLeft="0dp"                    android:background="@mipmap/mag_card" />                <TextView                    android:layout_width="wrap_content"                    android:layout_height="wrap_content"                    android:layout_alignParentRight="true"                    android:layout_centerVertical="true"                    android:layout_marginRight="10dp"                    android:layout_toRightOf="@+id/mag_image"                    android:paddingRight="0dp"                    android:text="@string/search_card_msr"                    android:textSize="20sp" />            </RelativeLayout>        </LinearLayout>    </RelativeLayout></LinearLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+>
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_layout"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_2"
+        android:paddingRight="@dimen/dp_4"
+        android:paddingBottom="@dimen/dp_2"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/trad_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_cash_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_amount"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/cash_trad_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_cash_amount"
+            android:layout_marginTop="@dimen/dp_4"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/layout_rf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_background">
+
+                    <ImageView
+                        android:id="@+id/rf_image"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_60"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="0dp"
+                        android:background="@mipmap/rf_card" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rf_image"
+                        android:layout_centerHorizontal="true"
+                        android:paddingRight="0dp"
+                        android:text="NFC card"
+                        android:textSize="@dimen/sp_18" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_ic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_background">
+
+                    <ImageView
+                        android:id="@+id/ic_image"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_60"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginRight="0dp"
+                        android:background="@mipmap/ic_card" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ic_image"
+                        android:layout_centerHorizontal="true"
+                        android:paddingLeft="0dp"
+                        android:text="Insert card"
+                        android:textSize="@dimen/sp_18" />
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/layout_msr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_background">
+
+                    <ImageView
+                        android:id="@+id/mag_image"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_60"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="0dp"
+                        android:background="@mipmap/mag_card" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mag_image"
+                        android:layout_centerHorizontal="true"
+                        android:paddingRight="0dp"
+                        android:text="Swipe card"
+                        android:textSize="@dimen/sp_18" />
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

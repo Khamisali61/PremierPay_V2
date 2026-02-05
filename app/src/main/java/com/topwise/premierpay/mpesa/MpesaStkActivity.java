@@ -47,11 +47,6 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (Device.isT3Device()) {
-            Configuration config = getResources().getConfiguration();
-            config.smallestScreenWidthDp = 320;
-            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-        }
         super.onCreate(savedInstanceState);
         if (Device.isPhysicalKeyDevice()) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM, WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
@@ -62,6 +57,13 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
         }
 
         mpesaService = new MpesaService();
+
+        if (Device.isT3Device()) {
+            setContentView(R.layout.activity_mpesa_stk); // Explicitly point to the small version
+        } else {
+            setContentView(R.layout.activity_mpesa_stk); // Standard selection
+        }
+
         showInputScreen();
     }
 
@@ -72,8 +74,6 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
     }
 
     private void showInputScreen() {
-        setContentView(R.layout.activity_mpesa_stk);
-
         View rootLayout = findViewById(R.id.mpesa_stk_root);
 
         // Bind Inputs
@@ -89,8 +89,11 @@ public class MpesaStkActivity extends Activity implements View.OnClickListener {
         // Prevent system keyboard but keep focusable
         etPhone.setShowSoftInputOnFocus(false);
         etAmount.setShowSoftInputOnFocus(false);
+
+        // Re-enable number-only input for physical keypad while blocking soft keyboard
         etPhone.setInputType(InputType.TYPE_CLASS_PHONE);
         etAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         // Default Focus
