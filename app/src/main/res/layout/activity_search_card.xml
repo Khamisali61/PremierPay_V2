@@ -156,4 +156,7 @@
 
         </LinearLayout>
     </LinearLayout>
+    <RelativeLayout android:id="@+id/rl_input_pan" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone">
+        <EditText android:id="@+id/ed_indata" android:layout_width="0dp" android:layout_height="0dp" />
+    </RelativeLayout>
 </LinearLayout>
