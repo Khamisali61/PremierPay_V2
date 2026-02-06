@@ -1,8 +1,0 @@
-android:id="@+id/btn_back"
-android:id="@+id/btn_send_stk"
-android:id="@+id/et_amount"
-android:id="@+id/et_phone_number"
-android:id="@+id/header_bg"
-android:id="@+id/header_title"
-android:id="@+id/keypad_view"
-android:id="@+id/root_layout"
